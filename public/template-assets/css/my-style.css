@@ -89,3 +89,9 @@
     aspect-ratio: 1 / 1;
     transition: transform .1s cubic-bezier(.95,.05,.8,.04);
 }
+
+.select-option {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
