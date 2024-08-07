@@ -34,6 +34,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('template-assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
+  <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -256,6 +257,65 @@
         </div>
       </div>
       <div class="row mt-4">
+        <div class="col-lg-12 col-md-12 mb-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h6 class="mb-0 ">Pilih kebun yang akan ditampilkan</h6>
+                </div>
+                <div class="card-body py-0 pb-4">
+                  <select class="select-option p-3" name="kebun" id="kebun-blok">
+                    <option value="Kebun1">Kebun satu</option>
+                    <option value="Kebun2">Kebun dua</option>
+                    <option value="Kebun3">Kebun tiga</option>
+                    <option value="Kebun4">Kebun empat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h6 class="mb-0 ">Pilih blok dari kebun yang akan ditampilkan</h6>
+                </div>
+                <div class="card-body py-0 pb-4">
+                  <select class="select-option p-3" name="kebun" id="kebun-blok">
+                    <option value="Blok1">Blok satu</option>
+                    <option value="Blok2">Blok dua</option>
+                    <option value="Blok3">Blok tiga</option>
+                    <option value="Blok4">Blok empat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h6 class="mb-0 ">Status singkat kebun</h6>
+                </div>
+                <div class="card-body py-0 pb-4">
+                  <div class="d-flex align-items-center">
+                    <span class="text-md font-weight-bold text-dark">Umur:</span>
+                    <span class="text-sm">&nbsp;2.5 tahun (30 bulan)</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="text-md font-weight-bold text-dark">Tahun Tanam:</span>
+                    <span class="text-sm">&nbsp;2020</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="text-md font-weight-bold text-dark">Status Perlakuan:</span>
+                    <span class="text-sm">&nbsp;Masa Kritis</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="text-md font-weight-bold text-dark">Status Tanaman:</span>
+                    <span class="text-sm">&nbsp;Generatif</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-8 col-md-8 mt-4 mb-4">
           <div class="card z-index-2 ">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
@@ -267,11 +327,11 @@
             </div>
             <div class="card-body">
               <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-              <p class="text-sm ">Total Penyiraman Pupuk per Minggu</p>
+              <p class="text-sm ">Total Penyiraman Pupuk per Minggu pada Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+                <p class="mb-0 text-sm"> update 1 jam yang lalu </p>
               </div>
             </div>
           </div>
@@ -280,40 +340,40 @@
           <div class="card z-index-2 h-100">
             <div class="card-body">
               <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-              <p class="text-sm ">Frekuensi Penyiraman Pupuk</p>
+              <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <table width="100%">
                   <tr>
-                    <th>Nama Kebun</th>
+                    <th>Lokasi Blok</th>
                     <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Satu</td>
+                    <td class="text-sm">Blok Satu</td>
                     <td class="text-sm">10 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Dua</td>
+                    <td class="text-sm">Blok Dua</td>
                     <td class="text-sm">9 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tiga</td>
+                    <td class="text-sm">Blok Tiga</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Empat</td>
+                    <td class="text-sm">Blok Empat</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Lima</td>
+                    <td class="text-sm">Blok Lima</td>
                     <td class="text-sm">5 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Enam</td>
+                    <td class="text-sm">Blok Enam</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tujuh</td>
+                    <td class="text-sm">Blok Tujuh</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                 </table>
@@ -332,11 +392,11 @@
             </div>
             <div class="card-body">
               <h6 class="mb-0 "> Penyiraman Air </h6>
-              <p class="text-sm "> Total Penyiraman Air per Minggu</p>
+              <p class="text-sm "> Total Penyiraman Air per Minggu pada Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
+                <p class="mb-0 text-sm"> update 1 jam yang lalu</p>
               </div>
             </div>
           </div>
@@ -345,40 +405,40 @@
           <div class="card z-index-2 h-100">
             <div class="card-body">
               <h6 class="mb-0 ">Penyiraman Air</h6>
-              <p class="text-sm ">Frekuensi Penyiraman Air</p>
+              <p class="text-sm ">Frekuensi Penyiraman Air pada Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <table width="100%">
                   <tr>
-                    <th>Nama Kebun</th>
+                    <th>Lokasi Blok</th>
                     <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Satu</td>
+                    <td class="text-sm">Blok Satu</td>
                     <td class="text-sm">10 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Dua</td>
+                    <td class="text-sm">Blok Dua</td>
                     <td class="text-sm">9 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tiga</td>
+                    <td class="text-sm">Blok Tiga</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Empat</td>
+                    <td class="text-sm">Blok Empat</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Lima</td>
+                    <td class="text-sm">Blok Lima</td>
                     <td class="text-sm">5 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Enam</td>
+                    <td class="text-sm">Blok Enam</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tujuh</td>
+                    <td class="text-sm">Blok Tujuh</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                 </table>
@@ -386,10 +446,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-md-8 mt-4 mb-3">
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
           <div class="card z-index-2 h-100">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+              <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
                 <div class="chart">
                   <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
                 </div>
@@ -397,11 +457,11 @@
             </div>
             <div class="card-body">
               <h6 class="mb-0 ">Suhu rata-rata</h6>
-              <p class="text-sm ">Suhu rata-rata dari semua kebun</p>
+              <p class="text-sm ">Suhu rata-rata dari Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
+                <p class="mb-0 text-sm">update 1 jam yang lalu</p>
               </div>
             </div>
           </div>
@@ -410,40 +470,235 @@
           <div class="card z-index-2 ">
             <div class="card-body">
               <h6 class="mb-0 ">Suhu rata-rata</h6>
-              <p class="text-sm ">Suhu rata-rata dari semua kebun</p>
+              <p class="text-sm ">Suhu rata-rata dari Kebun Satu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <table width="100%">
                   <tr>
-                    <th>Nama Kebun</th>
+                    <th>Lokasi Blok</th>
                     <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Satu</td>
+                    <td class="text-sm">Blok Satu</td>
                     <td class="text-sm">10 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Dua</td>
+                    <td class="text-sm">Blok Dua</td>
                     <td class="text-sm">9 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tiga</td>
+                    <td class="text-sm">Blok Tiga</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Empat</td>
+                    <td class="text-sm">Blok Empat</td>
                     <td class="text-sm">7 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Lima</td>
+                    <td class="text-sm">Blok Lima</td>
                     <td class="text-sm">5 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Enam</td>
+                    <td class="text-sm">Blok Enam</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                   <tr>
-                    <td class="text-sm">Kebun Tujuh</td>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+              <p class="text-sm ">Intensitas Cahaya rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm">update 1 jam yang lalu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-body">
+              <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+              <p class="text-sm ">Intensitas Cahaya rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars4" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+              <p class="text-sm ">Kelembaban Udara rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm">update 1 jam yang lalu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+              <p class="text-sm ">Kelembaban Udara rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars5" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+              <p class="text-sm ">Kelembaban Tanah rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm">update 1 jam yang lalu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+              <p class="text-sm ">Kelembaban Tanah rata-rata dari Kebun Satu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
                     <td class="text-sm">4 kali</td>
                   </tr>
                 </table>
@@ -494,7 +749,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Enam</h6>
+                            <h6 class="mb-0 text-sm">Kebun Enam - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
@@ -521,7 +776,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Lima</h6>
+                            <h6 class="mb-0 text-sm">Kebun Lima - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
@@ -548,7 +803,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Empat</h6>
+                            <h6 class="mb-0 text-sm">Kebun Empat - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
@@ -575,7 +830,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Tiga</h6>
+                            <h6 class="mb-0 text-sm">Kebun Tiga - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
@@ -602,7 +857,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Dua</h6>
+                            <h6 class="mb-0 text-sm">Kebun Dua - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
@@ -629,7 +884,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Satu</h6>
+                            <h6 class="mb-0 text-sm">Kebun Satu - Blok Satu</h6>
                           </div>
                         </div>
                       </td>
