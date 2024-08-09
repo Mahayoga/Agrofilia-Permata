@@ -28,6 +28,10 @@ Route::get('dashboard/tabel-data', function() {
     return view('pages/tables');
 })->name('tableView');
 
+Route::get('dashboard/data-master', function() {
+    return view('pages/data-master');
+})->name('historyDataView');
+
 Route::get('dashboard/tabel-data/tabel-blok', function() {
     return view('pages/tabel-blok');
 })->name('blocksTableView');
