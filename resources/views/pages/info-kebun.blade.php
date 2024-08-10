@@ -460,7 +460,7 @@
                         </div>
                       </div>
                       <div class="col-md-4 bg-light rounded p-4">
-                        <h5 class="text-center">Detail Kelembaban</h5>
+                        <h5 class="text-center">Detail Kelembaban Udara</h5>
                         <div class="d-flex justify-content-center">
                           <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataKelembaban">
                             <div class="d-flex justify-content-center align-items-center h-100">
@@ -502,7 +502,7 @@
                         </div>
                       </div>
                       <div class="col-md-4 bg-light rounded p-4">
-                        <h5 class="text-center">Detail PH Tanah</h5>
+                        <h5 class="text-center">Detail Kelembaban Tanah</h5>
                         <div class="d-flex justify-content-center">
                           <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataPHTanah">
                             <div class="d-flex justify-content-center align-items-center h-100">
