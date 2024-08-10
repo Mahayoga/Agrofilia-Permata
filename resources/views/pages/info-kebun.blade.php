@@ -681,19 +681,207 @@
                     <div class="col-md-12">
                       <div class="row">
                         <div class="col-md-12 d-flex justify-content-center">
-                          <h5 class="mb-0">Sensor suhu</h5>
+                          <h5 class="mb-0">Sensor Kelembaban Tanah</h5>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="card">
                             <div class="card-header mx-4 p-3 text-center">
-                              <h6 class="text-center mb-0">Sensor satu</h6>
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah satu</h6>
                             </div>
                             <div class="card-body pt-0 p-3 text-center">
                               <div class="row">
                                 <div class="col-md-8">
                                   <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
                                     <div class="chart">
-                                      <canvas id="sensorSuhu1-chart-line" class="chart-canvas" height="150"></canvas>
+                                      <canvas id="sensorKelembabanTanah1-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah dua</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorKelembabanTanah2-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah tiga</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorKelembabanTanah3-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah empat</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorKelembabanTanah4-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah lima</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorKelembabanTanah5-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Kelembaban Tanah enam</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorKelembabanTanah6-chart-line" class="chart-canvas" height="150"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="text-center">
+                                      <h6>Indeks:</h6>
+                                    </div>
+                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                      <div class="d-flex justify-content-center align-items-center h-100">
+                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="horizontal dark my-3">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                          <h5 class="mb-0">Sensor Lainnya</h5>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card">
+                            <div class="card-header mx-4 p-3 text-center">
+                              <h6 class="text-center mb-0">Sensor Suhu</h6>
+                            </div>
+                            <div class="card-body pt-0 p-3 text-center">
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="chart">
+                                      <canvas id="sensorSuhu-chart-line" class="chart-canvas" height="150"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -716,14 +904,14 @@
                         <div class="col-md-6 mb-4">
                           <div class="card">
                             <div class="card-header mx-4 p-3 text-center">
-                              <h6 class="text-center mb-0">Sensor dua</h6>
+                              <h6 class="text-center mb-0">Sensor Cahaya</h6>
                             </div>
                             <div class="card-body pt-0 p-3 text-center">
                               <div class="row">
                                 <div class="col-md-8">
                                   <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
                                     <div class="chart">
-                                      <canvas id="sensorSuhu2-chart-line" class="chart-canvas" height="150"></canvas>
+                                      <canvas id="sensorCahaya-chart-line" class="chart-canvas" height="150"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -734,7 +922,7 @@
                                     </div>
                                     <div class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">29°C</h3>
+                                        <h3 class="text-center font-weight-bold text-white mb-0">29%</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -746,14 +934,14 @@
                         <div class="col-md-6 mb-4">
                           <div class="card">
                             <div class="card-header mx-4 p-3 text-center">
-                              <h6 class="text-center mb-0">Sensor tiga</h6>
+                              <h6 class="text-center mb-0">Sensor Kelembaban Udara</h6>
                             </div>
                             <div class="card-body pt-0 p-3 text-center">
                               <div class="row">
                                 <div class="col-md-8">
                                   <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
                                     <div class="chart">
-                                      <canvas id="sensorSuhu3-chart-line" class="chart-canvas" height="150"></canvas>
+                                      <canvas id="sensorKelembabanUdara-chart-line" class="chart-canvas" height="150"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -764,37 +952,7 @@
                                     </div>
                                     <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">27°C</h3>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                          <div class="card">
-                            <div class="card-header mx-4 p-3 text-center">
-                              <h6 class="text-center mb-0">Sensor empat</h6>
-                            </div>
-                            <div class="card-body pt-0 p-3 text-center">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-                                    <div class="chart">
-                                      <canvas id="sensorSuhu4-chart-line" class="chart-canvas" height="150"></canvas>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <div class="text-center">
-                                      <h6>Indeks:</h6>
-                                    </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
-                                      <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">28°C</h3>
+                                        <h3 class="text-center font-weight-bold text-white mb-0">32 RH</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -1556,97 +1714,29 @@
     });
 
     // ----- Grafik Detail Sensor -----
-    var grafikDetailSuhu1 = document.getElementById("sensorSuhu1-chart-line").getContext("2d");
-    var grafikDetailSuhu2 = document.getElementById("sensorSuhu2-chart-line").getContext("2d");
-    var grafikDetailSuhu3 = document.getElementById("sensorSuhu3-chart-line").getContext("2d");
-    var grafikDetailSuhu4 = document.getElementById("sensorSuhu4-chart-line").getContext("2d");
+    // ----- Detail Sensor Kelembaban Tanah -----
+    var grafikDetailKelembabanTanah1 = document.getElementById("sensorKelembabanTanah1-chart-line").getContext("2d");
+    var grafikDetailKelembabanTanah2 = document.getElementById("sensorKelembabanTanah2-chart-line").getContext("2d");
+    var grafikDetailKelembabanTanah3 = document.getElementById("sensorKelembabanTanah3-chart-line").getContext("2d");
+    var grafikDetailKelembabanTanah4 = document.getElementById("sensorKelembabanTanah4-chart-line").getContext("2d");
+    var grafikDetailKelembabanTanah5 = document.getElementById("sensorKelembabanTanah5-chart-line").getContext("2d");
+    var grafikDetailKelembabanTanah6 = document.getElementById("sensorKelembabanTanah6-chart-line").getContext("2d");
 
-    var suhuDetail1 = new Chart(grafikDetailSuhu1, {
-      type: "line",
-      data: {
-        labels: [],
-        datasets: [{
-          label: "Suhu (°C)",
-          tension: 0,
-          borderWidth: 0,
-          pointRadius: 5,
-          pointBackgroundColor: "rgba(255, 255, 255, .8)",
-          pointBorderColor: "transparent",
-          borderColor: "rgba(255, 255, 255, .8)",
-          borderColor: "rgba(255, 255, 255, .8)",
-          borderWidth: 4,
-          backgroundColor: "transparent",
-          fill: true,
-          data: [],
-          maxBarThickness: 6
+    // ----- Detail Sensor Suhu -----
+    var grafikDetailSuhu = document.getElementById("sensorSuhu-chart-line").getContext("2d");
 
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [5, 5],
-              color: 'rgba(255, 255, 255, .2)'
-            },
-            ticks: {
-              display: true,
-              color: '#f8f9fa',
-              padding: 10,
-              font: {
-                size: 14,
-                weight: 300,
-                family: "Roboto",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              color: '#f8f9fa',
-              padding: 10,
-              font: {
-                size: 14,
-                weight: 300,
-                family: "Roboto",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
-    });
-    var suhuDetail2 = new Chart(grafikDetailSuhu2, {
+    // ----- Detail Sensor Cahaya -----
+    var grafikDetailCahaya = document.getElementById("sensorCahaya-chart-line").getContext("2d");
+
+    // ----- Detail Sensor Kelembaban Udara -----
+    var grafikDetailKelembabanUdara = document.getElementById("sensorKelembabanUdara-chart-line").getContext("2d");
+
+    var kelembabanTanahDetail1 = new Chart(grafikDetailKelembabanTanah1, {
       type: "line",
       data: {
         labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
         datasets: [{
-          label: "Suhu (°C)",
+          label: "Kilopascal (kPa)",
           tension: 0,
           borderWidth: 0,
           pointRadius: 5,
@@ -1657,7 +1747,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [28, 29, 29, 30, 29],
+          data: [29, 29, 28, 27, 28],
           maxBarThickness: 6
 
         }],
@@ -1721,7 +1811,407 @@
         },
       },
     });
-    var suhuDetail3 = new Chart(grafikDetailSuhu3, {
+    var kelembabanTanahDetail2 = new Chart(grafikDetailKelembabanTanah2, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Kilopascal (kPa)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [29, 29, 28, 27, 28],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var kelembabanTanahDetail3 = new Chart(grafikDetailKelembabanTanah3, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Kilopascal (kPa)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [29, 29, 28, 27, 28],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var kelembabanTanahDetail4 = new Chart(grafikDetailKelembabanTanah4, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Kilopascal (kPa)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [29, 29, 28, 27, 28],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var kelembabanTanahDetail5 = new Chart(grafikDetailKelembabanTanah5, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Kilopascal (kPa)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [29, 29, 28, 27, 28],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var kelembabanTanahDetail6 = new Chart(grafikDetailKelembabanTanah6, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Kilopascal (kPa)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [29, 29, 28, 27, 28],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var suhuDetail = new Chart(grafikDetailSuhu, {
       type: "line",
       data: {
         labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
@@ -1801,12 +2291,12 @@
         },
       },
     });
-    var suhuDetail4 = new Chart(grafikDetailSuhu4, {
+    var cahayaDetail = new Chart(grafikDetailCahaya, {
       type: "line",
       data: {
         labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
         datasets: [{
-          label: "Suhu (°C)",
+          label: "Cahaya (%Lux)",
           tension: 0,
           borderWidth: 0,
           pointRadius: 5,
@@ -1817,7 +2307,87 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [28, 29, 29, 30, 29],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var kelembabanUdaraDetail = new Chart(grafikDetailKelembabanUdara, {
+      type: "line",
+      data: {
+        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        datasets: [{
+          label: "Humidity (%RH)",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 4,
+          backgroundColor: "transparent",
+          fill: true,
+          data: [28, 29, 28, 27, 27],
           maxBarThickness: 6
 
         }],
