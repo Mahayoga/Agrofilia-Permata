@@ -445,9 +445,9 @@
                   </div>
                 </div>
               </div>
-              <div class="card p-4 mb-4"> {{-- Grafik Kelembaban --}}
+              <div class="card p-4 mb-4"> {{-- Grafik Kelembaban Udara--}}
                 <div class="card-header">
-                  <h5 class="mb-0 text-center">Grafik Rata-Rata Kelembaban (Realtime)</h5>
+                  <h5 class="mb-0 text-center">Grafik Rata-Rata Kelembaban Udara (Realtime)</h5>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -487,9 +487,9 @@
                   </div>
                 </div>
               </div>
-              <div class="card p-4 mb-4"> {{-- Grafik PH Tanah --}}
+              <div class="card p-4 mb-4"> {{-- Grafik Kelembaban Tanah --}}
                 <div class="card-header">
-                  <h5 class="mb-0 text-center">Grafik Rata-Rata PH Tanah (Realtime)</h5>
+                  <h5 class="mb-0 text-center">Grafik Rata-Rata Kelembaban Tanah (Realtime)</h5>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -529,48 +529,6 @@
                   </div>
                 </div>
               </div>
-              {{-- <div class="card p-4 mb-4"> {{-- Grafik Kadar Air Tanah -- }}
-                <div class="card-header">
-                  <h5 class="mb-0 text-center">Grafik Kadar Air Tanah (Realtime)</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                          <div class="chart">
-                            <canvas id="suhu-chart-line" class="chart-canvas" height="270"></canvas>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 bg-light rounded p-4">
-                        <h5 class="text-center">Detail Suhu</h5>
-                        <div class="d-flex justify-content-center">
-                          <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
-                            <div class="d-flex justify-content-center align-items-center h-100">
-                              <h3 class="text-center font-weight-bold text-white mb-0">26°C</h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-center mt-3">
-                          <span class="text-md font-weight-bold text-dark">Kondisi suhu saat ini:</span>
-                          <span class="text-sm">&nbsp;Normal</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks suhu normal:</span>
-                          <span class="text-sm">&nbsp;25°C - 28°C</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks suhu panas:</span>
-                          <span class="text-sm">&nbsp;> 28°C</span>
-                        </div>
-                        <hr class="horizontal dark my-3">
-                        <span class="text-xs mb-0">*Terakhir di update pada 4 menit yang lalu</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
               <div class="card mt-4">
                 <div class="card-header pb-0 p-4">
                   <div class="row">
