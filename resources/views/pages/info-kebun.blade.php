@@ -432,7 +432,7 @@
                         </div>
                         <div class="d-flex align-items-center">
                           <span class="text-md font-weight-bold text-dark">Indeks cahaya normal:</span>
-                          <span class="text-sm">&nbsp;30% lx - 50% lx</span>
+                          <span class="text-sm">&nbsp;30% - 50%</span>
                         </div>
                         <div class="d-flex align-items-center">
                           <span class="text-md font-weight-bold text-dark">Indeks cahaya diatas normal:</span>
@@ -473,11 +473,11 @@
                           <span class="text-sm">&nbsp;Lumayan Kering</span>
                         </div>
                         <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks kelembaban normal (kritis):</span>
+                          <span class="text-md font-weight-bold text-dark">Indeks normal (kritis):</span>
                           <span class="text-sm">&nbsp;15%-25%</span>
                         </div>
                         <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks kelembaban (kritis):</span>
+                          <span class="text-md font-weight-bold text-dark">Indeks (kritis):</span>
                           <span class="text-sm">&nbsp;< 10% | > 30%</span>
                         </div>
                         <hr class="horizontal dark my-3">
@@ -511,15 +511,15 @@
                           </div>
                         </div>
                         <div class="d-flex align-items-center mt-3">
-                          <span class="text-md font-weight-bold text-dark">Kondisi PH tanah saat ini:</span>
+                          <span class="text-md font-weight-bold text-dark">Kondisi tanah saat ini:</span>
                           <span class="text-sm">&nbsp;Normal</span>
                         </div>
                         <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks PH tanah normal:</span>
+                          <span class="text-md font-weight-bold text-dark">Indeks tanah normal:</span>
                           <span class="text-sm">&nbsp;5.5 - 7</span>
                         </div>
                         <div class="d-flex align-items-center">
-                          <span class="text-md font-weight-bold text-dark">Indeks PH tanah tidak normal:</span>
+                          <span class="text-md font-weight-bold text-dark">Indeks tanah tidak normal:</span>
                           <span class="text-sm">&nbsp;> 7.1 | < 5.5</span>
                         </div>
                         <hr class="horizontal dark my-3">
@@ -1178,16 +1178,16 @@
             <div class="card-header pb-0 px-3">
               <div class="row">
                 <div class="col-md-6">
-                  <h6 class="mb-0">Your Transaction's</h6>
+                  <h6 class="mb-0">Status Kontrol</h6>
                 </div>
-                <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
+                {{-- <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
                   <i class="material-icons me-2 text-lg">date_range</i>
                   <small>23 - 30 March 2020</small>
-                </div>
+                </div> --}}
               </div>
             </div>
             <div class="card-body pt-4 p-3">
-              <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
+              {{-- <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6> --}}
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                   <div class="d-flex align-items-center">
