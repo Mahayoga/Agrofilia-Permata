@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/readDataRataRata', [App\Http\Controllers\SensorController::class, 'dataRataRata'])->name('readDataRataRata');
+Route::get('/listKebun', [App\Http\Controllers\SensorController::class, 'kebunOptions'])->name('listKebun');
 
 Route::get('/dashboard', function () {
     return view('dashboard-template');
