@@ -2461,7 +2461,12 @@
         } else if(suhu.data.labels.length > 10) { 
           suhu.data.datasets.data.shift();
         }
-        document.getElementById("indikatorRataRataSuhu").innerText = data.suhu + "°C";
+
+        if(data.suhu != null) {
+          document.getElementById("indikatorRataRataSuhu").innerText = data.suhu + "°C";
+        } else {
+          document.getElementById("indikatorRataRataSuhu").innerText = "0°C";
+        }
 
         let theBgClass = document.getElementById("bgIndexRataRataSuhu");
         theBgClass.classList.remove("bg-gradient-danger");
@@ -2485,7 +2490,12 @@
         } else if(cahaya.data.labels.length > 10) {
           cahaya.data.datasets.data.shift();
         }
-        document.getElementById("indikatorRataRataCahaya").innerText = data.cahaya + "%";
+
+        if(data.cahaya != null) {
+          document.getElementById("indikatorRataRataCahaya").innerText = data.cahaya + "%";
+        } else {
+          document.getElementById("indikatorRataRataCahaya").innerText = "0%";
+        }
         
         let theBgClass = document.getElementById("bgIndexRataRataCahaya");
         theBgClass.classList.remove("bg-gradient-danger");
@@ -2509,7 +2519,12 @@
         } else if(kelembaban.data.labels.length > 10) {
           kelembaban.data.datasets.data.shift();
         }
-        document.getElementById("indikatorRataRataKelembaban").innerText = data.kelembaban + "%";
+
+        if(data.kelembaban != null) {
+          document.getElementById("indikatorRataRataKelembaban").innerText = data.kelembaban + "%";
+        } else {
+          document.getElementById("indikatorRataRataKelembaban").innerText = "0%";
+        }
         
         let theBgClass = document.getElementById("bgIndexRataRataKelembaban");
         theBgClass.classList.remove("bg-gradient-danger");
@@ -2533,7 +2548,12 @@
         } else if(tanah.data.labels.length > 10) {
           tanah.data.datasets.data.shift();
         }
-        document.getElementById("indikatorRataRataPHTanah").innerText = data.kelembabanTanah;
+
+        if(data.kelembabanTanah != null) {
+          document.getElementById("indikatorRataRataPHTanah").innerText = data.kelembabanTanah + "%";
+        } else {
+          document.getElementById("indikatorRataRataPHTanah").innerText = "0%";
+        }
         
         let theBgClass = document.getElementById("bgIndexRataRataPHTanah");
         theBgClass.classList.remove("bg-gradient-danger");
@@ -2547,10 +2567,11 @@
         tanah.update();
       });
     }
-    setInterval(readDataRataRataSuhu, 5000);
-    setInterval(readDataRataRataCahaya, 5000);
-    setInterval(readDataRataRataKelembaban, 5000);
-    setInterval(readDataRataRataKelembabanTanah, 5000);
+
+    // setInterval(readDataRataRataSuhu, 5000);
+    // setInterval(readDataRataRataCahaya, 5000);
+    // setInterval(readDataRataRataKelembaban, 5000);
+    // setInterval(readDataRataRataKelembabanTanah, 5000);
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
