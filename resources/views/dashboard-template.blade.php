@@ -35,6 +35,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('template-assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
   <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
+  <!-- JQuery -->
+  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -212,7 +214,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        {{-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-header p-3 pt-2">
               <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
@@ -262,7 +264,7 @@
               <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="row mt-4">
         <div class="col-lg-12 col-md-12 mb-4">
@@ -1105,7 +1107,6 @@
   <script src="{{ asset('template-assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
   <script src="{{ asset('template-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script src="{{ asset('template-assets/js/plugins/chartjs.min.js') }}"></script>
-  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
   <script>
     var ctx = document.getElementById("chart-bars1").getContext("2d");
     var ctx2 = document.getElementById("chart-bars2").getContext("2d");
