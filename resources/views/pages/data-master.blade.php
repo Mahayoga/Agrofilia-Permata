@@ -188,84 +188,6 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
-				<div class="col-md-2">
-					<div class="card h-100">
-						<div class="card-header">
-							<h6 class="mb-0 ">Pilih kebun spesifik</h6>
-						</div>
-						<div class="card-body py-0 pb-4">
-							<select class="select-option p-1 text-sm" name="kebun" id="kebun-blok">
-								<option value="Kebun1">Kebun satu</option>
-								<option value="Kebun2">Kebun dua</option>
-								<option value="Kebun3">Kebun tiga</option>
-								<option value="Kebun4">Kebun empat</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="card h-100">
-						<div class="card-header">
-							<h6 class="mb-0 ">Pilih blok dari kebun</h6>
-						</div>
-						<div class="card-body py-0 pb-4">
-							<select class="select-option p-1 text-sm" name="kebun" id="kebun-blok">
-								<option value="Blok1">Blok satu</option>
-								<option value="Blok2">Blok dua</option>
-								<option value="Blok3">Blok tiga</option>
-								<option value="Blok4">Blok empat</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card h-100">
-						<div class="card-header">
-							<h6 class="mb-0 ">Status singkat kebun</h6>
-						</div>
-						<div class="card-body py-0 pb-4">
-							<div class="d-flex align-items-center">
-								<span class="text-md font-weight-bold text-dark">Umur:</span>
-								<span class="text-sm">&nbsp;2.5 tahun (30 bulan)</span>
-							</div>
-							<div class="d-flex align-items-center">
-								<span class="text-md font-weight-bold text-dark">Tahun Tanam:</span>
-								<span class="text-sm">&nbsp;2020</span>
-							</div>
-							<div class="d-flex align-items-center">
-								<span class="text-md font-weight-bold text-dark">Status Perlakuan:</span>
-								<span class="text-sm">&nbsp;Masa Kritis</span>
-							</div>
-							<div class="d-flex align-items-center">
-								<span class="text-md font-weight-bold text-dark">Status Tanaman:</span>
-								<span class="text-sm">&nbsp;Generatif</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card h-100">
-						<div class="card-header pb-0">
-							<h6>Daftar Isi</h6>
-						</div>
-						<div class="card-body pt-0">
-							<ul class="mb-1">
-								<li class="text-sm">Suhu</li>
-							</ul>
-							<ul class="mb-1">
-								<li class="text-sm">Kelembaban Udara</li>
-							</ul>
-							<ul class="mb-1">
-								<li class="text-sm">Kelembaban Tanah</li>
-							</ul>
-							<ul class="mb-1">
-								<li class="text-sm">Cahaya</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
       <div class="row mt-4">
         <div class="col-lg-8 col-md-8 mt-4 mb-4">
           <div class="card z-index-2 ">
@@ -278,11 +200,11 @@
             </div>
             <div class="card-body">
               <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-              <p class="text-sm ">Total Penyiraman Pupuk per Minggu pada Kebun Satu</p>
+              <p class="text-sm ">Total Penyiraman Pupuk per Minggu</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> update 1 jam yang lalu </p>
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
               </div>
             </div>
           </div>
@@ -291,7 +213,332 @@
           <div class="card z-index-2 h-100">
             <div class="card-body">
               <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-              <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Kebun Satu</p>
+              <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Semua Kebun</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Penyiraman Air</h6>
+              <p class="text-sm ">Total Penyiraman Air per Minggu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-body">
+              <h6 class="mb-0 ">Penyiraman Air</h6>
+              <p class="text-sm ">Frekuensi Penyiraman Air pada Semua Kebun</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Suhu rata-rata</h6>
+              <p class="text-sm ">Suhu rata-rata per Minggu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-body">
+              <h6 class="mb-0 ">Suhu rata-rata</h6>
+              <p class="text-sm ">Frekuensi Suhu Normal pada Semua Kebun</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+              <p class="text-sm ">Intensitas Cahaya rata-rata per Minggu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-body">
+              <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+              <p class="text-sm ">Frekuensi Cahaya Normal pada Semua Kebun</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+              <p class="text-sm ">Kelembaban Udara rata-rata per Minggu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+              <p class="text-sm ">Frekuensi Kelembaban Udara Normal pada Semua Kebun</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <table width="100%">
+                  <tr>
+                    <th>Lokasi Blok</th>
+                    <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Satu</td>
+                    <td class="text-sm">10 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Dua</td>
+                    <td class="text-sm">9 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tiga</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Empat</td>
+                    <td class="text-sm">7 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Lima</td>
+                    <td class="text-sm">5 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Enam</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                  <tr>
+                    <td class="text-sm">Blok Tujuh</td>
+                    <td class="text-sm">4 kali</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+              <p class="text-sm ">Kelembaban Tanah rata-rata per Minggu</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">info</i>
+                <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mb-4">
+          <div class="card z-index-2 h-100">
+            <div class="card-body">
+              <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+              <p class="text-sm ">Frekuensi Kelembaban Tanah Normal pada Semua Kebun</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <table width="100%">
