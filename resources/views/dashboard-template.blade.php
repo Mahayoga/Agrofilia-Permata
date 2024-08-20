@@ -39,7 +39,6 @@
   <script src="{{ asset('jquery/jquery.min.js') }}"></script>
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -275,11 +274,20 @@
                   <h6 class="mb-0 ">Pilih kebun yang akan ditampilkan</h6>
                 </div>
                 <div class="card-body py-0 pb-4">
-                  <select class="select-option p-3" name="kebun" id="kebun-blok">
-                    <option value="Kebun1">Kebun satu</option>
-                    <option value="Kebun2">Kebun dua</option>
-                    <option value="Kebun3">Kebun tiga</option>
-                    <option value="Kebun4">Kebun empat</option>
+                  <select class="select-option p-3" name="kebun" id="kebun" onchange="testRes()">
+                    <script>
+                      $.get("{{ route('listKebun') }}", function(data) {
+                        // console.log(data.daftar_kebun[0].nama_kebun);
+                        const theElement = document.createElement("option");
+                        const contentElement = document.createTextNode(data.daftar_kebun[0].nama_kebun);
+                        theElement.setAttribute("value", data.daftar_kebun[0].id_kebun);
+                        theElement.appendChild(contentElement);
+
+                        const parentElement = document.getElementById("kebun");
+                        parentElement.appendChild(theElement);
+                      });
+                    </script>
+                    <option value="notSelected">-- Pilih --</option>
                   </select>
                 </div>
               </div>
@@ -291,10 +299,31 @@
                 </div>
                 <div class="card-body py-0 pb-4">
                   <select class="select-option p-3" name="kebun" id="kebun-blok">
-                    <option value="Blok1">Blok satu</option>
-                    <option value="Blok2">Blok dua</option>
-                    <option value="Blok3">Blok tiga</option>
-                    <option value="Blok4">Blok empat</option>
+                    <option class="" value="notSelected">-- Pilih --</option>
+                    <script>
+                      function testRes() {
+                        let theKebunOption = document.getElementById("kebun");
+                        let theOption = document.getElementById("kebun-blok");
+                        let oldOption = document.querySelectorAll(".availableOpt");
+
+                        for(var i = 0; i < oldOption.length; i++) {
+                          oldOption[i].remove();
+                        }
+                        if(theKebunOption.value != "notSelected") {
+                          $.get("{{ route('listBlok', ['id_kebun' => " + theOption.value + "]) }}", function(data) {
+                            for(var i = 0; i < data.dataLength; i++) {
+                              const theElement = document.createElement("option");
+                              const contentElement = document.createTextNode(data.daftar_blok[i].nama_blok);
+                              theElement.setAttribute("value", data.daftar_blok[i].id_detail_blok);
+                              theElement.appendChild(contentElement);
+
+                              const parentElement = document.getElementById("kebun-blok");
+                              parentElement.appendChild(theElement);
+                            }
+                          });
+                        }
+                      }
+                    </script>
                   </select>
                 </div>
               </div>
@@ -923,14 +952,14 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        {{-- <div class="col-lg-4 col-md-6">
           <div class="card h-100">
             <div class="card-header pb-0">
               <h6>Schedule overview</h6>
               {{-- <p class="text-sm">
                 <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
                 <span class="font-weight-bold">24%</span> this month
-              </p> --}}
+              </p>
             </div>
             <div class="card-body p-3">
               <div class="timeline timeline-one-side">
@@ -991,7 +1020,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <footer class="footer py-4  ">
         <div class="container-fluid">
