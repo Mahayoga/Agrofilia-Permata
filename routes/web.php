@@ -19,7 +19,21 @@ Route::get('/', function () {
 });
 
 Route::get('/readDataRataRata', [App\Http\Controllers\SensorController::class, 'dataRataRata'])->name('readDataRataRata');
-Route::get('/listKebun', [App\Http\Controllers\SensorController::class, 'kebunOptions'])->name('listKebun');
+Route::get('/listKebun', [App\Http\Controllers\KebunController::class, 'kebunOptions'])->name('listKebun');
+Route::get('/listBlok/{id_kebun}', [App\Http\Controllers\KebunController::class, 'blokOptions'])->name('listBlok');
+
+Route::get('/dataSuhuSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorSuhuPerHari'])->name('dataSensorSuhuPerHari');
+Route::get('/dataCahayaSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorCahayaPerHari'])->name('dataSensorCahayaPerHari');
+Route::get('/dataUdaraSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorUdaraPerHari'])->name('dataSensorUdaraPerHari');
+Route::get('/dataTanahSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorTanahPerHari'])->name('dataSensorTanahPerHari');
+Route::get('/dataAir/hari', [App\Http\Controllers\ModeController::class, 'dataSensorAirPerHari'])->name('dataSensorAirPerHari');
+Route::get('/dataPupuk/hari', [App\Http\Controllers\ModeController::class, 'dataSensorPupukPerHari'])->name('dataSensorPupukPerHari');
+
+Route::get('/mode/check', [App\Http\Controllers\ModeController::class, 'checkMode'])->name('checkMode');
+Route::get('/mode/air/on', [App\Http\Controllers\ModeController::class, 'setAirModeOn'])->name('setModeAirOn');
+Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAirModeOff'])->name('setModeAirOff');
+Route::get('/mode/pupuk/on', [App\Http\Controllers\ModeController::class, 'setPupukModeOn'])->name('setModePupukOn');
+Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setPupukModeOff'])->name('setModePupukOff');
 
 Route::get('/dashboard', function () {
     return view('dashboard-template');
