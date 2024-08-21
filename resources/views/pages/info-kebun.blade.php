@@ -38,7 +38,6 @@
   <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -1134,6 +1133,7 @@
           <div class="card">
             <div class="card-header pb-0 px-3">
               <h6 class="mb-0">Pusat Kontrol</h6>
+              <p class="text-warning font-weight-bold mb-0 text-xs" id="theAlert">Inisialisasi... Harap tunggu...</p>
             </div>
             <div class="card-body pt-4 p-3">
               <div class="row">
@@ -2568,6 +2568,101 @@
       });
     }
 
+    function checkMode() {
+      let airMode = document.getElementById("switch1");
+      let pupukMode = document.getElementById("switch2");
+      let airText = document.getElementById("switchStatus1");
+      let pupukText = document.getElementById("switchStatus2");
+      let initText = document.getElementById("theAlert");
+
+      initText.classList.remove("text-success");
+      initText.innerText = "Sedang memperbarui data sensor...";
+      initText.classList.add("text-warning");
+
+      $.get("{{ route('checkMode') }}", function(data) {
+        if(data.modeAir == 0) {
+          airMode.classList.add("switchActive");
+          airText.innerText = "Mati";
+        } else if(data.modeAir == 1) {
+          airMode.classList.remove("switchActive");
+          airText.innerText = "Hidup";
+        }
+
+        if(data.modePupuk == 0) {
+          pupukMode.classList.add("switchActive");
+          pupukText.innerText = "Mati";
+        } else if(data.modePupuk == 1) {
+          pupukMode.classList.remove("switchActive");
+          pupukText.innerText = "Hidup";
+        }
+      });
+      initText.classList.remove("text-warning");
+      initText.innerText = "Pengaturan Siap!";
+      initText.classList.add("text-success");
+    }
+
+    function setAirModeOn() {
+      $.get("{{ route('setModeAirOn') }}").always(function() {
+        let initText = document.getElementById("theAlert");
+        initText.classList.remove("text-success");
+        initText.innerText = "Sedang menghidupkan Sensor...";
+        initText.classList.add("text-warning");
+      });
+    }
+    function setAirModeOff() {
+      $.get("{{ route('setModeAirOff') }}").always(function() {
+        let initText = document.getElementById("theAlert");
+        initText.classList.remove("text-success");
+        initText.innerText = "Sedang mematikan Sensor...";
+        initText.classList.add("text-warning");
+      });
+    }
+    function setPupukModeOn() {
+      $.get("{{ route('setModePupukOn') }}").always(function() {
+        let initText = document.getElementById("theAlert");
+        initText.classList.remove("text-success");
+        initText.innerText = "Sedang menghidupkan Sensor...";
+        initText.classList.add("text-warning");
+      });
+    }
+    function setPupukModeOff() {
+      $.get("{{ route('setModePupukOff') }}").always(function() {
+        let initText = document.getElementById("theAlert");
+        initText.classList.remove("text-success");
+        initText.innerText = "Sedang mematikan Sensor...";
+        initText.classList.add("text-warning");
+      });
+    }
+
+    function setModeEnabled() {
+      document.getElementById('switch1').addEventListener('click', function() {
+        let airMode = document.getElementById("switch1");
+        airMode.classList.toggle('switchActive');
+        let text = document.getElementById('switchStatus1');
+        if(text.innerText == "Hidup") {
+          text.innerText = "Mati";
+          setAirModeOff();
+        } else {
+          text.innerText = "Hidup";
+          setAirModeOn();
+        }
+      });
+      document.getElementById('switch2').addEventListener('click', function() {
+        let pupukMode = document.getElementById("switch2");
+        pupukMode.classList.toggle('switchActive');
+        let text = document.getElementById('switchStatus2');
+        if(text.innerText == "Hidup") {
+          text.innerText = "Mati";
+          setPupukModeOff();
+        } else {
+          text.innerText = "Hidup";
+          setPupukModeOn();
+        }
+      });
+    }
+
+    setInterval(checkMode, 5000);
+    setTimeout(setModeEnabled, 6000);
     // setInterval(readDataRataRataSuhu, 5000);
     // setInterval(readDataRataRataCahaya, 5000);
     // setInterval(readDataRataRataKelembaban, 5000);
