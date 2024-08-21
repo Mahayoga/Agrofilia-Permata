@@ -360,7 +360,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-pupuk" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -384,36 +384,17 @@
               <div class="d-flex ">
                 <table width="100%">
                   <tr>
-                    <th>Lokasi Blok</th>
+                    <th>Lokasi Kebun dan Blok</th>
                     <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
                   </tr>
                   <tr>
                     <td class="text-sm">Blok Satu</td>
-                    <td class="text-sm">10 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Dua</td>
-                    <td class="text-sm">9 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tiga</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Empat</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Lima</td>
-                    <td class="text-sm">5 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Enam</td>
-                    <td class="text-sm">4 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tujuh</td>
-                    <td class="text-sm">4 kali</td>
+                    <td class="text-sm" id="jumlahKaliPenyiramanPupuk"></td>
+                    <script>
+                       $.get("{{ route('dataSensorPupukPerHari') }}", function(data) {
+                        document.getElementById("jumlahKaliPenyiramanPupuk").innerText = data.totalValue + " kali";
+                       });
+                    </script>
                   </tr>
                 </table>
               </div>
@@ -425,7 +406,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars2" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-air" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -454,31 +435,12 @@
                   </tr>
                   <tr>
                     <td class="text-sm">Blok Satu</td>
-                    <td class="text-sm">10 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Dua</td>
-                    <td class="text-sm">9 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tiga</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Empat</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Lima</td>
-                    <td class="text-sm">5 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Enam</td>
-                    <td class="text-sm">4 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tujuh</td>
-                    <td class="text-sm">4 kali</td>
+                    <td class="text-sm" id="jumlahKaliPenyiramanAir"></td>
+                    <script>
+                      $.get("{{ route('dataSensorAirPerHari') }}", function(data) {
+                       document.getElementById("jumlahKaliPenyiramanAir").innerText = data.totalValue + " kali";
+                      });
+                   </script>
                   </tr>
                 </table>
               </div>
@@ -490,7 +452,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-suhu" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -555,7 +517,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-cahaya" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -620,7 +582,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars4" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-udara" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -685,7 +647,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
                 <div class="chart">
-                  <canvas id="chart-bars5" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-tanah" class="chart-canvas" height="170"></canvas>
                 </div>
               </div>
             </div>
@@ -1137,14 +1099,17 @@
   <script src="{{ asset('template-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script src="{{ asset('template-assets/js/plugins/chartjs.min.js') }}"></script>
   <script>
-    var ctx = document.getElementById("chart-bars1").getContext("2d");
-    var ctx2 = document.getElementById("chart-bars2").getContext("2d");
-    var ctx3 = document.getElementById("chart-bars3").getContext("2d");
+    var chartPupuk = document.getElementById("chart-pupuk").getContext("2d");
+    var chartAir = document.getElementById("chart-air").getContext("2d");
+    var chartSuhu = document.getElementById("chart-suhu").getContext("2d");
+    var chartCahaya = document.getElementById("chart-cahaya").getContext("2d");
+    var chartUdara = document.getElementById("chart-udara").getContext("2d");
+    var chartTanah = document.getElementById("chart-tanah").getContext("2d");
 
-    var pupukChart = new Chart(ctx, {
+    var pupukChart = new Chart(chartPupuk, {
       type: "bar",
       data: {
-        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1152,7 +1117,7 @@
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "rgba(255, 255, 255, .8)",
-          data: [50, 20, 10, 22, 50, 10, 40],
+          data: [],
           maxBarThickness: 6
         }, ],
       },
@@ -1218,10 +1183,10 @@
         },
       },
     });
-    var suhuChart = new Chart(ctx2, {
+    var airChart = new Chart(chartAir, {
       type: "bar",
       data: {
-        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1229,10 +1194,9 @@
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "rgba(255, 255, 255, .8)",
-          data: [50, 20, 10, 22, 50, 10, 40],
+          data: [],
           maxBarThickness: 6
-
-        }],
+        }, ],
       },
       options: {
         responsive: true,
@@ -1257,8 +1221,9 @@
               color: 'rgba(255, 255, 255, .2)'
             },
             ticks: {
-              display: true,
-              color: '#f8f9fa',
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
               padding: 10,
               font: {
                 size: 14,
@@ -1267,15 +1232,17 @@
                 style: 'normal',
                 lineHeight: 2
               },
-            }
+              color: "#fff"
+            },
           },
           x: {
             grid: {
               drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
+              display: true,
+              drawOnChartArea: true,
               drawTicks: false,
-              borderDash: [5, 5]
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
             },
             ticks: {
               display: true,
@@ -1293,10 +1260,10 @@
         },
       },
     });
-    var kelembabanChart = new Chart(ctx3, {
+    var suhuChart = new Chart(chartSuhu, {
       type: "bar",
       data: {
-        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1304,10 +1271,9 @@
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "rgba(255, 255, 255, .8)",
-          data: [50, 20, 10, 22, 50, 10, 40],
+          data: [],
           maxBarThickness: 6
-
-        }],
+        }, ],
       },
       options: {
         responsive: true,
@@ -1332,9 +1298,10 @@
               color: 'rgba(255, 255, 255, .2)'
             },
             ticks: {
-              display: true,
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
               padding: 10,
-              color: '#f8f9fa',
               font: {
                 size: 14,
                 weight: 300,
@@ -1342,15 +1309,17 @@
                 style: 'normal',
                 lineHeight: 2
               },
-            }
+              color: "#fff"
+            },
           },
           x: {
             grid: {
               drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
+              display: true,
+              drawOnChartArea: true,
               drawTicks: false,
-              borderDash: [5, 5]
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
             },
             ticks: {
               display: true,
@@ -1368,6 +1337,301 @@
         },
       },
     });
+    var cahayaChart = new Chart(chartCahaya, {
+      type: "bar",
+      data: {
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        datasets: [{
+          label: "",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "rgba(255, 255, 255, .8)",
+          data: [],
+          maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var udaraChart = new Chart(chartUdara, {
+      type: "bar",
+      data: {
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        datasets: [{
+          label: "",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "rgba(255, 255, 255, .8)",
+          data: [],
+          maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+    var tanahChart = new Chart(chartTanah, {
+      type: "bar",
+      data: {
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        datasets: [{
+          label: "",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "rgba(255, 255, 255, .8)",
+          data: [],
+          maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+
+    function suhuPerHari() {
+      $.get("{{ route('dataSensorAirPerHari') }}", function(data) {
+        airChart.data.datasets[0].data.push(data.countID1);
+        airChart.data.datasets[0].data.push(data.countID2);
+        airChart.data.datasets[0].data.push(data.countID3);
+        airChart.data.datasets[0].data.push(data.countID4);
+        airChart.data.datasets[0].data.push(data.countID5);
+        airChart.data.datasets[0].data.push(data.countID6);
+        airChart.data.datasets[0].data.push(data.countID7);
+        airChart.update();
+      });
+      $.get("{{ route('dataSensorPupukPerHari') }}", function(data) {
+        pupukChart.data.datasets[0].data.push(data.countID1);
+        pupukChart.data.datasets[0].data.push(data.countID2);
+        pupukChart.data.datasets[0].data.push(data.countID3);
+        pupukChart.data.datasets[0].data.push(data.countID4);
+        pupukChart.data.datasets[0].data.push(data.countID5);
+        pupukChart.data.datasets[0].data.push(data.countID6);
+        pupukChart.data.datasets[0].data.push(data.countID7);
+        pupukChart.update();
+      });
+      $.get("{{ route('dataSensorSuhuPerHari') }}", function(data) {
+        suhuChart.data.datasets[0].data.push(data.countID1);
+        suhuChart.data.datasets[0].data.push(data.countID2);
+        suhuChart.data.datasets[0].data.push(data.countID3);
+        suhuChart.data.datasets[0].data.push(data.countID4);
+        suhuChart.data.datasets[0].data.push(data.countID5);
+        suhuChart.data.datasets[0].data.push(data.countID6);
+        suhuChart.data.datasets[0].data.push(data.countID7);
+        suhuChart.update();
+      });
+      $.get("{{ route('dataSensorCahayaPerHari') }}", function(data) {
+        cahayaChart.data.datasets[0].data.push(data.countID1);
+        cahayaChart.data.datasets[0].data.push(data.countID2);
+        cahayaChart.data.datasets[0].data.push(data.countID3);
+        cahayaChart.data.datasets[0].data.push(data.countID4);
+        cahayaChart.data.datasets[0].data.push(data.countID5);
+        cahayaChart.data.datasets[0].data.push(data.countID6);
+        cahayaChart.data.datasets[0].data.push(data.countID7);
+        cahayaChart.update();
+      });
+      $.get("{{ route('dataSensorUdaraPerHari') }}", function(data) {
+        udaraChart.data.datasets[0].data.push(data.countID1);
+        udaraChart.data.datasets[0].data.push(data.countID2);
+        udaraChart.data.datasets[0].data.push(data.countID3);
+        udaraChart.data.datasets[0].data.push(data.countID4);
+        udaraChart.data.datasets[0].data.push(data.countID5);
+        udaraChart.data.datasets[0].data.push(data.countID6);
+        udaraChart.data.datasets[0].data.push(data.countID7);
+        udaraChart.update();
+      });
+      $.get("{{ route('dataSensorTanahPerHari') }}", function(data) {
+        tanahChart.data.datasets[0].data.push(data.countID1);
+        tanahChart.data.datasets[0].data.push(data.countID2);
+        tanahChart.data.datasets[0].data.push(data.countID3);
+        tanahChart.data.datasets[0].data.push(data.countID4);
+        tanahChart.data.datasets[0].data.push(data.countID5);
+        tanahChart.data.datasets[0].data.push(data.countID6);
+        tanahChart.data.datasets[0].data.push(data.countID7);
+        tanahChart.update();
+      });
+    }
+    suhuPerHari();
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
