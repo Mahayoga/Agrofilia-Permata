@@ -37,8 +37,6 @@
   <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
   <!-- JQuery -->
   <script src="{{ asset('jquery/jquery.min.js') }}"></script>
-  <!-- Nepcha Analytics (nepcha.com) -->
-  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">

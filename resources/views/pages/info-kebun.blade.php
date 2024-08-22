@@ -36,8 +36,6 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('template-assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
   <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
-  <!-- Nepcha Analytics (nepcha.com) -->
-  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
