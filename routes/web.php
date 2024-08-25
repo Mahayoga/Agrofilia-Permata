@@ -35,6 +35,8 @@ Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAir
 Route::get('/mode/pupuk/on', [App\Http\Controllers\ModeController::class, 'setPupukModeOn'])->name('setModePupukOn');
 Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setPupukModeOff'])->name('setModePupukOff');
 
+Route::get('/dataStatusKebun/{id}', [App\Http\Controllers\KebunController::class, 'ambilDataStatusKebun'])->name('ambilDataStatusKebun');
+
 Route::get('/dashboard', function () {
     return view('dashboard-template');
 })->middleware(['auth', 'verified'])->name('dashboard');
