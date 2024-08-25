@@ -58,31 +58,31 @@ class SensorController extends Controller {
             
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahSensor[$i]->jumlah;
                 break;
             }
@@ -127,31 +127,31 @@ class SensorController extends Controller {
             
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahSensor[$i]->jumlah;
                 break;
             }
@@ -196,31 +196,31 @@ class SensorController extends Controller {
             
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahSensor[$i]->jumlah;
                 break;
             }
@@ -265,31 +265,31 @@ class SensorController extends Controller {
             
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahSensor[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahSensor[$i]->jumlah;
                 break;
             }
