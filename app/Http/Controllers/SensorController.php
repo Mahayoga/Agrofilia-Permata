@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SensorModel;
 use App\Models\IndividualBlockSensor;
 use App\Models\KebunModel;
-use App\Models\NotifikasiSensor;
+use App\Models\NotifikasiSensorModel;
 // use Twilio\Rest\Client;
 // use App\Models\MSensordua;
 // use App\Models\MSensortiga;
@@ -315,8 +315,19 @@ class SensorController extends Controller {
     }
 
     public function dataNotifikasiSuhu() {
-        $dataNotifikasi = NotifikasiSensor::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
+        $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
             ->where("nama_notifikasi", "Peringatan Suhu")
+            ->where("level_notifikasi", "Bahaya")
+            ->get();
+
+        return response()->json([
+            "dataNotif" => $dataNotifikasi[0]->jumlah
+        ]);
+    }
+
+    public function dataNotifikasiCahaya() {
+        $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
+            ->where("nama_notifikasi", "Peringatan Intensitas Cahaya")
             ->where("level_notifikasi", "Bahaya")
             ->get();
 
