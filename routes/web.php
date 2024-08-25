@@ -31,6 +31,7 @@ Route::get('/dataPupuk/hari', [App\Http\Controllers\ModeController::class, 'data
 
 Route::get('/dataSuhuSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'dataNotifikasiSuhu'])->name('dataNotifikasiSuhu');
 Route::get('/dataCahayaSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'dataNotifikasiCahaya'])->name('dataNotifikasiCahaya');
+Route::get('/dataUdaraSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'dataNotifikasiUdara'])->name('dataNotifikasiUdara');
 
 Route::get('/mode/check', [App\Http\Controllers\ModeController::class, 'checkMode'])->name('checkMode');
 Route::get('/mode/air/on', [App\Http\Controllers\ModeController::class, 'setAirModeOn'])->name('setModeAirOn');
