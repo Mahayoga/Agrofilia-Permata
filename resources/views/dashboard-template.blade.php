@@ -296,7 +296,7 @@
                   <h6 class="mb-0 ">Pilih blok dari kebun yang akan ditampilkan</h6>
                 </div>
                 <div class="card-body py-0 pb-4">
-                  <select class="select-option p-3" name="kebun" id="kebun-blok">
+                  <select class="select-option p-3" name="kebun" id="kebun-blok" onchange="setStatusOfKebun()">
                     <option class="" value="notSelected">-- Pilih --</option>
                     <script>
                       function testRes() {
@@ -313,6 +313,7 @@
                               const theElement = document.createElement("option");
                               const contentElement = document.createTextNode(data.daftar_blok[i].nama_blok);
                               theElement.setAttribute("value", data.daftar_blok[i].id_detail_blok);
+                              theElement.setAttribute("class", "availableOpt");
                               theElement.appendChild(contentElement);
 
                               const parentElement = document.getElementById("kebun-blok");
@@ -334,19 +335,23 @@
                 <div class="card-body py-0 pb-4">
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Umur:</span>
-                    <span class="text-sm">&nbsp;2.5 tahun (30 bulan)</span>
+                    <span>&nbsp;</span>
+                    <span class="text-sm" id="umur">&nbsp;2.5 tahun (30 bulan)</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Tahun Tanam:</span>
-                    <span class="text-sm">&nbsp;2020</span>
+                    <span>&nbsp;</span>
+                    <span class="text-sm" id="tahunTanam">&nbsp;2020</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Status Perlakuan:</span>
-                    <span class="text-sm">&nbsp;Masa Kritis</span>
+                    <span>&nbsp;</span>
+                    <span class="text-sm" id="masaTanaman">&nbsp;Masa Kritis</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Status Tanaman:</span>
-                    <span class="text-sm">&nbsp;Generatif</span>
+                    <span>&nbsp;</span>
+                    <span class="text-sm" id="statusTanaman">&nbsp;Generatif</span>
                   </div>
                 </div>
               </div>
@@ -1107,7 +1112,7 @@
     var pupukChart = new Chart(chartPupuk, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1184,7 +1189,7 @@
     var airChart = new Chart(chartAir, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1261,7 +1266,7 @@
     var suhuChart = new Chart(chartSuhu, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1338,7 +1343,7 @@
     var cahayaChart = new Chart(chartCahaya, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1415,7 +1420,7 @@
     var udaraChart = new Chart(chartUdara, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1492,7 +1497,7 @@
     var tanahChart = new Chart(chartTanah, {
       type: "bar",
       data: {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        labels: [],
         datasets: [{
           label: "",
           tension: 0.4,
@@ -1569,67 +1574,251 @@
 
     function suhuPerHari() {
       $.get("{{ route('dataSensorAirPerHari') }}", function(data) {
-        airChart.data.datasets[0].data.push(data.countID1);
-        airChart.data.datasets[0].data.push(data.countID2);
-        airChart.data.datasets[0].data.push(data.countID3);
-        airChart.data.datasets[0].data.push(data.countID4);
-        airChart.data.datasets[0].data.push(data.countID5);
-        airChart.data.datasets[0].data.push(data.countID6);
-        airChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID7);
+          airChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID6);
+          airChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID5);
+          airChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID4);
+          airChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID3);
+          airChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID2);
+          airChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          airChart.data.datasets[0].data.unshift(data.countID1);
+          airChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; airChart.data.datasets[0].data.length != 7; i++) {
+          airChart.data.datasets[0].data.unshift(0);
+          airChart.data.labels.unshift("---");
+        }        
         airChart.update();
       });
       $.get("{{ route('dataSensorPupukPerHari') }}", function(data) {
-        pupukChart.data.datasets[0].data.push(data.countID1);
-        pupukChart.data.datasets[0].data.push(data.countID2);
-        pupukChart.data.datasets[0].data.push(data.countID3);
-        pupukChart.data.datasets[0].data.push(data.countID4);
-        pupukChart.data.datasets[0].data.push(data.countID5);
-        pupukChart.data.datasets[0].data.push(data.countID6);
-        pupukChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID7);
+          pupukChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID6);
+          pupukChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID5);
+          pupukChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID4);
+          pupukChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID3);
+          pupukChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID2);
+          pupukChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          pupukChart.data.datasets[0].data.unshift(data.countID1);
+          pupukChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; pupukChart.data.datasets[0].data.length != 7; i++) {
+          pupukChart.data.datasets[0].data.unshift(0);
+          pupukChart.data.labels.unshift("---");
+        }        
         pupukChart.update();
       });
       $.get("{{ route('dataSensorSuhuPerHari') }}", function(data) {
-        suhuChart.data.datasets[0].data.push(data.countID1);
-        suhuChart.data.datasets[0].data.push(data.countID2);
-        suhuChart.data.datasets[0].data.push(data.countID3);
-        suhuChart.data.datasets[0].data.push(data.countID4);
-        suhuChart.data.datasets[0].data.push(data.countID5);
-        suhuChart.data.datasets[0].data.push(data.countID6);
-        suhuChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID7);
+          suhuChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID6);
+          suhuChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID5);
+          suhuChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID4);
+          suhuChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID3);
+          suhuChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID2);
+          suhuChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          suhuChart.data.datasets[0].data.unshift(data.countID1);
+          suhuChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; suhuChart.data.datasets[0].data.length != 7; i++) {
+          suhuChart.data.datasets[0].data.unshift(0);
+          suhuChart.data.labels.unshift("---");
+        }        
         suhuChart.update();
       });
       $.get("{{ route('dataSensorCahayaPerHari') }}", function(data) {
-        cahayaChart.data.datasets[0].data.push(data.countID1);
-        cahayaChart.data.datasets[0].data.push(data.countID2);
-        cahayaChart.data.datasets[0].data.push(data.countID3);
-        cahayaChart.data.datasets[0].data.push(data.countID4);
-        cahayaChart.data.datasets[0].data.push(data.countID5);
-        cahayaChart.data.datasets[0].data.push(data.countID6);
-        cahayaChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID7);
+          cahayaChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID6);
+          cahayaChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID5);
+          cahayaChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID4);
+          cahayaChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID3);
+          cahayaChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID2);
+          cahayaChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          cahayaChart.data.datasets[0].data.unshift(data.countID1);
+          cahayaChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; cahayaChart.data.datasets[0].data.length != 7; i++) {
+          cahayaChart.data.datasets[0].data.unshift(0);
+          cahayaChart.data.labels.unshift("---");
+        }        
         cahayaChart.update();
       });
       $.get("{{ route('dataSensorUdaraPerHari') }}", function(data) {
-        udaraChart.data.datasets[0].data.push(data.countID1);
-        udaraChart.data.datasets[0].data.push(data.countID2);
-        udaraChart.data.datasets[0].data.push(data.countID3);
-        udaraChart.data.datasets[0].data.push(data.countID4);
-        udaraChart.data.datasets[0].data.push(data.countID5);
-        udaraChart.data.datasets[0].data.push(data.countID6);
-        udaraChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID7);
+          udaraChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID6);
+          udaraChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID5);
+          udaraChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID4);
+          udaraChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID3);
+          udaraChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID2);
+          udaraChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          udaraChart.data.datasets[0].data.unshift(data.countID1);
+          udaraChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; udaraChart.data.datasets[0].data.length != 7; i++) {
+          udaraChart.data.datasets[0].data.unshift(0);
+          udaraChart.data.labels.unshift("---");
+        }        
         udaraChart.update();
       });
       $.get("{{ route('dataSensorTanahPerHari') }}", function(data) {
-        tanahChart.data.datasets[0].data.push(data.countID1);
-        tanahChart.data.datasets[0].data.push(data.countID2);
-        tanahChart.data.datasets[0].data.push(data.countID3);
-        tanahChart.data.datasets[0].data.push(data.countID4);
-        tanahChart.data.datasets[0].data.push(data.countID5);
-        tanahChart.data.datasets[0].data.push(data.countID6);
-        tanahChart.data.datasets[0].data.push(data.countID7);
+        if(data.countID7 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID7);
+          tanahChart.data.labels.unshift(data.hariID7);
+        }
+        if(data.countID6 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID6);
+          tanahChart.data.labels.unshift(data.hariID6);
+        }
+        if(data.countID5 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID5);
+          tanahChart.data.labels.unshift(data.hariID5);
+        }
+        if(data.countID4 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID4);
+          tanahChart.data.labels.unshift(data.hariID4);
+        }
+        if(data.countID3 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID3);
+          tanahChart.data.labels.unshift(data.hariID3);
+        }
+        if(data.countID2 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID2);
+          tanahChart.data.labels.unshift(data.hariID2);
+        }
+        if(data.countID1 != 0) {
+          tanahChart.data.datasets[0].data.unshift(data.countID1);
+          tanahChart.data.labels.unshift(data.hariID1);
+        }
+
+        for(var i = 0; tanahChart.data.datasets[0].data.length != 7; i++) {
+          tanahChart.data.datasets[0].data.unshift(0);
+          tanahChart.data.labels.unshift("---");
+        }        
         tanahChart.update();
       });
     }
     suhuPerHari();
+
+    function setStatusOfKebun() {
+      let selectOption = document.getElementById("kebun-blok");
+      let umurText = document.getElementById("umur");
+      let tahunTanamText = document.getElementById("tahunTanam");
+      let masaTanamanText = document.getElementById("masaTanaman");
+      let statusTanamanText = document.getElementById("statusTanaman");
+
+      if(selectOption.value != "notSelected") {
+        let baseUrl = "{{ route('ambilDataStatusKebun', ['id' => '__ID__']) }}";
+        let finalUrl = baseUrl.replace("__ID__", selectOption.value);
+        $.get(finalUrl, function(data) {
+          if(data.jenisUmur == "Hari") {
+            umurText.innerText = data.umurBlok + " hari yang lalu";
+          }
+          if(data.jenisUmur == "Bulan") {
+            umurText.innerText = data.umurBlok + " bulan yang lalu";
+          }
+          if(data.jenisUmur == "Tahun") {
+            umurText.innerText = data.umurBlok + " tahun yang lalu";
+          }
+
+          tahunTanamText.innerText = data.tahunBlok;
+          masaTanamanText.innerText = data.statusBlok;
+          statusTanamanText.innerText = data.faseBlok;
+        });
+      }
+    }
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
