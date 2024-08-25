@@ -517,10 +517,10 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-4 mt-4 mb-4">
-          <div class="card z-index-2 ">
+          <div class="card z-index-2 h-100">
             <div class="card-body">
               <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
-              <p class="text-sm ">Intensitas Cahaya rata-rata dari Kebun Satu</p>
+              <p class="text-sm ">Intensitas Cahaya diatas normal dari semua Kebun</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <table width="100%">
@@ -530,31 +530,12 @@
                   </tr>
                   <tr>
                     <td class="text-sm">Blok Satu</td>
-                    <td class="text-sm">10 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Dua</td>
-                    <td class="text-sm">9 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tiga</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Empat</td>
-                    <td class="text-sm">7 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Lima</td>
-                    <td class="text-sm">5 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Enam</td>
-                    <td class="text-sm">4 kali</td>
-                  </tr>
-                  <tr>
-                    <td class="text-sm">Blok Tujuh</td>
-                    <td class="text-sm">4 kali</td>
+                    <td class="text-sm" id="jumlahKaliCahayaBahaya">10 kali</td>
+                    <script>
+                      $.get("{{ route('dataNotifikasiCahaya') }}", function(data) {
+                        document.getElementById("jumlahKaliCahayaBahaya").innerText = data.dataNotif + " kali";
+                      });
+                    </script>
                   </tr>
                 </table>
               </div>
