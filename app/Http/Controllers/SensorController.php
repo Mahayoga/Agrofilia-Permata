@@ -346,4 +346,15 @@ class SensorController extends Controller {
         ]);
     }
 
+    public function dataNotifikasiTanah() {
+        $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
+            ->where("nama_notifikasi", "Peringatan Kelembaban Tanah")
+            ->where("level_notifikasi", "Bahaya")
+            ->get();
+
+        return response()->json([
+            "dataNotif" => $dataNotifikasi[0]->jumlah
+        ]);
+    }
+
 }
