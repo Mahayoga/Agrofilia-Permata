@@ -29,6 +29,8 @@ Route::get('/dataTanahSensor/hari', [App\Http\Controllers\SensorController::clas
 Route::get('/dataAir/hari', [App\Http\Controllers\ModeController::class, 'dataSensorAirPerHari'])->name('dataSensorAirPerHari');
 Route::get('/dataPupuk/hari', [App\Http\Controllers\ModeController::class, 'dataSensorPupukPerHari'])->name('dataSensorPupukPerHari');
 
+Route::get('/dataSuhuSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'dataNotifikasiSuhu'])->name('dataNotifikasiSuhu');
+
 Route::get('/mode/check', [App\Http\Controllers\ModeController::class, 'checkMode'])->name('checkMode');
 Route::get('/mode/air/on', [App\Http\Controllers\ModeController::class, 'setAirModeOn'])->name('setModeAirOn');
 Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAirModeOff'])->name('setModeAirOff');
