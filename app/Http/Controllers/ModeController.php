@@ -38,34 +38,34 @@ class ModeController extends Controller {
         for($i = 0; $i < count($totalJumlahPupukPerHari); $i++) {
             $arrTemp = explode("-", $hariPerTotalJumlahPupukPerHari[$i]->waktu);
             $dateArr = explode(" ", $arrTemp[2]);
-            
+
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
             }
@@ -113,31 +113,31 @@ class ModeController extends Controller {
             
             switch(date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]))) {
                 case "Monday":
-                    $hari[0] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[0] = "Senin";
                     $jumlahID[0] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Tuesday":
-                    $hari[1] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[1] = "Selasa";
                     $jumlahID[1] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Wednesday":
-                    $hari[2] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[2] = "Rabu";
                     $jumlahID[2] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Thursday":
-                    $hari[3] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[3] = "Kamis";
                     $jumlahID[3] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Friday":
-                    $hari[4] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[4] = "Jumat";
                     $jumlahID[4] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Saturday":
-                    $hari[5] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[5] = "Sabtu";
                     $jumlahID[5] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
                 case "Sunday":
-                    $hari[6] = date("l", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+                    $hari[6] = "Minggu";
                     $jumlahID[6] = $totalJumlahPupukPerHari[$i]->jumlah;
                 break;
             }
