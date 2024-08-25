@@ -563,7 +563,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-4 mt-4 mb-4">
-          <div class="card z-index-2 ">
+          <div class="card z-index-2 h-100">
             <div class="card-body">
               <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
               <p class="text-sm ">Kelembaban Udara diatas normal dari semua Kebun</p>
