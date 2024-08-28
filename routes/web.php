@@ -39,6 +39,7 @@ Route::get('/dataairSensor/lastUpdateTime', [App\Http\Controllers\ModeController
 Route::get('/dataSuhuSensor/lastUpdateTime', [App\Http\Controllers\SensorController::class, 'suhuLastUpdateTime'])->name('suhuLastUpdateTime');
 Route::get('/dataCahayaSensor/lastUpdateTime', [App\Http\Controllers\SensorController::class, 'cahayaLastUpdateTime'])->name('cahayaLastUpdateTime');
 Route::get('/dataUdaraSensor/lastUpdateTime', [App\Http\Controllers\SensorController::class, 'udaraLastUpdateTime'])->name('udaraLastUpdateTime');
+Route::get('/dataTanahSensor/lastUpdateTime', [App\Http\Controllers\SensorController::class, 'tanahLastUpdateTime'])->name('tanahLastUpdateTime');
 
 Route::get('/mode/check', [App\Http\Controllers\ModeController::class, 'checkMode'])->name('checkMode');
 Route::get('/mode/air/on', [App\Http\Controllers\ModeController::class, 'setAirModeOn'])->name('setModeAirOn');
