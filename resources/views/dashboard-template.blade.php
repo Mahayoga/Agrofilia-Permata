@@ -475,7 +475,12 @@
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">update 1 jam yang lalu</p>
+                <p class="mb-0 text-sm"> data terakhir <span id="updateTimeSuhu"></span> yang lalu </p>
+                <script>
+                  $.get("{{ route('suhuLastUpdateTime') }}", function(data) {
+                    document.getElementById("updateTimeSuhu").innerText = data.timeResult;
+                  });
+                </script>
               </div>
             </div>
           </div>
