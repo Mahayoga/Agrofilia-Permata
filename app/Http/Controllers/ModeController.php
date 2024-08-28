@@ -212,4 +212,37 @@ class ModeController extends Controller {
             return response()->json(["timeResult" => $calcMon . " tahun"]);
         }
     }
+
+    public function airLastUpdateTime() {
+        $timeResult = NotifikasiModeModel::select()
+            ->where("deskripsi", "Penyiraman Air Telah Mati!")
+            ->orWhere("deskripsi", "Penyiraman Air Telah Hidup!")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(1)
+            ->get();
+
+        // 2024-08-21 16:52:55
+        $dateInData = explode(" ", $timeResult[0]->waktu)[0];
+        $timeInData = explode(" ", $timeResult[0]->waktu)[1];
+        if($dateInData == date("Y-m-d")) {
+            if(explode(":", $timeInData)[0] . ":" . explode(":", $timeInData)[1] == date("H:i")) {
+                return response()->json(["timeResult" => "<1 menit"]);
+            } else if(explode(":", $timeInData)[0] == date("H")) {
+                $calcMin = (int)date("i") - (int)explode(":", $timeInData)[1];
+                return response()->json(["timeResult" => $calcMin . " menit"]);
+            } else {
+                $calcHour = (int)date("H") - (int)explode(":", $timeInData)[0];
+                return response()->json(["timeResult" => $calcHour . " jam"]);
+            }
+        } else if(explode("-", $dateInData)[1] == date("m")) {
+            $calcDay = (int)date("d") - (int)explode("-", $dateInData)[2];
+            return response()->json(["timeResult" => $calcDay . " hari"]);
+        } else if(explode("-", $dateInData)[0] == date("Y")) {
+            $calcMon = (int)date("m") - (int)explode("-", $dateInData)[1];
+            return response()->json(["timeResult" => $calcMon . " bulan"]);
+        } else {
+            $calcMon = (int)date("H") - (int)explode("-", $dateInData)[0];
+            return response()->json(["timeResult" => $calcMon . " tahun"]);
+        }
+    }
 }
