@@ -65,10 +65,21 @@ class KebunController extends Controller {
             ->where("kondisi_blok", "Bahaya")
             ->orWhere("kondisi_blok", "Peringatan")
             ->get();
-            
+
         return response()->json([
             'dataKebun' => $dataKebun,
             'count' => count($dataKebun)
+        ]);
+    }
+
+    public function ambilDataTotalBlok() {
+        $dataTotalBlok = BlokModel::select(DB::raw("COUNT(id_detail_blok) AS jumlah"))
+            ->get();
+        $dataTotalKebun = KebunModel::select(DB::raw("COUNT(id_kebun) AS jumlah"))
+            ->get();
+        return response()->json([
+            'jumlahKebun' => $dataTotalKebun[0]->jumlah,
+            'jumlahBlok' => $dataTotalBlok[0]->jumlah
         ]);
     }
 }
