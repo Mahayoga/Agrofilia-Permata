@@ -72,8 +72,8 @@ Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
     return view('pages/tabel-blok', ['id' => $id]);
 })->name('blocksTableView');
 
-Route::get('dashboard/tabel-data/tabel-blok/info-blok', function() {
-    return view('pages/info-kebun');
+Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) {
+    return view('pages/info-kebun', ['id' => $id]);
 })->name('specificBlockView');
 
 Route::middleware('auth')->group(function () {
