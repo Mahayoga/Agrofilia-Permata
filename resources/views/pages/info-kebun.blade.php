@@ -699,9 +699,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah1" class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah1" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -729,9 +729,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah2" class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah2" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -759,9 +759,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah3" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah3" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -789,9 +789,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah4" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah4" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -819,9 +819,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah5" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah5" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -849,9 +849,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                    <div id="bgIndexKelembabanTanah6" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                        <h3 id="indikatorKelembabanTanah6" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -887,9 +887,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
+                                    <div id="bgIndexDetailSuhu" class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">32°C</h3>
+                                        <h3 id="indikatorDetailSuhu" class="text-center font-weight-bold text-white mb-0">32°C</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -917,9 +917,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
+                                    <div id="bgIndexDetailCahaya" class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">29%</h3>
+                                        <h3 id="indikatorDetailCahaya" class="text-center font-weight-bold text-white mb-0">29%</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -947,9 +947,9 @@
                                     <div class="text-center">
                                       <h6>Indeks:</h6>
                                     </div>
-                                    <div class="custom-box bg-gradient-success shadow text-center border-radius-lg">
+                                    <div id="bgIndexDetailUdara" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                       <div class="d-flex justify-content-center align-items-center h-100">
-                                        <h3 class="text-center font-weight-bold text-white mb-0">32 RH</h3>
+                                        <h3 id="indikatorDetailUdara" class="text-center font-weight-bold text-white mb-0">32 RH</h3>
                                       </div>
                                     </div>
                                   </div>
@@ -1732,7 +1732,7 @@
     var kelembabanTanahDetail1 = new Chart(grafikDetailKelembabanTanah1, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -1745,7 +1745,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -1812,7 +1812,7 @@
     var kelembabanTanahDetail2 = new Chart(grafikDetailKelembabanTanah2, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -1825,7 +1825,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -1892,7 +1892,7 @@
     var kelembabanTanahDetail3 = new Chart(grafikDetailKelembabanTanah3, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -1905,7 +1905,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -1972,7 +1972,7 @@
     var kelembabanTanahDetail4 = new Chart(grafikDetailKelembabanTanah4, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -1985,7 +1985,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2052,7 +2052,7 @@
     var kelembabanTanahDetail5 = new Chart(grafikDetailKelembabanTanah5, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -2065,7 +2065,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2132,7 +2132,7 @@
     var kelembabanTanahDetail6 = new Chart(grafikDetailKelembabanTanah6, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Kilopascal (kPa)",
           tension: 0,
@@ -2145,7 +2145,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [29, 29, 28, 27, 28],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2212,7 +2212,7 @@
     var suhuDetail = new Chart(grafikDetailSuhu, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Suhu (°C)",
           tension: 0,
@@ -2225,7 +2225,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [28, 29, 28, 27, 27],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2292,7 +2292,7 @@
     var cahayaDetail = new Chart(grafikDetailCahaya, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Cahaya (%Lux)",
           tension: 0,
@@ -2305,7 +2305,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [28, 29, 29, 30, 29],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2372,7 +2372,7 @@
     var kelembabanUdaraDetail = new Chart(grafikDetailKelembabanUdara, {
       type: "line",
       data: {
-        labels: ["14.34", "14.35", "14.36", "14.37", "14.38"],
+        labels: [],
         datasets: [{
           label: "Humidity (%RH)",
           tension: 0,
@@ -2385,7 +2385,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [28, 29, 28, 27, 27],
+          data: [],
           maxBarThickness: 6
 
         }],
@@ -2555,6 +2555,236 @@
       });
     }
 
+    function readDataIndividualSensor() {
+      $.get("{{ route('ambilDataDetailSemuaSensor') }}", function(data) {
+        kelembabanTanahDetail1.data.labels.push(data.kelTanah1[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail1.data.datasets[0].data.push(data.kelTanah1[0].kelembabantanah);
+        if(kelembabanTanahDetail1.data.labels.length > 5) {
+          kelembabanTanahDetail1.data.labels.shift();
+        } else if(kelembabanTanahDetail1.data.labels.length > 5) { 
+          kelembabanTanahDetail1.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah1[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah1").innerText = data.kelTanah1[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah1").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah1");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah1[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah1[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail2.data.labels.push(data.kelTanah2[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail2.data.datasets[0].data.push(data.kelTanah2[0].kelembabantanah);
+        if(kelembabanTanahDetail2.data.labels.length > 5) {
+          kelembabanTanahDetail2.data.labels.shift();
+        } else if(kelembabanTanahDetail2.data.labels.length > 5) { 
+          kelembabanTanahDetail2.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah2[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah2").innerText = data.kelTanah2[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah2").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah2");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah2[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah2[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail3.data.labels.push(data.kelTanah3[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail3.data.datasets[0].data.push(data.kelTanah3[0].kelembabantanah);
+        if(kelembabanTanahDetail3.data.labels.length > 5) {
+          kelembabanTanahDetail3.data.labels.shift();
+        } else if(kelembabanTanahDetail3.data.labels.length > 5) { 
+          kelembabanTanahDetail3.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah3[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah3").innerText = data.kelTanah3[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah3").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah3");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah3[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah3[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail4.data.labels.push(data.kelTanah4[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail4.data.datasets[0].data.push(data.kelTanah4[0].kelembabantanah);
+        if(kelembabanTanahDetail4.data.labels.length > 5) {
+          kelembabanTanahDetail4.data.labels.shift();
+        } else if(kelembabanTanahDetail4.data.labels.length > 5) { 
+          kelembabanTanahDetail4.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah4[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah4").innerText = data.kelTanah4[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah4").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah4");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah4[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah4[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail5.data.labels.push(data.kelTanah5[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail5.data.datasets[0].data.push(data.kelTanah5[0].kelembabantanah);
+        if(kelembabanTanahDetail5.data.labels.length > 5) {
+          kelembabanTanahDetail5.data.labels.shift();
+        } else if(kelembabanTanahDetail5.data.labels.length > 5) { 
+          kelembabanTanahDetail5.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah5[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah5").innerText = data.kelTanah5[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah5").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah5");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah5[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah5[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail6.data.labels.push(data.kelTanah6[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanTanahDetail6.data.datasets[0].data.push(data.kelTanah6[0].kelembabantanah);
+        if(kelembabanTanahDetail6.data.labels.length > 5) {
+          kelembabanTanahDetail6.data.labels.shift();
+        } else if(kelembabanTanahDetail6.data.labels.length > 5) { 
+          kelembabanTanahDetail6.data.datasets.data.shift();
+        }
+
+        if(data.kelTanah6[0].kelembabantanah != null) {
+          document.getElementById("indikatorKelembabanTanah6").innerText = data.kelTanah6[0].kelembabantanah + " kPa";
+        } else {
+          document.getElementById("indikatorKelembabanTanah6").innerText = "0 kPa";
+        }
+
+        var theBgClass = document.getElementById("bgIndexKelembabanTanah6");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.kelTanah6[0].kelembabantanah < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.kelTanah6[0].kelembabantanah > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        suhuDetail.data.labels.push(data.suhu[0].updated_at.split("T")[1].substr(0, 5));
+        suhuDetail.data.datasets[0].data.push(data.suhu[0].suhu);
+        if(suhuDetail.data.labels.length > 5) {
+          suhuDetail.data.labels.shift();
+        } else if(suhuDetail.data.labels.length > 5) { 
+          suhuDetail.data.datasets.data.shift();
+        }
+
+        if(data.suhu[0].suhu != null) {
+          document.getElementById("indikatorDetailSuhu").innerText = data.suhu[0].suhu + " °C";
+        } else {
+          document.getElementById("indikatorDetailSuhu").innerText = "0°C";
+        }
+
+        var theBgClass = document.getElementById("bgIndexDetailSuhu");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.suhu[0].suhu < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.suhu[0].suhu > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        cahayaDetail.data.labels.push(data.cahaya[0].updated_at.split("T")[1].substr(0, 5));
+        cahayaDetail.data.datasets[0].data.push(data.cahaya[0].cahaya);
+        if(cahayaDetail.data.labels.length > 5) {
+          cahayaDetail.data.labels.shift();
+        } else if(cahayaDetail.data.labels.length > 5) { 
+          cahayaDetail.data.datasets.data.shift();
+        }
+
+        if(data.cahaya[0].cahaya != null) {
+          document.getElementById("indikatorDetailCahaya").innerText = data.cahaya[0].cahaya + "%";
+        } else {
+          document.getElementById("indikatorDetailCahaya").innerText = "0%";
+        }
+
+        var theBgClass = document.getElementById("bgIndexDetailCahaya");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.cahaya[0].cahaya < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.cahaya[0].cahaya > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanUdaraDetail.data.labels.push(data.udara[0].updated_at.split("T")[1].substr(0, 5));
+        kelembabanUdaraDetail.data.datasets[0].data.push(data.udara[0].kelembaban);
+        if(kelembabanUdaraDetail.data.labels.length > 5) {
+          kelembabanUdaraDetail.data.labels.shift();
+        } else if(kelembabanUdaraDetail.data.labels.length > 5) { 
+          kelembabanUdaraDetail.data.datasets.data.shift();
+        }
+
+        if(data.udara[0].kelembaban != null) {
+          document.getElementById("indikatorDetailUdara").innerText = data.udara[0].kelembaban + " RH";
+        } else {
+          document.getElementById("indikatorDetailUdara").innerText = "0 RH";
+        }
+
+        var theBgClass = document.getElementById("bgIndexDetailUdara");
+        theBgClass.classList.remove("bg-gradient-danger");
+        if(data.udara[0].kelembaban < 20) {
+          theBgClass.classList.add("bg-gradient-warning");
+        } else if(data.udara[0].kelembaban > 25) {
+          theBgClass.classList.add("bg-gradient-danger");
+        } else {
+          theBgClass.classList.add("bg-gradient-success");
+        }
+
+        kelembabanTanahDetail1.update();
+        kelembabanTanahDetail2.update();
+        kelembabanTanahDetail3.update();
+        kelembabanTanahDetail4.update();
+        kelembabanTanahDetail5.update();
+        kelembabanTanahDetail6.update();
+        suhuDetail.update();
+        cahayaDetail.update();
+        kelembabanUdaraDetail.update();
+      });
+    }
+
     function checkMode() {
       let airMode = document.getElementById("switch1");
       let pupukMode = document.getElementById("switch2");
@@ -2651,6 +2881,7 @@
     setInterval(checkMode, 5000);
     setTimeout(setModeEnabled, 6000);
     // setInterval(readAllDataRataRata, 5000);
+    setInterval(readDataIndividualSensor, 5000);
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
