@@ -199,28 +199,6 @@
                     </tr>
                   </thead>
                   <tbody id="tbodyKebun">
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Kebun Satu</h6>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Baratan</p>
-                        <p class="text-xs text-secondary mb-0">Kec. Jember, Jawa Timur</p>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-danger">Bahaya</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Perlu Tindakan Segera</span>
-                      </td>                      
-                      <td class="align-middle text-center">
-                        <a href="{{ route('blocksTableView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
                     <script>
                       $.get("{{ route('listKebun') }}", function(data) {
                         let tbodyKebun = document.getElementById("tbodyKebun");
