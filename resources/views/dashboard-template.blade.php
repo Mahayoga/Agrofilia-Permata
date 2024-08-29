@@ -674,7 +674,13 @@
                   <h6>Live Kondisi Kebun</h6>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">2 selesai</span> bulan ini
+                    Terdapat Total<span id="totalKebun" class="font-weight-bold ms-1"></span> dan<span id="totalBlok" class="font-weight-bold ms-1"></span>
+                    <script>
+                      $.get("{{ route('ambilDataTotalBlok') }}", function(data) {
+                        document.getElementById("totalKebun").innerText = data.jumlahKebun + " kebun";
+                        document.getElementById("totalBlok").innerText = data.jumlahBlok + " blok";
+                      });
+                    </script>
                   </p>
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
