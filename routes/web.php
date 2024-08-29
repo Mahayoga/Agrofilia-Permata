@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/readDataRataRata', [App\Http\Controllers\SensorController::class, 'dataRataRata'])->name('readDataRataRata');
 Route::get('/listKebun', [App\Http\Controllers\KebunController::class, 'kebunOptions'])->name('listKebun');
 Route::get('/listBlok/{id_kebun}', [App\Http\Controllers\KebunController::class, 'blokOptions'])->name('listBlok');
+Route::get('/ambilDataSetiapSensor', [App\Http\Controllers\SensorController::class, 'ambilDataDetailSemuaSensor'])->name('ambilDataDetailSemuaSensor');
 
 Route::get('/dataSuhuSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorSuhuPerHari'])->name('dataSensorSuhuPerHari');
 Route::get('/dataCahayaSensor/hari', [App\Http\Controllers\SensorController::class, 'dataSensorCahayaPerHari'])->name('dataSensorCahayaPerHari');
