@@ -34,6 +34,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('template-assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
+  <!-- JQuery -->
+  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -192,191 +194,80 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Indeks Blok</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tindakan</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Progress</th>
                       <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">Aksi</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Satu</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-danger">Bahaya</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Perlu Tindakan Segera</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">40%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Dua</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-warning">Peringatan</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Terdapat masalah: sebaiknya diperiksa</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">25%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Tiga</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-light">Selesai</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Tidak ada</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Empat</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-light">Selesai</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Tidak ada</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Lima</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Normal</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Tidak ada</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">10%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <h6 class="mb-0 text-sm">Blok Enam</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Normal</span>
-                      </td>
-                      <td class="align-middle">
-                        <span class="text-secondary text-xs font-weight-bold">Tidak ada</span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-100 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">60%</span>
-                            </div>
-                          </div>
-                          <div class="progress w-100">
-                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="{{ route('specificBlockView') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Periksa</a>
-                        <span>|</span>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
-                      </td>
-                    </tr>
+                  <tbody id="tbodyBlok">
+                    <script>
+                      $.get("{{ route('listBlok', ['id_kebun' => $id]) }}", function(data) {
+                        let tbodyKebun = document.getElementById("tbodyBlok");
+                        for(var i = 0; i < data.daftar_blok.length; i++) {
+                          let tableRow = document.createElement("tr");
+                            let tableData1 = document.createElement("td");
+                              let divElement1 = document.createElement("div");
+                                let headingSix1 = document.createElement("h6");
+
+                            let tableData3 = document.createElement("td");
+                              let spanElement1 = document.createElement("span");
+
+                            let tableData4 = document.createElement("td");
+                              let spanElement2 = document.createElement("span");
+
+                            let tableData5 = document.createElement("td");
+                              let anchorElement1 = document.createElement("a");
+                              let spanElement3 = document.createElement("span");
+                              let anchorElement2 = document.createElement("a");
+
+                            divElement1.setAttribute("class", "d-flex px-2 py-1");
+                              headingSix1.setAttribute("class", "mb-0 text-sm");
+
+                            tableData3.setAttribute("class", "align-middle text-sm");
+                              if(data.daftar_blok[i].kondisi_blok == "Normal") {
+                                spanElement1.setAttribute("class", "badge badge-sm bg-gradient-success");
+                                spanElement2.appendChild(document.createTextNode("Tidak ada"));
+                              } else if(data.daftar_blok[i].kondisi_blok == "Peringatan") {
+                                spanElement1.setAttribute("class", "badge badge-sm bg-gradient-warning");
+                                spanElement2.appendChild(document.createTextNode("Terdapat masalah: sebaiknya diperiksa"));
+                              } else if(data.daftar_blok[i].kondisi_blok == "Bahaya") { 
+                                spanElement1.setAttribute("class", "badge badge-sm bg-gradient-danger");
+                                spanElement2.appendChild(document.createTextNode("Perlu tindakan segera"));
+                              }
+
+                            tableData4.setAttribute("class", "align-middle");
+                              spanElement2.setAttribute("class", "text-secondary text-xs font-weight-bold");
+
+                            tableData5.setAttribute("class", "align-middle text-center");
+                              anchorElement1.setAttribute("class", "text-secondary font-weight-bold text-xs");
+                              anchorElement2.setAttribute("class", "text-secondary font-weight-bold text-xs");
+
+                            headingSix1.appendChild(document.createTextNode(data.daftar_blok[i].nama_blok));
+                            spanElement1.appendChild(document.createTextNode(data.daftar_blok[i].kondisi_blok));
+                            anchorElement1.appendChild(document.createTextNode("Periksa"));
+                            spanElement3.appendChild(document.createTextNode(" | "));
+                            anchorElement2.appendChild(document.createTextNode("Edit"));
+
+                            let baseUrl = "{{ route('specificBlockView', ['id_blok' => '__ID__']) }}";
+                            let finalUrl = baseUrl.replace("__ID__", data.daftar_blok[i].id_detail_blok);
+                            anchorElement1.setAttribute("href", finalUrl);
+                            anchorElement2.setAttribute("href", "belum_ada");
+
+                              divElement1.appendChild(headingSix1);
+                            tableData1.appendChild(divElement1);
+                            tableData3.appendChild(spanElement1);
+                            tableData4.appendChild(spanElement2);
+                            tableData5.appendChild(anchorElement1);
+                            tableData5.appendChild(spanElement3);
+                            tableData5.appendChild(anchorElement2);
+
+                            tableRow.appendChild(tableData1);
+                            tableRow.appendChild(tableData3);
+                            tableRow.appendChild(tableData4);
+                            tableRow.appendChild(tableData5);
+
+                            tbodyKebun.appendChild(tableRow);
+                        }
+                      });
+                    </script>
                   </tbody>
                 </table>
               </div>
