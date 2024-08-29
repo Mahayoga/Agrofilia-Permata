@@ -335,6 +335,7 @@ class SensorController extends Controller {
             "dataNotif" => $dataNotifikasi[0]->jumlah
         ]);
     }
+    
     public function dataNotifikasiUdara() {
         $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
             ->where("nama_notifikasi", "Peringatan Kelembaban Udara")
