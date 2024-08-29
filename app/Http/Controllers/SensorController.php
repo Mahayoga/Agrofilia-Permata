@@ -335,7 +335,7 @@ class SensorController extends Controller {
             "dataNotif" => $dataNotifikasi[0]->jumlah
         ]);
     }
-    
+
     public function dataNotifikasiUdara() {
         $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
             ->where("nama_notifikasi", "Peringatan Kelembaban Udara")
@@ -483,5 +483,51 @@ class SensorController extends Controller {
             $calcMon = (int)date("H") - (int)explode("-", $dateInData)[0];
             return response()->json(["timeResult" => $calcMon . " tahun"]);
         }
+    }
+
+    public function ambilDataDetailSemuaSensor() {
+        $kel1 = SensorModel::select()
+            ->where("esp_id", "soil1_data")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+        $kel2 = SensorModel::select()
+            ->where("esp_id", "soil2_data")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+        $kel3 = SensorModel::select()
+            ->where("esp_id", "soil3")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+        $kel4 = SensorModel::select()
+            ->where("esp_id", "soil4")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+        $kel5 = SensorModel::select()
+            ->where("esp_id", "soil5")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+        $kel6 = SensorModel::select()
+            ->where("esp_id", "soil6")
+            ->orderBy("id", "desc")
+            ->limit(1)
+            ->get();
+
+        return response()->json([
+            "kelTanah1" => $kel1,
+            "kelTanah2" => $kel2,
+            "kelTanah3" => $kel3,
+            "kelTanah4" => $kel4,
+            "kelTanah5" => $kel5,
+            "kelTanah6" => $kel6,
+
+            "suhu" => $kel1,
+            "udara" => $kel1,
+            "cahaya" => $kel2
+        ]);
     }
 }
