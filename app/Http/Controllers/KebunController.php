@@ -58,4 +58,17 @@ class KebunController extends Controller {
             "faseBlok" => $dataStatus[0]->fase_tanaman
         ]);
     }
+
+    public function ambilDataKebunBerbahaya() {
+        $dataKebun = KebunModel::select()
+            ->join("Detail_Blok", "kebun.id_kebun", "=", "Detail_Blok.id_kebun",)
+            ->where("kondisi_blok", "Bahaya")
+            ->orWhere("kondisi_blok", "Peringatan")
+            ->get();
+            
+        return response()->json([
+            'dataKebun' => $dataKebun,
+            'count' => count($dataKebun)
+        ]);
+    }
 }
