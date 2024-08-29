@@ -68,8 +68,8 @@ Route::get('dashboard/notifikasi', function() {
     return view('pages/notifications');
 })->name('notificationView');
 
-Route::get('dashboard/tabel-data/tabel-blok', function() {
-    return view('pages/tabel-blok');
+Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
+    return view('pages/tabel-blok', ['id' => $id]);
 })->name('blocksTableView');
 
 Route::get('dashboard/tabel-data/tabel-blok/info-blok', function() {
