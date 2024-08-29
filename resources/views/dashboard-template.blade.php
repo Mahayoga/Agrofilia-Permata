@@ -701,22 +701,57 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tindakan</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kebun Enam - Blok Satu</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="">
-                        <span class="badge badge-sm bg-gradient-success">Normal</span>
-                      </td>
-                      <td class="align-middle  text-sm">
-                        <span class="text-xs font-weight-bold">Tidak ada</span>
-                      </td>
-                    </tr>
+                  <tbody id="tbodyKebun">
+                    <script>
+                      $.get("{{ route('ambilDataKebunBerbahaya') }}", function(data) {
+                        let tbody = document.getElementById("tbodyKebun");
+                        for(var i = 0; i < data.dataKebun.length; i++) {
+                          let tableRow = document.createElement("tr");
+                            let tableData1 = document.createElement("td");
+                              let divElement1 = document.createElement("div");
+                                let divElement2 = document.createElement("div");
+                                  let headingSix1 = document.createElement("h6");
+
+                            let tableData2 = document.createElement("td");
+                              let spanElement1 = document.createElement("span");
+                            
+                            let tableData3 = document.createElement("td");
+                              let spanElement2 = document.createElement("span");
+
+                          divElement1.setAttribute("class", "d-flex px-2 py-1");
+                          divElement2.setAttribute("class", "d-flex flex-column justify-content-center");
+                          headingSix1.setAttribute("class", "mb-0 text-sm");
+                          if(data.dataKebun[i].kondisi_blok == "Normal") {
+                            spanElement1.setAttribute("class", "badge badge-sm bg-gradient-success");
+                            spanElement2.appendChild(document.createTextNode("Tidak Ada"));
+                          } else if(data.dataKebun[i].kondisi_blok == "Peringatan") {
+                            spanElement1.setAttribute("class", "badge badge-sm bg-gradient-warning");
+                            spanElement2.appendChild(document.createTextNode("Terdapat Masalah"));
+                          } else if(data.dataKebun[i].kondisi_blok == "Bahaya") {
+                            spanElement1.setAttribute("class", "badge badge-sm bg-gradient-danger");
+                            spanElement2.appendChild(document.createTextNode("Perlu Tindakan Segera!"));
+                          }
+                          tableData3.setAttribute("class", "align-middle text-sm");
+                          spanElement2.setAttribute("class", "text-xs font-weight-bold");
+
+                          headingSix1.appendChild(document.createTextNode(data.dataKebun[i].nama_kebun + " - " + data.dataKebun[i].nama_blok));
+                          spanElement1.appendChild(document.createTextNode(data.dataKebun[i].kondisi_blok));
+
+                          tableData3.appendChild(spanElement2);
+                          tableData2.appendChild(spanElement1);
+
+                              divElement2.appendChild(headingSix1);
+                            divElement1.appendChild(divElement2);
+                          tableData1.appendChild(divElement1);
+
+                          tableRow.appendChild(tableData1);
+                          tableRow.appendChild(tableData2);
+                          tableRow.appendChild(tableData3);
+
+                          tbody.appendChild(tableRow);
+                        }
+                      });
+                    </script>
                   </tbody>
                 </table>
               </div>
