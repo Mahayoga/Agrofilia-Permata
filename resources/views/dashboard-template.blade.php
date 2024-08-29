@@ -671,7 +671,7 @@
             <div class="card-header pb-0">
               <div class="row">
                 <div class="col-lg-6 col-7">
-                  <h6>Live Progress Kebun</h6>
+                  <h6>Live Kondisi Kebun</h6>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
                     <span class="font-weight-bold ms-1">2 selesai</span> bulan ini
