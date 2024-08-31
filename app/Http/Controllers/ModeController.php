@@ -245,4 +245,22 @@ class ModeController extends Controller {
             return response()->json(["timeResult" => $calcMon . " tahun"]);
         }
     }
+
+    public function ambilDataNotifikasiAir() {
+        $hasilHidup = NotifikasiModeModel::select()
+            ->where("deskripsi", "Penyiraman Air Telah Hidup!")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(5)
+            ->get();
+        $hasilMati = NotifikasiModeModel::select()
+            ->where("deskripsi", "Penyiraman Air Telah Mati!")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(5)
+            ->get();
+
+        return response()->json([
+            "notifAirHidup" => $hasilHidup,
+            "notifAirMati" => $hasilMati
+        ]);
+    }
 }
