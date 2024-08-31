@@ -36,6 +36,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('template-assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
   <link href="{{ asset('template-assets/css/my-style.css') }}" rel="stylesheet" />
+  <!-- JQuery -->
+  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -979,42 +981,7 @@
               </div>
             </div>
             <div class="card-body p-3 pb-0">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-1 text-dark font-weight-bold text-sm">28 Juli, 2023</h6>
-                    <span class="text-xs">14.34 - 14.39</span>
-                  </div>
-                  <div class="d-flex align-items-center text-sm">1x</div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-1 text-dark font-weight-bold text-sm">28 Juli, 2023</h6>
-                    <span class="text-xs">13.34 - 13.39</span>
-                  </div>
-                  <div class="d-flex align-items-center text-sm">1x</div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-1 text-dark font-weight-bold text-sm">27 Juli, 2023</h6>
-                    <span class="text-xs">12.34 - 12.39</span>
-                  </div>
-                  <div class="d-flex align-items-center text-sm">1x</div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-1 text-dark font-weight-bold text-sm">27 Juli, 2023</h6>
-                    <span class="text-xs">11.34 - 11.39</span>
-                  </div>
-                  <div class="d-flex align-items-center text-sm">1x</div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-1 text-dark font-weight-bold text-sm">27 Juli, 2023</h6>
-                    <span class="text-xs">10.34 - 10.39</span>
-                  </div>
-                  <div class="d-flex align-items-center text-sm">1x</div>
-                </li>
+              <ul class="list-group" id="ulRiwayatAir">
               </ul>
             </div>
           </div>
@@ -1382,7 +1349,6 @@
   <script src="{{ asset('template-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script src="{{ asset('template-assets/js/plugins/chartjs.min.js') }}"></script>
   <script src="{{ asset('template-assets/js/my-main.js') }}"></script>
-  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
   <script>
     // ----- Grafik Rata Rata ------
     var grafikSuhuRataRata = document.getElementById("suhu-chart-line").getContext("2d");
@@ -2785,6 +2751,41 @@
       });
     }
 
+    function readDataNotifikasiAir() {
+      let getList = document.querySelectorAll(".liRiwayatAir");
+      for(var i = 0; i < getList.length; i++) {
+        getList[i].remove();
+      }
+      $.get("{{ route('ambilDataNotifikasiAir') }}", function(data) {
+        let ulElement = document.getElementById("ulRiwayatAir");
+        for(var i = 0; i < data.notifAirMati.length; i++) {
+          let liElement = document.createElement("li");
+            let divElement1 = document.createElement("div");
+              let h6Element1 = document.createElement("h6");
+              let spanElement1 = document.createElement("span");
+            let divElement2 = document.createElement("div");
+
+          liElement.setAttribute("class", "liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg");
+          divElement1.setAttribute("class", "d-flex flex-column");
+          h6Element1.setAttribute("class", "mb-1 text-dark font-weight-bold text-sm");
+          spanElement1.setAttribute("class", "text-xs");
+          divElement2.setAttribute("class", "d-flex align-items-center text-sm");
+
+          let bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+          h6Element1.appendChild(document.createTextNode(data.notifAirMati[i].waktu.split("-")[2].split(" ")[0] + " " + bulan[parseInt(data.notifAirMati[i].waktu.split("-")[1]) - 1] + ", " + data.notifAirMati[i].waktu.split("-")[0]));
+          spanElement1.appendChild(document.createTextNode(data.notifAirHidup[i].waktu.split(" ")[1] + " - " + data.notifAirMati[i].waktu.split(" ")[1]));
+          divElement2.appendChild(document.createTextNode("1x"));
+
+          divElement1.appendChild(h6Element1);
+          divElement1.appendChild(spanElement1);
+          liElement.appendChild(divElement1);
+          liElement.appendChild(divElement2);
+
+          ulElement.appendChild(liElement);
+        }
+      });
+    }
+
     function checkMode() {
       let airMode = document.getElementById("switch1");
       let pupukMode = document.getElementById("switch2");
@@ -2880,8 +2881,9 @@
 
     setInterval(checkMode, 5000);
     setTimeout(setModeEnabled, 6000);
-    setInterval(readAllDataRataRata, 5000);
-    setInterval(readDataIndividualSensor, 5000);
+    // setInterval(readAllDataRataRata, 5000);
+    // setInterval(readDataIndividualSensor, 5000);
+    setInterval(readDataNotifikasiAir, 5000);
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
