@@ -2880,7 +2880,7 @@
 
     setInterval(checkMode, 5000);
     setTimeout(setModeEnabled, 6000);
-    // setInterval(readAllDataRataRata, 5000);
+    setInterval(readAllDataRataRata, 5000);
     setInterval(readDataIndividualSensor, 5000);
   </script>
   <script>
