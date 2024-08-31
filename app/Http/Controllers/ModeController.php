@@ -263,4 +263,22 @@ class ModeController extends Controller {
             "notifAirMati" => $hasilMati
         ]);
     }
+
+    public function ambilDataNotifikasiPupuk() {
+        $hasilHidup = NotifikasiModeModel::select()
+            ->where("deskripsi", "Penyiraman Pupuk Telah Hidup!")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(5)
+            ->get();
+        $hasilMati = NotifikasiModeModel::select()
+            ->where("deskripsi", "Penyiraman Pupuk Telah Mati!")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(5)
+            ->get();
+
+        return response()->json([
+            "notifPupukHidup" => $hasilHidup,
+            "notifPupukMati" => $hasilMati
+        ]);
+    }
 }
