@@ -340,19 +340,19 @@
                 <div class="card-body pt-0 p-3">
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Umur:</span>
-                    <span class="text-sm">&nbsp;2.5 tahun (30 bulan)</span>
+                    <span class="text-sm" id="umur">&nbsp;2.5 tahun (30 bulan)</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Tahun Tanam:</span>
-                    <span class="text-sm">&nbsp;2020</span>
+                    <span class="text-sm" id="tahunTanam">&nbsp;2020</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Status Perlakuan:</span>
-                    <span class="text-sm">&nbsp;Masa Kritis</span>
+                    <span class="text-sm" id="masaTanaman">&nbsp;Masa Kritis</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <span class="text-md font-weight-bold text-dark">Status Tanaman:</span>
-                    <span class="text-sm">&nbsp;Generatif</span>
+                    <span class="text-sm" id="statusTanaman">&nbsp;Generatif</span>
                   </div>
                   <hr class="horizontal dark my-3">
                   <span class="text-xs mb-0">*Detail dari kebun blok satu</span>
@@ -2878,6 +2878,33 @@
         }
       });
     }
+
+    function setStatusOfKebun() {
+      let umurText = document.getElementById("umur");
+      let tahunTanamText = document.getElementById("tahunTanam");
+      let masaTanamanText = document.getElementById("masaTanaman");
+      let statusTanamanText = document.getElementById("statusTanaman");
+
+      let baseUrl = "{{ route('ambilDataStatusKebun', ['id' => '__ID__']) }}";
+      let finalUrl = baseUrl.replace("__ID__", {{$id}});
+      $.get(finalUrl, function(data) {
+        if(data.jenisUmur == "Hari") {
+          umurText.innerText = data.umurBlok + " hari yang lalu";
+        }
+        if(data.jenisUmur == "Bulan") {
+          umurText.innerText = data.umurBlok + " bulan yang lalu";
+        }
+        if(data.jenisUmur == "Tahun") {
+          umurText.innerText = data.umurBlok + " tahun yang lalu";
+        }
+
+        tahunTanamText.innerText = data.tahunBlok;
+        masaTanamanText.innerText = data.statusBlok;
+        statusTanamanText.innerText = data.faseBlok;
+      });
+    }
+
+    setStatusOfKebun();
 
     setInterval(checkMode, 5000);
     setTimeout(setModeEnabled, 6000);
