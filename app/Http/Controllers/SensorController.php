@@ -530,4 +530,16 @@ class SensorController extends Controller {
             "cahaya" => $kel2
         ]);
     }
+
+    public function ambilDataNotifikasiSensor() {
+        $hasil = NotifikasiSensorModel::select()
+            ->where("level_notifikasi", "Bahaya")
+            ->orderBy("id_notifikasi", "desc")
+            ->limit(5)
+            ->get();
+
+        return response()->json([
+            "notifSensor" => $hasil
+        ]);
+    }
 }
