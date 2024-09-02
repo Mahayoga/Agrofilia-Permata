@@ -36,6 +36,7 @@ Route::get('/dataUdaraSensor/notifikasi', [App\Http\Controllers\SensorController
 Route::get('/dataTanahSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'dataNotifikasiTanah'])->name('dataNotifikasiTanah');
 Route::get('/dataModeAir/notifikasi', [App\Http\Controllers\ModeController::class, 'ambilDataNotifikasiAir'])->name('ambilDataNotifikasiAir');
 Route::get('/dataModePupuk/notifikasi', [App\Http\Controllers\ModeController::class, 'ambilDataNotifikasiPupuk'])->name('ambilDataNotifikasiPupuk');
+Route::get('/dataSemuaSensor/notifikasi', [App\Http\Controllers\SensorController::class, 'ambilDataNotifikasiSensor'])->name('ambilDataNotifikasiSensor');
 
 Route::get('/dataPupukSensor/lastUpdateTime', [App\Http\Controllers\ModeController::class, 'pupukLastUpdateTime'])->name('pupukLastUpdateTime');
 Route::get('/dataairSensor/lastUpdateTime', [App\Http\Controllers\ModeController::class, 'airLastUpdateTime'])->name('airLastUpdateTime');
