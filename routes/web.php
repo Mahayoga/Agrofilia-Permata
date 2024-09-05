@@ -61,7 +61,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('dashboard/tabel-data', function() {
-    return view('pages/tables');
+    return view('pages.admin.tabeldata.index');
 })->name('tableView');
 
 Route::get('dashboard/data-master', function() {
@@ -71,11 +71,11 @@ Route::get('dashboard/data-master', function() {
 Route::get('dashboard/notifikasi', [App\Http\Controllers\NotifikasiController::class, 'ambilDataNotifikasi'])->name('notificationView');
 
 Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
-    return view('pages/tabel-blok', ['id' => $id]);
+    return view('pages.admin.tabelblok.index', ['id' => $id]);
 })->name('blocksTableView');
 
 Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) {
-    return view('pages/info-kebun', ['id' => $id]);
+    return view('pages.admin.detailblok.index', ['id' => $id]);
 })->name('specificBlockView');
 
 Route::middleware('auth')->group(function () {

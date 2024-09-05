@@ -12,6 +12,6 @@ class NotifikasiController extends Controller {
             ->limit(100)
             ->get();
 
-        return view("pages.notifications", compact("hasil"));
+        return view("pages.admin.notifikasi.index", compact("hasil"));
     }
 }

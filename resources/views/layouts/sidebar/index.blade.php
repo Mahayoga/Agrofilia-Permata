@@ -1,70 +1,52 @@
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-  <div class="container-fluid py-1 px-3">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-      </ol>
-      <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-    </nav>
-    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-        <div class="input-group input-group-outline">
-          <label class="form-label">Type here...</label>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-      <ul class="navbar-nav  justify-content-end">
-        <!-- <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
-        </li> -->
-        <!-- <li class="mt-2">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-        </li> -->
-        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-            <div class="sidenav-toggler-inner">
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item px-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0">
-            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-            <ul class="p-0">{{ Auth::user()->name }}</ul>
-          </a>
-        </li>
-        <li class="nav-item dropdown pe-2 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <svg width="10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 60 l200 0 l-100 100" fill="#7b809a" stroke="black"></path>
-            </svg>
-          </a>
-          <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-            <li class="mb-2">
-              <a class="dropdown-item border-radius-md" href="javascript:;">
-                <div class="d-flex py-1">
-                  Profile
-                </div>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="dropdown-item border-radius-md" href="{{ route('logout') }}">
-                <div class="d-flex py-1">
-                  Logout
-                </div>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item d-flex align-items-center">
-          <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-            <i class="fa fa-user me-sm-1"></i>
-            {{-- <span class="d-sm-inline d-none">Sign In</span> --}}
-          </a>
-        </li>
-      </ul>
-    </div>
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+  <div class="sidenav-header">
+    <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <a class="navbar-brand m-0 d-flex align-items-center" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+      <img src="{{ asset('img/Agrofilia Logo (crop).png') }}" class="navbar-brand-img h-100" alt="main_logo">
+      <span class="ms-1 font-weight-bold text-white">Agrofilia Permata</span>
+    </a>
   </div>
-</nav>
+  <hr class="horizontal light mt-0 mb-2">
+  <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="{{ Request::is('dashboard') ? 'active bg-gradient-primary' : '' }} nav-link text-white" href="{{ route('dashboard') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">dashboard</i>
+          </div>
+          <span class="nav-link-text ms-1">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('dashboard/tabel-data*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('tableView') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+          </div>
+          <span class="nav-link-text ms-1">Tables</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('dashboard/data-master') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('historyDataView') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+          </div>
+          <span class="nav-link-text ms-1">Riwayat Data</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('dashboard/notifikasi') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('notificationView') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">notifications</i>
+          </div>
+          <span class="nav-link-text ms-1">Notifications</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+    <div class="mx-3">
+      <a class="btn btn-outline-primary mt-4 w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree" type="button">Documentation</a>
+      <a class="btn bg-gradient-primary w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+    </div>
+  </div> -->
+</aside>
