@@ -174,7 +174,60 @@
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Tabel Notifikasi Sensor</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 w-100">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Notifikasi</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Indeks Notifikasi</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Deskripsi</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Lokasi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbodyBlok">
+                    @foreach ($hasil as $item)
+                      <tr>
+                        <td class="align-middle">
+                          <span class="text-secondary text-xxs">{{ $item->nama_notifikasi }}</span>
+                        </td>
+                        <td>
+                          @if($item->level_notifikasi == "Bahaya")
+                          <div class="d-flex px-2 py-1">
+                            <h6 class="mb-0 badge badge-sm bg-gradient-danger">{{ $item->level_notifikasi }}</h6>
+                          </div>
+                          @elseif($item->level_notifikasi == "Peringatan")
+                          <div class="d-flex px-2 py-1">
+                            <h6 class="mb-0 badge badge-sm bg-gradient-warning">{{ $item->level_notifikasi }}</h6>
+                          </div>
+                          @endif
+                        </td>
+                        <td class="text-sm">
+                          <span class="text-secondary text-xxs">{{ $item->deskripsi }}</span>
+                        </td>
+                        <td class="text-sm">
+                          <span class="text-secondary text-xxs">Kebun Vanili Rembangan - Blok 1</span>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mx-auto">
           <div class="card mt-4">
             <div class="card-header p-3">
               <h5 class="mb-0">Notifikasi</h5>
@@ -191,76 +244,6 @@
                 alert-dark
               --}}
               <div class="alert alert-primary alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-secondary alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-success alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-danger alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-warning alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-info alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-light alert-dismissible text-white" role="alert">
-                <div class="d-flex flex-column">
-                  <div class="text-md">Peringatan</div>
-                  <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>
-                  <div class="text-xs mt-2">16 Agustus 2024 21.22</div>
-                </div>
-                <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="alert alert-dark alert-dismissible text-white" role="alert">
                 <div class="d-flex flex-column">
                   <div class="text-md">Peringatan</div>
                   <div class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum eos, hic omnis unde nemo aspernatur velit fugiat ex, maiores porro architecto beatae. Corrupti provident porro officia molestiae inventore, voluptates harum. <a href="javascript:;" class="alert-link text-white">Cek disini</a></div>

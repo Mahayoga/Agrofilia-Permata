@@ -1068,7 +1068,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 mt-4">
+        {{-- <div class="col-md-5 mt-4">
           <div class="card h-100 mb-4">
             <div class="card-header pb-0 px-3">
               <div class="row">
@@ -1078,11 +1078,11 @@
                 {{-- <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
                   <i class="material-icons me-2 text-lg">date_range</i>
                   <small>23 - 30 March 2020</small>
-                </div> --}}
+                </div>
               </div>
             </div>
             <div class="card-body pt-4 p-3">
-              {{-- <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6> --}}
+              {{-- <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                   <div class="d-flex align-items-center">
@@ -1162,7 +1162,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <footer class="footer py-4  ">
         <div class="container-fluid">

@@ -68,9 +68,7 @@ Route::get('dashboard/data-master', function() {
     return view('pages/data-master');
 })->name('historyDataView');
 
-Route::get('dashboard/notifikasi', function() {
-    return view('pages/notifications');
-})->name('notificationView');
+Route::get('dashboard/notifikasi', [App\Http\Controllers\NotifikasiController::class, 'ambilDataNotifikasi'])->name('notificationView');
 
 Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
     return view('pages/tabel-blok', ['id' => $id]);
