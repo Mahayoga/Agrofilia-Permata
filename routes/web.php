@@ -57,7 +57,7 @@ Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setP
 Route::get('/dataStatusKebun/{id}', [App\Http\Controllers\KebunController::class, 'ambilDataStatusKebun'])->name('ambilDataStatusKebun');
 
 Route::get('/dashboard', function () {
-    return view('dashboard-template');
+    return view('layouts.app');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('dashboard/tabel-data', function() {
