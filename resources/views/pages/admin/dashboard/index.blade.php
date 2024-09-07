@@ -14,7 +14,11 @@
       </div>
       <hr class="dark horizontal my-0">
       <div class="card-footer p-3">
-        <p class="mb-0">Bulan saat ini: <span class="text-success text-sm font-weight-bolder">Agustus</span></p>
+        <p class="mb-0">Bulan saat ini: <span class="text-success text-sm font-weight-bolder">
+          @php
+            echo date("F");
+          @endphp
+        </span></p>
       </div>
     </div>
   </div>
