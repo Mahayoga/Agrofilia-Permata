@@ -11,20 +11,27 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0 w-100">
+            <table class="table align-items-center mb-0 w-100 d-block overflow-auto" style="max-height: 400px">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Notifikasi</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Indeks Notifikasi</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Deskripsi</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Lokasi</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">NO</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Indeks Notifikasi</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0 w-100 ps-2">Deskripsi</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Waktu</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Lokasi</th>
                 </tr>
               </thead>
               <tbody id="tbodyBlok">
-                @foreach ($hasil as $item)
+                @php
+                  $i = 0;
+                @endphp
+                @foreach ($hasilSensor as $item)
                   <tr>
-                    <td class="align-middle">
-                      <span class="text-secondary text-xxs">{{ $item->nama_notifikasi }}</span>
+                    @php
+                      $i++;
+                    @endphp
+                    <td class="text-center align-middle">
+                      <span class="text-secondary text-xs font-weight-bold">{{ $i }}</span>
                     </td>
                     <td>
                       @if($item->level_notifikasi == "Bahaya")
@@ -39,6 +46,68 @@
                     </td>
                     <td class="text-sm">
                       <span class="text-secondary text-xxs">{{ $item->deskripsi }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <span class="text-secondary text-xxs">{{ $item->created_at }}</span>
+                    </td>
+                    <td class="text-sm">
+                      <span class="text-secondary text-xxs">Kebun Vanili Rembangan - Blok 1</span>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Tabel Notifikasi Mode</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0 w-100 d-block overflow-auto" style="max-height: 400px">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">NO</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Indeks Notifikasi</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0 w-100 ps-2">Deskripsi</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Waktu</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder bg-white position-sticky top-0">Lokasi</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyBlok">
+                @php
+                  $i = 0;
+                @endphp
+                @foreach ($hasilMode as $item)
+                  <tr>
+                    @php
+                      $i++;
+                    @endphp
+                    <td class="text-center align-middle">
+                      <span class="text-secondary text-xs font-weight-bold">{{ $i }}</span>
+                    </td>
+                    <td>
+                      @if($item->level_notifikasi == "Bahaya")
+                      <div class="d-flex px-2 py-1">
+                        <h6 class="mb-0 badge badge-sm bg-gradient-danger">{{ $item->level_notifikasi }}</h6>
+                      </div>
+                      @elseif($item->level_notifikasi == "Peringatan")
+                      <div class="d-flex px-2 py-1">
+                        <h6 class="mb-0 badge badge-sm bg-gradient-warning">{{ $item->level_notifikasi }}</h6>
+                      </div>
+                      @endif
+                    </td>
+                    <td class="text-sm">
+                      <span class="text-secondary text-xxs">{{ $item->deskripsi }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <span class="text-secondary text-xxs">{{ $item->waktu }}</span>
                     </td>
                     <td class="text-sm">
                       <span class="text-secondary text-xxs">Kebun Vanili Rembangan - Blok 1</span>
