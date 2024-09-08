@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlokModel extends Model {
     use HasFactory;
-    protected $table = 'Detail_Blok';
+    protected $table = 'detail_blok';
     protected $primaryKey = 'id_detail_blok';
-    protected $fillable = [];
+    protected $fillable = [
+        'nama_blok',
+        'kondisi_blok',
+        'status_blok',
+        'fase_tanaman',
+        'id_kebun'
+    ];
 }

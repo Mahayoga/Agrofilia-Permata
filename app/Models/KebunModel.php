@@ -9,5 +9,10 @@ class KebunModel extends Model {
     use HasFactory;
     protected $table = 'kebun';
     protected $primaryKey = 'id_kebun';
-    protected $fillable = [];
+    protected $fillable = [
+        'nama_kebun',
+        'nama_daerah',
+        'lokasi_kebun',
+        'status_kebun',
+    ];
 }

@@ -9,5 +9,6 @@ class NotifikasiModeModel extends Model {
     use HasFactory;
     protected $table = 'notifikasi_mode';
     protected $primaryKey = 'id_notifikasi';
+    public $timestamps = false;
     protected $fillable = [];
 }
