@@ -76,6 +76,8 @@ Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) 
     return view('pages.admin.detailblok.index', ['id' => $id]);
 })->name('specificBlockView');
 
+Route::resource('pengguna', App\Http\Controllers\UsersController::class);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
