@@ -61,7 +61,7 @@ class KebunController extends Controller {
 
     public function ambilDataKebunBerbahaya() {
         $dataKebun = KebunModel::select()
-            ->join("Detail_Blok", "kebun.id_kebun", "=", "Detail_Blok.id_kebun",)
+            ->join("detail_blok", "kebun.id_kebun", "=", "detail_blok.id_kebun",)
             ->where("kondisi_blok", "Bahaya")
             ->orWhere("kondisi_blok", "Peringatan")
             ->get();
