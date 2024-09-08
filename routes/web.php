@@ -60,9 +60,7 @@ Route::get('/dashboard', function () {
     return view('pages.admin.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('dashboard/tabel-data', function() {
-    return view('pages.admin.tabeldata.index');
-})->name('tableView');
+Route::get('dashboard/tabel-data', [App\Http\Controllers\TabelDataController::class, 'index'])->name('tableView');
 
 Route::get('dashboard/data-master', function() {
     return view('pages.admin.riwayatdata.index');
