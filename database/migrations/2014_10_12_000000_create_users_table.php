@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('role');
             $table->string('nomor_telepon');
             $table->string('alamat');
+            $table->text('deskripsi');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
