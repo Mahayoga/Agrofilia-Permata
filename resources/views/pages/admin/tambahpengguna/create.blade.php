@@ -63,6 +63,19 @@
           <div class="col-md-4">
             <div class="card-body pt-0">
               <div class="form-group">
+                <label for="deskripsi">Deskripsi
+                  @if ($errors->has('deskripsi'))
+                    <span class="text-danger">*</span>
+                  @endif
+                </label>
+                <textarea placeholder="Masukkan deskripsi" type="textarea" name="deskripsi" id="deskripsi" class="form-control p-2 border @error('deskripsi') is-invalid @enderror">{{ old('deskripsi') }}</textarea>
+                <small id="deskripsi" class="form-text text-xs text-muted">Isikan deskripsi anda</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-body pt-0">
+              <div class="form-group">
                 <label for="email">Email
                   @if ($errors->has('email'))
                     <span class="text-danger">*</span>
