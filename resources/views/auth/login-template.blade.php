@@ -52,13 +52,16 @@
               <div class="card-body">
                 <form action="{{ route('login') }}" method="POST" class="text-start">
                   @csrf
-                  <div class="input-group input-group-outline my-3">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control">
+                  <div class="form-group input-group-outline my-3">
+                    <label for="email">Email</label>
+                    <input value="{{ old('email') }}" placeholder="Masukkan email anda" type="email" id="email" name="email" class="form-control p-2 border @error('email') is-invalid @enderror">
                   </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control">
+                  <div class="form-group input-group-outline mb-3">
+                    <label for="password">Password</label>
+                    <input value="{{ old('password') }}" placeholder="Masukkan kata sandi" type="password" id="password" name="password" class="form-control p-2 border @error('password') is-invalid @enderror">
+                    @if($errors->has('password') || $errors->has('email'))
+                      <small id="password" class="form-text text-xs text-danger">Email atau kata sandi salah</small>
+                    @endif
                   </div>                  
                   <div class="text-center">
                     <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
