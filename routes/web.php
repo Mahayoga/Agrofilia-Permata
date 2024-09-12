@@ -62,10 +62,6 @@ Route::get('/dashboard', function () {
 
 Route::get('dashboard/tabel-data', [App\Http\Controllers\TabelDataController::class, 'index'])->name('tableView');
 
-Route::get('dashboard/data-master', function() {
-    return view('pages.admin.riwayatdata.index');
-})->name('historyDataView');
-
 Route::get('dashboard/notifikasi', [App\Http\Controllers\NotifikasiController::class, 'ambilDataNotifikasi'])->name('notificationView');
 
 Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
@@ -78,6 +74,8 @@ Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) 
 
 Route::resource('pengguna', App\Http\Controllers\UsersController::class);
 Route::resource('profil', App\Http\Controllers\ProfileController::class);
+Route::resource('galeri', App\Http\Controllers\GaleriController::class);
+Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
