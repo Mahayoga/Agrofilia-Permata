@@ -111,8 +111,8 @@
         </div>
       </div>
       <div class="card-body">
-        <h6 class="mb-0 ">Suhu rata-rata</h6>
-        <p class="text-sm ">Suhu rata-rata per Minggu</p>
+        <h6 class="mb-0 ">Suhu Tidak Normal</h6>
+        <p class="text-sm ">Suhu melebihi batas normal per Minggu</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <i class="material-icons text-sm my-auto me-1">info</i>
@@ -124,8 +124,8 @@
   <div class="col-lg-4 col-md-4 mt-4 mb-4">
     <div class="card z-index-2 h-100">
       <div class="card-body">
-        <h6 class="mb-0 ">Suhu rata-rata</h6>
-        <p class="text-sm ">Frekuensi Suhu Normal pada Semua Kebun</p>
+        <h6 class="mb-0 ">Suhu</h6>
+        <p class="text-sm ">Frekuensi Suhu Tidak Normal pada Semua Kebun</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <table width="100%">
@@ -152,8 +152,8 @@
         </div>
       </div>
       <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
-        <p class="text-sm ">Intensitas Cahaya rata-rata per Minggu</p>
+        <h6 class="mb-0 ">Intensitas Cahaya Tidak Normal</h6>
+        <p class="text-sm ">Intensitas Cahaya melebihi batas normal per Minggu</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <i class="material-icons text-sm my-auto me-1">info</i>
@@ -165,8 +165,8 @@
   <div class="col-lg-4 col-md-4 mt-4 mb-4">
     <div class="card z-index-2 h-100">
       <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
-        <p class="text-sm ">Frekuensi Cahaya Normal pada Semua Kebun</p>
+        <h6 class="mb-0 ">Intensitas Cahaya</h6>
+        <p class="text-sm ">Frekuensi Cahaya Tidak Normal pada Semua Kebun</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <table width="100%">
@@ -193,8 +193,8 @@
         </div>
       </div>
       <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
-        <p class="text-sm ">Kelembaban Udara rata-rata per Minggu</p>
+        <h6 class="mb-0 ">Kelembaban Udara Tidak Normal</h6>
+        <p class="text-sm ">Kelembaban Udara melebihi batas normal per Minggu</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <i class="material-icons text-sm my-auto me-1">info</i>
@@ -206,8 +206,8 @@
   <div class="col-lg-4 col-md-4 mt-4 mb-4">
     <div class="card z-index-2 h-100">
       <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
-        <p class="text-sm ">Frekuensi Kelembaban Udara Normal pada Semua Kebun</p>
+        <h6 class="mb-0 ">Kelembaban Udara</h6>
+        <p class="text-sm ">Frekuensi Kelembaban Udara Tidak Normal pada Semua Kebun</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <table width="100%">
@@ -234,8 +234,8 @@
         </div>
       </div>
       <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
-        <p class="text-sm ">Kelembaban Tanah rata-rata per Minggu</p>
+        <h6 class="mb-0 ">Kelembaban Tanah Tidak Normal</h6>
+        <p class="text-sm ">Kelembaban Tanah melebihi batas normal per Minggu</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <i class="material-icons text-sm my-auto me-1">info</i>
@@ -247,8 +247,8 @@
   <div class="col-lg-4 col-md-4 mt-4 mb-4">
     <div class="card z-index-2 h-100">
       <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
-        <p class="text-sm ">Frekuensi Kelembaban Tanah Normal pada Semua Kebun</p>
+        <h6 class="mb-0 ">Kelembaban Tanah</h6>
+        <p class="text-sm ">Frekuensi Kelembaban Tanah Tidak Normal pada Semua Kebun</p>
         <hr class="dark horizontal">
         <div class="d-flex ">
           <table width="100%">
@@ -459,7 +459,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Suhu (°C)",
+        label: "kali",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -547,7 +547,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Suhu (°C)",
+        label: "kali",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -635,7 +635,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Suhu (°C)",
+        label: "kali",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -723,7 +723,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Suhu (°C)",
+        label: "kali",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,

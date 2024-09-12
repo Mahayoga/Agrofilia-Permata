@@ -119,21 +119,26 @@ class RiwayatDataController extends Controller
     }
 
     public function show(Request $request) {
+        $splitRequestDate = explode("-", $request->tgl);
+        $limitDate = date("Y-m-d", mktime(0, 0, 0, $splitRequestDate[1], $splitRequestDate[2], $splitRequestDate[0]) - (86400 * 7));
         $totalJumlahAirPerHari = NotifikasiModeModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah, waktu"))
             ->where("deskripsi", "Penyiraman Air Telah Hidup!")
             ->where("waktu", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("waktu", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(waktu, 1, 10)"))
             ->limit("7")
             ->get();
         $hariPerTotalJumlahAirPerHari = NotifikasiModeModel::select(DB::raw("waktu"))
             ->where("deskripsi", "Penyiraman Air Telah Hidup!")
             ->where("waktu", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("waktu", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(waktu, 1, 10)"))
             ->limit("7")
             ->get();
         $totalJumlahPupukPerHari = NotifikasiModeModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah, waktu"))
             ->where("deskripsi", "Penyiraman Pupuk Telah Hidup!")
             ->where("waktu", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("waktu", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(waktu, 1, 10)"))
             ->limit("7")
             ->get();
@@ -141,6 +146,7 @@ class RiwayatDataController extends Controller
         $hariPerTotalJumlahPupukPerHari = NotifikasiModeModel::select(DB::raw("waktu"))
             ->where("deskripsi", "Penyiraman Pupuk Telah Hidup!")
             ->where("waktu", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("waktu", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(waktu, 1, 10)"))
             ->limit("7")
             ->get();
@@ -148,6 +154,7 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Suhu")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -155,6 +162,7 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Suhu")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -162,6 +170,7 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Intensitas Cahaya")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -169,6 +178,7 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Intensitas Cahaya")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -176,6 +186,7 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Kelembaban Udara")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -183,13 +194,15 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Kelembaban Udara")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
-            ->limit("7")
+            ->limit(7)
             ->get();
         $totalJumlahTanahPerHari = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah, created_at"))
             ->where("nama_notifikasi", "Peringatan Kelembaban Tanah")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -197,8 +210,9 @@ class RiwayatDataController extends Controller
             ->where("nama_notifikasi", "Peringatan Kelembaban Tanah")
             ->where("level_notifikasi", "Bahaya")
             ->where("created_at", "<", DB::raw("'$request->tgl 23:59:59'"))
+            ->where("created_at", ">", DB::raw("'$limitDate 23:59:59'"))
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
-            ->limit("7")
+            ->limit(7)
             ->get();
         $jumlahIDAir = $this->setJumlahDataMode($totalJumlahAirPerHari, $hariPerTotalJumlahAirPerHari, "jumlahID");
         $hariAir = $this->setJumlahDataMode($totalJumlahAirPerHari, $hariPerTotalJumlahAirPerHari, "hari");
@@ -241,11 +255,11 @@ class RiwayatDataController extends Controller
         $jumlahID = [0, 0, 0, 0, 0, 0, 0];
         $hari = [0, 0, 0, 0, 0, 0, 0];
         for($i = 0; $i < count($totalJumlahData); $i++) {
-            $arrTemp = explode("-", $hariPerTotalJumlahDataPerHari[$i]->waktu);
+            $arrTemp = explode("-", $hariPerTotalJumlahDataPerHari[(count($hariPerTotalJumlahDataPerHari) - 1) - $i]->waktu);
             $dateArr = explode(" ", $arrTemp[2]);
 
-            $hari[$i-6] = date("Y-m-d", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
-            $jumlahID[$i-6] = $totalJumlahData[$i]->jumlah;
+            $hari[6 - $i] = date("Y-m-d", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+            $jumlahID[6 - $i] = $totalJumlahData[(count($totalJumlahData) - 1) - $i]->jumlah;
         }
         if($param === "jumlahID") {
             return $jumlahID;
@@ -257,11 +271,11 @@ class RiwayatDataController extends Controller
         $jumlahID = [0, 0, 0, 0, 0, 0, 0];
         $hari = [0, 0, 0, 0, 0, 0, 0];
         for($i = 0; $i < count($totalJumlahData); $i++) {
-            $arrTemp = explode("-", $hariPerTotalJumlahDataPerHari[$i]->created_at);
+            $arrTemp = explode("-", $hariPerTotalJumlahDataPerHari[(count($hariPerTotalJumlahDataPerHari) - 1) - $i]->created_at);
             $dateArr = explode(" ", $arrTemp[2]);
-            
-            $hari[$i-6] = date("Y-m-d", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
-            $jumlahID[$i-6] = $totalJumlahData[$i]->jumlah;
+
+            $hari[6 - $i] = date("Y-m-d", mktime(0, 0, 0, $arrTemp[1], $dateArr[0], $arrTemp[0]));
+            $jumlahID[6 - $i] = $totalJumlahData[(count($totalJumlahData) - 1) - $i]->jumlah;
         }
         if($param === "jumlahID") {
             return $jumlahID;
