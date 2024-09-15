@@ -9,7 +9,11 @@ use App\Models\User;
 class UsersController extends Controller
 {
     public function create() {
-        return view('pages.admin.tambahpengguna.create');
+        if(Auth::user()->role == "Super Admin") {
+            return view('pages.admin.tambahpengguna.create');
+        } else {
+            abort('403', 'Forbidden');
+        }
     }
 
     public function show($id) {
@@ -19,7 +23,7 @@ class UsersController extends Controller
                 ->get()[0];
             return view('pages.admin.profil.show', compact("dataUser"));
         } elseif(Auth::user()->role != "Super Admin" && $id != "show") {
-            return view('layouts.errorpage.forbidden');
+            abort('403', 'Forbidden');
         }
 
         return view('pages.admin.profil.show', ['dataUser' => Auth::user()]);
