@@ -53,7 +53,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="{{ Request::is('galeri') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('galeri.index') }}">
+        <a class="{{ Request::is('galeri*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('galeri.index') }}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">folder</i>
           </div>
