@@ -61,7 +61,7 @@
                       <td class="align-middle text-center">
                         <a href="{{ route('blocksTableView', ['id' => $item->id_kebun]) }}" class="text-xs font-weight-bold text-uppercase">Periksa</a>
                         <span>|</span>
-                        <a href="" class="text-xs font-weight-bold text-uppercase">Edit</a>
+                        <a href="{{ route('kebun.edit', ['kebun' => $item->id_kebun]) }}" class="text-xs font-weight-bold text-uppercase">Edit</a>
                       </td>
                     </tr>
                 @endforeach

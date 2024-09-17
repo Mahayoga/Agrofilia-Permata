@@ -11,6 +11,57 @@ use Illuminate\Support\Facades\DB;
 
 class KebunController extends Controller {
 
+    public function create() {
+        return view("pages.admin.kebun.create");
+    }
+
+    public function edit($id) {
+        $dataKebun = KebunModel::select()
+            ->where('id_kebun', $id)
+            ->get();
+
+        $lokasiKebun = explode(',', $dataKebun[0]->lokasi_kebun);
+
+        return view('pages.admin.kebun.edit', compact('dataKebun', 'lokasiKebun'));
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'nama' => 'required|max:255',
+            'daerah' => 'required|max:255',
+            'kecamatan' => 'required|max:255',
+            'provinsi' => 'required|max:255'
+        ]);
+
+        $dataKebun = KebunModel::findOrFail($id);
+
+        $dataKebun->update([
+            'nama_kebun' => $request->nama,
+            'nama_daerah' => $request->daerah,
+            'lokasi_kebun' => $request->kecamatan . ", " . $request->provinsi,
+        ]);
+
+        return redirect("dashboard/tabel-data")->with("success","Data berhasil di edit!");
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'nama' => 'required|max:255',
+            'daerah' => 'required|max:255',
+            'kecamatan' => 'required|max:255',
+            'provinsi' => 'required|max:255'
+        ]);
+
+        KebunModel::create([
+            'nama_kebun' => $request->nama,
+            'nama_daerah' => $request->daerah,
+            'lokasi_kebun' => $request->kecamatan . ", " . $request->provinsi,
+            'status_kebun' => "Normal"
+        ]);
+
+        return redirect("dashboard/tabel-data")->with("success","Data berhasil di simpan!");
+    }
+
     public function kebunOptions() {
         $daftarKebun = KebunModel::select()->get();
         return response()->json([

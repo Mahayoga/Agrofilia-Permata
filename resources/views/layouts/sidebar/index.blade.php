@@ -44,6 +44,14 @@
       <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Halaman Tambah Data</h6>
       </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('kebun*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('kebun.create') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">folder</i>
+          </div>
+          <span class="nav-link-text ms-1">Data Kebun</span>
+        </a>
+      </li>
       @if (Auth::user()->role == "Super Admin")
         <li class="nav-item">
           <a class="{{ Request::is('pengguna/create') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('pengguna.create') }}">
