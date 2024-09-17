@@ -77,6 +77,7 @@ Route::resource('profil', App\Http\Controllers\ProfileController::class);
 Route::resource('galeri', App\Http\Controllers\GaleriController::class);
 Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
 Route::resource('kebun', App\Http\Controllers\KebunController::class);
+Route::resource('blok', App\Http\Controllers\BlokController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

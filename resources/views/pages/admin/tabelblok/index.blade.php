@@ -71,8 +71,10 @@
 
 												let baseUrl = "{{ route('specificBlockView', ['id_blok' => '__ID__']) }}";
 												let finalUrl = baseUrl.replace("__ID__", data.daftar_blok[i].id_detail_blok);
+                        let baseUrlEdit = "{{ route('blok.edit', ['blok' => '__ID__']) }}";
+												let finalUrlEdit = baseUrlEdit.replace("__ID__", data.daftar_blok[i].id_detail_blok);
 												anchorElement1.setAttribute("href", finalUrl);
-												anchorElement2.setAttribute("href", "belum_ada");
+												anchorElement2.setAttribute("href", finalUrlEdit);
 
 													divElement1.appendChild(headingSix1);
 												tableData1.appendChild(divElement1);
