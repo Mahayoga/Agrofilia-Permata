@@ -26,10 +26,10 @@
                   @endif
                 </label>
                 <select name="role" id="" class="form-control p-2 border @error('role') is-invalid @enderror">
-                  <option {{ old('role') == '' ? 'selected':''; }}  value="">Pilih</option>
-                  <option {{ old('role') == 'Admin' ? 'selected':''; }}  value="Admin">Admin</option>
-                  <option {{ old('role') == 'Manager' ? 'selected':''; }}  value="Manager">Manager</option>
-                  <option {{ old('role') == 'Pengurus Kebun' ? 'selected':''; }}  value="Pengurus Kebun">Pengurus Kebun</option>
+                  <option {{ old('role') == '' ? 'selected':'' }}  value="">Pilih</option>
+                  <option {{ old('role') == 'Admin' ? 'selected':'' }}  value="Admin">Admin</option>
+                  <option {{ old('role') == 'Manager' ? 'selected':'' }}  value="Manager">Manager</option>
+                  <option {{ old('role') == 'Pengurus Kebun' ? 'selected':'' }}  value="Pengurus Kebun">Pengurus Kebun</option>
                 </select>
               </div>
             </div>
