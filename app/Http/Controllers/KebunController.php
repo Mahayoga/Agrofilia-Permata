@@ -70,7 +70,9 @@ class KebunController extends Controller {
     }
 
     public function blokOptions($id_kebun) {
-        $daftarBlok = BlokModel::select()->get();
+        $daftarBlok = BlokModel::select()
+            ->where('id_kebun', $id_kebun)
+            ->get();
         return response()->json([
             "daftar_blok" => $daftarBlok,
             "dataLength" => count($daftarBlok)

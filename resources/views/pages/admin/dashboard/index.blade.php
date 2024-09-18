@@ -26,7 +26,7 @@
 <div class="row mt-4">
   <div class="col-lg-12 col-md-12 mb-4">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
         <div class="card h-100">
           <div class="card-header">
             <h6 class="mb-0 ">Pilih kebun yang akan ditampilkan</h6>
@@ -35,14 +35,16 @@
             <select class="select-option p-3" name="kebun" id="kebun" onchange="testRes()">
               <script>
                 $.get("{{ route('listKebun') }}", function(data) {
-                  // console.log(data.daftar_kebun[0].nama_kebun);
-                  const theElement = document.createElement("option");
-                  const contentElement = document.createTextNode(data.daftar_kebun[0].nama_kebun);
-                  theElement.setAttribute("value", data.daftar_kebun[0].id_kebun);
-                  theElement.appendChild(contentElement);
+                  // console.log(data.daftar_kebun.length);
+                  for(var i = 0; i < data.daftar_kebun.length; i++) {
+                    const theElement = document.createElement("option");
+                    const contentElement = document.createTextNode(data.daftar_kebun[i].nama_kebun);
+                    theElement.setAttribute("value", data.daftar_kebun[i].id_kebun);
+                    theElement.appendChild(contentElement);
 
-                  const parentElement = document.getElementById("kebun");
-                  parentElement.appendChild(theElement);
+                    const parentElement = document.getElementById("kebun");
+                    parentElement.appendChild(theElement);
+                  }
                 });
               </script>
               <option value="notSelected">-- Pilih --</option>
@@ -50,29 +52,34 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 mt-3">
+      <div class="col-md-4 mb-3">
         <div class="card h-100">
           <div class="card-header">
             <h6 class="mb-0 ">Pilih blok dari kebun yang akan ditampilkan</h6>
           </div>
           <div class="card-body py-0 pb-4">
-            <select class="select-option p-3" name="kebun" id="kebun-blok" onchange="setStatusOfKebun()">
+            <select class="select-option p-3" name="blok" id="kebun-blok" onchange="setStatusOfKebun()">
               <option class="" value="notSelected">-- Pilih --</option>
               <script>
                 function testRes() {
                   let theKebunOption = document.getElementById("kebun");
-                  let theOption = document.getElementById("kebun-blok");
+                  let theOption = document.getElementById("kebun");
                   let oldOption = document.querySelectorAll(".availableOpt");
 
                   for (var i = 0; i < oldOption.length; i++) {
                     oldOption[i].remove();
                   }
+                  console.log(theOption.value);
+                  
                   if (theKebunOption.value != "notSelected") {
-                    $.get("{{ route('listBlok', ['id_kebun' => " + theOption.value + "]) }}", function(data) {
+                    var baseUrl = "{{ route('listBlok', ['id_kebun' => '__ID__']) }}";
+                    var finalUrl = baseUrl.replace("__ID__", theOption.value);
+                    $.get(finalUrl, function(data) {
                       for (var i = 0; i < data.dataLength; i++) {
+                        console.log(data);
                         const theElement = document.createElement("option");
-                        const contentElement = document.createTextNode(data.daftar_blok[i].nama_blok);
-                        theElement.setAttribute("value", data.daftar_blok[i].id_detail_blok);
+                        const contentElement = document.createTextNode(data.daftar_blok[0].nama_blok);
+                        theElement.setAttribute("value", data.daftar_blok[0].id_detail_blok);
                         theElement.setAttribute("class", "availableOpt");
                         theElement.appendChild(contentElement);
 
@@ -87,7 +94,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 mt-3">
+      <div class="col-md-4 mb-3">
         <div class="card h-100">
           <div class="card-header">
             <h6 class="mb-0 ">Status singkat kebun</h6>
