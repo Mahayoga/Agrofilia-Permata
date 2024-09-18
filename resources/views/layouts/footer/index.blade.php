@@ -7,7 +7,7 @@
             document.write(new Date().getFullYear())
           </script>,
           made with <i class="fa fa-heart"></i> by
-          <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Vanili Dev</a>
+          <a href="https://jti.polije.ac.id/lab/ksi" class="font-weight-bold" target="_blank">Lab. KSI Polije</a>
           for a better web.
         </div>
       </div>

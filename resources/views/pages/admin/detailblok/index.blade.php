@@ -204,7 +204,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 bg-light rounded p-4">
+                  <div class="col-md-4 bg-light rounded p-4 mt-2">
                     <h5 class="text-center">Detail Suhu</h5>
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataSuhu">
@@ -246,7 +246,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 bg-light rounded p-4">
+                  <div class="col-md-4 bg-light rounded p-4 mt-2">
                     <h5 class="text-center">Detail Cahaya</h5>
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataCahaya">
@@ -288,7 +288,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 bg-light rounded p-4">
+                  <div class="col-md-4 bg-light rounded p-4 mt-2">
                     <h5 class="text-center">Detail Kelembaban Udara</h5>
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataKelembaban">
@@ -330,7 +330,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 bg-light rounded p-4">
+                  <div class="col-md-4 bg-light rounded p-4 mt-2">
                     <h5 class="text-center">Detail Kelembaban Tanah</h5>
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataPHTanah">
@@ -798,7 +798,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-4">
       <div class="card h-100">
         <div class="card-header pb-0 p-3">
           <div class="row">
@@ -816,7 +816,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-4">
       <div class="card h-100">
         <div class="card-header pb-0 p-3">
           <div class="row">
@@ -862,7 +862,7 @@
         </div>
         <div class="card-body pt-4 p-3">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4">
               <div class="card">
                 <div class="card-header">
                   <h6 class="mb-0 text-center">Kontrol Penyiraman Air</h6>

@@ -18,249 +18,273 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars1" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Pupuk</h6>
+            <p class="text-sm ">Total Penyiraman Pupuk per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-        <p class="text-sm ">Total Penyiraman Pupuk per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-        <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValuePupuk }} kali</td>
-              </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars2" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Pupuk</h6>
+            <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValuePupuk }} kali</td>
+                  </script>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Air</h6>
-        <p class="text-sm ">Total Penyiraman Air per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Air</h6>
-        <p class="text-sm ">Frekuensi Penyiraman Air pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValueAir }} kali</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars2" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Air</h6>
+            <p class="text-sm ">Total Penyiraman Air per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Suhu Tidak Normal</h6>
-        <p class="text-sm ">Suhu melebihi batas normal per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Suhu</h6>
-        <p class="text-sm ">Frekuensi Suhu Tidak Normal pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValueSuhu }} kali</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars4" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Air</h6>
+            <p class="text-sm ">Frekuensi Penyiraman Air pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValueAir }} kali</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya Tidak Normal</h6>
-        <p class="text-sm ">Intensitas Cahaya melebihi batas normal per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya</h6>
-        <p class="text-sm ">Frekuensi Cahaya Tidak Normal pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValueCahaya }} kali</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars5" class="chart-canvas" height="170"></canvas>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars3" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Suhu Tidak Normal</h6>
+            <p class="text-sm ">Suhu melebihi batas normal per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara Tidak Normal</h6>
-        <p class="text-sm ">Kelembaban Udara melebihi batas normal per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara</h6>
-        <p class="text-sm ">Frekuensi Kelembaban Udara Tidak Normal pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValueUdara }} kali</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-bars6" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Suhu</h6>
+            <p class="text-sm ">Frekuensi Suhu Tidak Normal pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValueSuhu }} kali</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah Tidak Normal</h6>
-        <p class="text-sm ">Kelembaban Tanah melebihi batas normal per Minggu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">info</i>
-          <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars4" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Intensitas Cahaya Tidak Normal</h6>
+            <p class="text-sm ">Intensitas Cahaya melebihi batas normal per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Intensitas Cahaya</h6>
+            <p class="text-sm ">Frekuensi Cahaya Tidak Normal pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValueCahaya }} kali</td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah</h6>
-        <p class="text-sm ">Frekuensi Kelembaban Tanah Tidak Normal pada Semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm">{{ $totalValueTanah }} kali</td>
-            </tr>
-          </table>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars5" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Udara Tidak Normal</h6>
+            <p class="text-sm ">Kelembaban Udara melebihi batas normal per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Udara</h6>
+            <p class="text-sm ">Frekuensi Kelembaban Udara Tidak Normal pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValueUdara }} kali</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars6" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Tanah Tidak Normal</h6>
+            <p class="text-sm ">Kelembaban Tanah melebihi batas normal per Minggu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">info</i>
+              <p class="mb-0 text-sm"><i>Data ini di ambil dari range tanggal yang dipilih (ditampilkan per minggu)</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Tanah</h6>
+            <p class="text-sm ">Frekuensi Kelembaban Tanah Tidak Normal pada Semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm">{{ $totalValueTanah }} kali</td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-3">
         <div class="card h-100">
           <div class="card-header">
             <h6 class="mb-0 ">Pilih blok dari kebun yang akan ditampilkan</h6>
@@ -87,7 +87,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-3">
         <div class="card h-100">
           <div class="card-header">
             <h6 class="mb-0 ">Status singkat kebun</h6>
@@ -118,314 +118,338 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-pupuk" class="chart-canvas" height="170"></canvas>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-pupuk" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Pupuk</h6>
+            <p class="text-sm ">Total Penyiraman Pupuk per Minggu pada Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimePupuk"></span> yang lalu </p>
+              <script>
+                $.get("{{ route('pupukLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimePupuk").innerText = data.timeResult;
+                });
+              </script>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-        <p class="text-sm ">Total Penyiraman Pupuk per Minggu pada Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimePupuk"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('pupukLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimePupuk").innerText = data.timeResult;
-            });
-          </script>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Pupuk</h6>
-        <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Kebun dan Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliPenyiramanPupuk"></td>
-              <script>
-                $.get("{{ route('dataSensorPupukPerHari') }}", function(data) {
-                  document.getElementById("jumlahKaliPenyiramanPupuk").innerText = data.totalValue + " kali";
-                });
-              </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2  ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-air" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Pupuk</h6>
+            <p class="text-sm ">Frekuensi Penyiraman Pupuk pada Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Kebun dan Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliPenyiramanPupuk"></td>
+                  <script>
+                    $.get("{{ route('dataSensorPupukPerHari') }}", function(data) {
+                      document.getElementById("jumlahKaliPenyiramanPupuk").innerText = data.totalValue + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 "> Penyiraman Air </h6>
-        <p class="text-sm "> Total Penyiraman Air per Minggu pada Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimeAir"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('airLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimeAir").innerText = data.timeResult;
-            });
-          </script>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Penyiraman Air</h6>
-        <p class="text-sm ">Frekuensi Penyiraman Air pada Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliPenyiramanAir"></td>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2  ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-air" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 "> Penyiraman Air </h6>
+            <p class="text-sm "> Total Penyiraman Air per Minggu pada Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimeAir"></span> yang lalu </p>
               <script>
-                $.get("{{ route('dataSensorAirPerHari') }}", function(data) {
-                  document.getElementById("jumlahKaliPenyiramanAir").innerText = data.totalValue + " kali";
+                $.get("{{ route('airLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimeAir").innerText = data.timeResult;
                 });
               </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-suhu" class="chart-canvas" height="170"></canvas>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Suhu rata-rata</h6>
-        <p class="text-sm ">Suhu rata-rata dari Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimeSuhu"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('suhuLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimeSuhu").innerText = data.timeResult;
-            });
-          </script>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Suhu rata-rata</h6>
-        <p class="text-sm ">Suhu diatas normal dari semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliSuhuBahaya">10 kali</td>
-              <script>
-                $.get("{{ route('dataNotifikasiSuhu') }}", function(data) {
-                  document.getElementById("jumlahKaliSuhuBahaya").innerText = data.dataNotif + " kali";
-                });
-              </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-cahaya" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Penyiraman Air</h6>
+            <p class="text-sm ">Frekuensi Penyiraman Air pada Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliPenyiramanAir"></td>
+                  <script>
+                    $.get("{{ route('dataSensorAirPerHari') }}", function(data) {
+                      document.getElementById("jumlahKaliPenyiramanAir").innerText = data.totalValue + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
-        <p class="text-sm ">Intensitas Cahaya rata-rata dari Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimeCahaya"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('cahayaLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimeCahaya").innerText = data.timeResult;
-            });
-          </script>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
-        <p class="text-sm ">Intensitas Cahaya diatas normal dari semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliCahayaBahaya">10 kali</td>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-suhu" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Suhu rata-rata</h6>
+            <p class="text-sm ">Suhu rata-rata dari Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimeSuhu"></span> yang lalu </p>
               <script>
-                $.get("{{ route('dataNotifikasiCahaya') }}", function(data) {
-                  document.getElementById("jumlahKaliCahayaBahaya").innerText = data.dataNotif + " kali";
+                $.get("{{ route('suhuLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimeSuhu").innerText = data.timeResult;
                 });
               </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-udara" class="chart-canvas" height="170"></canvas>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
-        <p class="text-sm ">Kelembaban Udara rata-rata dari Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimeUdara"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('udaraLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimeUdara").innerText = data.timeResult;
-            });
-          </script>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
-        <p class="text-sm ">Kelembaban Udara diatas normal dari semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliUdaraBahaya">10 kali</td>
-              <script>
-                $.get("{{ route('dataNotifikasiUdara') }}", function(data) {
-                  document.getElementById("jumlahKaliUdaraBahaya").innerText = data.dataNotif + " kali";
-                });
-              </script>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-        <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
-          <div class="chart">
-            <canvas id="chart-tanah" class="chart-canvas" height="170"></canvas>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Suhu rata-rata</h6>
+            <p class="text-sm ">Suhu diatas normal dari semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliSuhuBahaya">10 kali</td>
+                  <script>
+                    $.get("{{ route('dataNotifikasiSuhu') }}", function(data) {
+                      document.getElementById("jumlahKaliSuhuBahaya").innerText = data.dataNotif + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
-        <p class="text-sm ">Kelembaban Tanah rata-rata dari Kebun Satu</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <i class="material-icons text-sm my-auto me-1">schedule</i>
-          <p class="mb-0 text-sm"> data terakhir <span id="updateTimeTanah"></span> yang lalu </p>
-          <script>
-            $.get("{{ route('tanahLastUpdateTime') }}", function(data) {
-              document.getElementById("updateTimeTanah").innerText = data.timeResult;
-            });
-          </script>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-cahaya" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+            <p class="text-sm ">Intensitas Cahaya rata-rata dari Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimeCahaya"></span> yang lalu </p>
+              <script>
+                $.get("{{ route('cahayaLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimeCahaya").innerText = data.timeResult;
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Intensitas Cahaya rata-rata</h6>
+            <p class="text-sm ">Intensitas Cahaya diatas normal dari semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliCahayaBahaya">10 kali</td>
+                  <script>
+                    $.get("{{ route('dataNotifikasiCahaya') }}", function(data) {
+                      document.getElementById("jumlahKaliCahayaBahaya").innerText = data.dataNotif + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 mt-4 mb-4">
-    <div class="card z-index-2 h-100">
-      <div class="card-body">
-        <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
-        <p class="text-sm ">Kelembaban Tanah diatas normal dari semua Kebun</p>
-        <hr class="dark horizontal">
-        <div class="d-flex ">
-          <table width="100%">
-            <tr>
-              <th>Lokasi Blok</th>
-              <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
-            </tr>
-            <tr>
-              <td class="text-sm">Blok Satu</td>
-              <td class="text-sm" id="jumlahKaliTanahBahaya">10 kali</td>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-udara" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+            <p class="text-sm ">Kelembaban Udara rata-rata dari Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimeUdara"></span> yang lalu </p>
               <script>
-                $.get("{{ route('dataNotifikasiTanah') }}", function(data) {
-                  document.getElementById("jumlahKaliTanahBahaya").innerText = data.dataNotif + " kali";
+                $.get("{{ route('udaraLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimeUdara").innerText = data.timeResult;
                 });
               </script>
-            </tr>
-          </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Udara rata-rata</h6>
+            <p class="text-sm ">Kelembaban Udara diatas normal dari semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliUdaraBahaya">10 kali</td>
+                  <script>
+                    $.get("{{ route('dataNotifikasiUdara') }}", function(data) {
+                      document.getElementById("jumlahKaliUdaraBahaya").innerText = data.dataNotif + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 mt-4 mb-4">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-tanah" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+            <p class="text-sm ">Kelembaban Tanah rata-rata dari Kebun Satu</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> data terakhir <span id="updateTimeTanah"></span> yang lalu </p>
+              <script>
+                $.get("{{ route('tanahLastUpdateTime') }}", function(data) {
+                  document.getElementById("updateTimeTanah").innerText = data.timeResult;
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 mt-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-body">
+            <h6 class="mb-0 ">Kelembaban Tanah rata-rata</h6>
+            <p class="text-sm ">Kelembaban Tanah diatas normal dari semua Kebun</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <table width="100%">
+                <tr>
+                  <th>Lokasi Blok</th>
+                  <th>Frekuensi ( <i class="material-icons text-sm my-auto me-1">schedule</i>)</th>
+                </tr>
+                <tr>
+                  <td class="text-sm">Blok Satu</td>
+                  <td class="text-sm" id="jumlahKaliTanahBahaya">10 kali</td>
+                  <script>
+                    $.get("{{ route('dataNotifikasiTanah') }}", function(data) {
+                      document.getElementById("jumlahKaliTanahBahaya").innerText = data.dataNotif + " kali";
+                    });
+                  </script>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="row mb-4">
+<div class="row mt-4 mb-4">
   <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
     <div class="card">
       <div class="card-header pb-0">
