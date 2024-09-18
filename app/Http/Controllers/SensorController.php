@@ -6,6 +6,7 @@ use App\Models\SensorModel;
 use App\Models\IndividualBlockSensor;
 use App\Models\KebunModel;
 use App\Models\NotifikasiSensorModel;
+use App\Models\MSensor;
 // use Twilio\Rest\Client;
 // use App\Models\MSensordua;
 // use App\Models\MSensortiga;

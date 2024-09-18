@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ModeController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +57,10 @@ Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAir
 Route::get('/mode/pupuk/on', [App\Http\Controllers\ModeController::class, 'setPupukModeOn'])->name('setModePupukOn');
 Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setPupukModeOff'])->name('setModePupukOff');
 
+Route::get('/sensor/mode', [ModeController::class, 'getLatestMode']);
+Route::get('/sensor/modeair', [ModeController::class, 'getLatestAir']);
+Route::get('/sensor/modepupuk', [ModeController::class, 'getLatestPupuk']);
+
 Route::get('/dataStatusKebun/{id}', [App\Http\Controllers\KebunController::class, 'ambilDataStatusKebun'])->name('ambilDataStatusKebun');
 
 Route::get('/dashboard', function () {
@@ -83,6 +90,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/secrets/optimize', function () {
+    Artisan::call('optimize');
+    return response()->json(['message' => 'Application optimized successfully']);
+});
+Route::get('/secrets/storage-link', function () {
+    Artisan::call('storage:link');
+    return response()->json(['message' => 'Storage link created successfully']);
 });
 
 require __DIR__.'/auth.php';

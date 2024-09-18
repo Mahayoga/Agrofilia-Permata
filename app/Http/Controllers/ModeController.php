@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ModeModel;
 use App\Models\NotifikasiModeModel;
+use App\Models\MSensordua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -280,5 +281,52 @@ class ModeController extends Controller {
             "notifPupukHidup" => $hasilHidup,
             "notifPupukMati" => $hasilMati
         ]);
+    }
+
+    public function getLatestMode()
+    {
+        // Mengambil data dari ID
+        $sensorData = MSensordua::find(1);
+
+        if ($sensorData) {
+            return response()->json([
+                'mode' => $sensorData->mode,
+                'relay' => $sensorData->mode == 1 ? 'on' : 'off',
+                'updated_at' => $sensorData->updated_at
+            ]);
+        } else {
+            return response()->json(['message' => 'No sensor data found for ID 2.'], 404);
+        }
+    }
+    public function getLatestAir()
+    {
+         // Mengambil data dari ID
+        $sensorData = MSensordua::find(2);
+
+        if ($sensorData) {
+            return response()->json([
+                'mode' => $sensorData->mode,
+                'relay' => $sensorData->mode == 1 ? 'on' : 'off',
+                'updated_at' => $sensorData->updated_at
+            ]);
+        } else {
+            return response()->json(['message' => 'No sensor data found for ID 2.'], 404);
+        }
+    }
+    
+    public function getLatestPupuk()
+    {
+         // Mengambil data dari ID
+        $sensorData = MSensordua::find(3);
+
+        if ($sensorData) {
+            return response()->json([
+                'mode' => $sensorData->mode,
+                'relay' => $sensorData->mode == 1 ? 'on' : 'off',
+                'updated_at' => $sensorData->updated_at
+            ]);
+        } else {
+            return response()->json(['message' => 'No sensor data found for ID 2.'], 404);
+        }
     }
 }
