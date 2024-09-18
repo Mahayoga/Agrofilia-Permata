@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ['breadcrum' => ['Riwayat Data'], 'currentBreadcrum' => 'Riwayat Data'])
+@section('title', 'Riwayat Data')
 @section('content')
 <div class="row mt-4">
   <div class="col-lg-12 col-md-12 mt-4 mb-4">

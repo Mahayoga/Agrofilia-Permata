@@ -21,7 +21,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('template-assets/img/apple-icon.png') }}">
 	<link rel="icon" type="image/png" href="{{ asset('template-assets/img/favicon.png') }}">
 	<title>
-		Kebun Vanili - Dashboard | Agrofilia Permata
+		@yield('title') - Kebun Vanili | Agrofilia Permata
 	</title>
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -49,7 +49,7 @@
 	@include('layouts/sidebar/index')
 	<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 		<!-- Navbar -->
-		@include('layouts/navbar/index')
+		@include('layouts/navbar/index', ['breadcrum' => $breadcrum, 'currentBreadcrum' => $currentBreadcrum])
 		<!-- End Navbar -->
 		<div class="container-fluid py-4">
 			@yield('content')

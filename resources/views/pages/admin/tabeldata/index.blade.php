@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ['breadcrum' => ['Tabel Data'], 'currentBreadcrum' => 'Tabel Data'])
+@section('title', 'Tabel Data')
 @section('content')
 <div class="container-fluid py-4">
   <div class="row">

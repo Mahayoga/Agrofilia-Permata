@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app', ['breadcrum' => ['Data Galeri'], 'currentBreadcrum' => 'Tambah Data Galeri'])
+@section('title', 'Tambah Data Galeri')
 @section('content')
 <div class="container-fluid">
   <div class="card">
