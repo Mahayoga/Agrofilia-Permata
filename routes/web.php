@@ -63,28 +63,30 @@ Route::get('/sensor/modepupuk', [ModeController::class, 'getLatestPupuk']);
 
 Route::get('/dataStatusKebun/{id}', [App\Http\Controllers\KebunController::class, 'ambilDataStatusKebun'])->name('ambilDataStatusKebun');
 
-Route::get('/dashboard', function () {
-    return view('pages.admin.dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('/dashboard', function () {
+        return view('pages.admin.dashboard.index');
+    })->name('dashboard');
 
-Route::get('dashboard/tabel-data', [App\Http\Controllers\TabelDataController::class, 'index'])->name('tableView');
+    Route::get('dashboard/tabel-data', [App\Http\Controllers\TabelDataController::class, 'index'])->name('tableView');
 
-Route::get('dashboard/notifikasi', [App\Http\Controllers\NotifikasiController::class, 'ambilDataNotifikasi'])->name('notificationView');
+    Route::get('dashboard/notifikasi', [App\Http\Controllers\NotifikasiController::class, 'ambilDataNotifikasi'])->name('notificationView');
 
-Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
-    return view('pages.admin.tabelblok.index', ['id' => $id]);
-})->name('blocksTableView');
+    Route::get('dashboard/tabel-data/tabel-blok/{id}', function($id) {
+        return view('pages.admin.tabelblok.index', ['id' => $id]);
+    })->name('blocksTableView');
 
-Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) {
-    return view('pages.admin.detailblok.index', ['id' => $id]);
-})->name('specificBlockView');
+    Route::get('dashboard/tabel-data/tabel-blok/info-blok/{id_blok}', function($id) {
+        return view('pages.admin.detailblok.index', ['id' => $id]);
+    })->name('specificBlockView');
 
-Route::resource('pengguna', App\Http\Controllers\UsersController::class);
-Route::resource('profil', App\Http\Controllers\ProfileController::class);
-Route::resource('galeri', App\Http\Controllers\GaleriController::class);
-Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
-Route::resource('kebun', App\Http\Controllers\KebunController::class);
-Route::resource('blok', App\Http\Controllers\BlokController::class);
+    Route::resource('pengguna', App\Http\Controllers\UsersController::class);
+    Route::resource('profil', App\Http\Controllers\ProfileController::class);
+    Route::resource('galeri', App\Http\Controllers\GaleriController::class);
+    Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
+    Route::resource('kebun', App\Http\Controllers\KebunController::class);
+    Route::resource('blok', App\Http\Controllers\BlokController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
