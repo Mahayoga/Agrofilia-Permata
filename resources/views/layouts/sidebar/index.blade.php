@@ -62,11 +62,11 @@
       </li>
       @if (Auth::user()->role == "Super Admin")
         <li class="nav-item">
-          <a class="{{ Request::is('pengguna/create') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('pengguna.create') }}">
+          <a class="{{ Request::is('pengguna*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('pengguna.index') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">folder</i>
             </div>
-            <span class="nav-link-text ms-1">Data User</span>
+            <span class="nav-link-text ms-1">Data Pengguna</span>
           </a>
         </li>
       @endif

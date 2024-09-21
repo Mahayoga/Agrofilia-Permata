@@ -66,6 +66,9 @@
                   <div class="text-center">
                     <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
+                  <div class="text-center">
+                    <a href="{{ route('password.request') }}" class="text-xs text-muted text-decoration-underline">Lupa Sandi</a>
+                  </div>
                 </form>
               </div>
             </div>
