@@ -61,6 +61,8 @@ Route::get('/sensor/mode', [ModeController::class, 'getLatestMode']);
 Route::get('/sensor/modeair', [ModeController::class, 'getLatestAir']);
 Route::get('/sensor/modepupuk', [ModeController::class, 'getLatestPupuk']);
 
+Route::get('/dataMusim', [App\Http\Controllers\MusimController::class, 'getMusim'])->name('getDataMusim');
+
 Route::get('/dataStatusKebun/{id}', [App\Http\Controllers\KebunController::class, 'ambilDataStatusKebun'])->name('ambilDataStatusKebun');
 
 Route::middleware(['auth', 'verified'])->group(function() {
@@ -86,6 +88,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
     Route::resource('kebun', App\Http\Controllers\KebunController::class);
     Route::resource('blok', App\Http\Controllers\BlokController::class);
+    Route::resource('musim', App\Http\Controllers\MusimController::class);
 });
 
 Route::middleware('auth')->group(function () {

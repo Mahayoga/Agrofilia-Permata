@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TabelSensorSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(GaleriSeeder::class);
+        $this->call(MusimSeeder::class);
     }
 }

@@ -9,8 +9,18 @@
           <i class="material-icons opacity-10">weekend</i>
         </div>
         <div class="text-end pt-1">
-          <p class="text-sm mb-0 text-capitalize">Musim Bulan Ini</p>
-          <h4 class="mb-0">Kemarau</h4>
+          <p class="text-sm mb-0 text-capitalize">
+            Musim Bulan Ini
+            <a href="{{ route('musim.edit', ['musim' => 1]) }}">
+              <i class="fas fa-cloud-sun-rain text-secondary fs-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Musim"></i>
+            </a>
+          </p>
+          <h4 class="mb-0" id="musim"></h4>
+          <script>
+            $.get("{{ route('getDataMusim') }}", function(data) {
+              document.getElementById('musim').innerText = data.dataMusim;
+            });
+          </script>
         </div>
       </div>
       <hr class="dark horizontal my-0">
