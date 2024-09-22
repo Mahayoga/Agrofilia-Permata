@@ -104,22 +104,22 @@
             <div class="d-flex align-items-center">
               <span class="text-md font-weight-bold text-dark">Umur:</span>
               <span>&nbsp;</span>
-              <span class="text-sm" id="umur">&nbsp;2.5 tahun (30 bulan)</span>
+              <span class="text-sm" id="umur">&nbsp; -</span>
             </div>
             <div class="d-flex align-items-center">
               <span class="text-md font-weight-bold text-dark">Tahun Tanam:</span>
               <span>&nbsp;</span>
-              <span class="text-sm" id="tahunTanam">&nbsp;2020</span>
+              <span class="text-sm" id="tahunTanam">&nbsp; -</span>
             </div>
             <div class="d-flex align-items-center">
               <span class="text-md font-weight-bold text-dark">Status Perlakuan:</span>
               <span>&nbsp;</span>
-              <span class="text-sm" id="masaTanaman">&nbsp;Masa Kritis</span>
+              <span class="text-sm" id="masaTanaman">&nbsp; -</span>
             </div>
             <div class="d-flex align-items-center">
               <span class="text-md font-weight-bold text-dark">Status Tanaman:</span>
               <span>&nbsp;</span>
-              <span class="text-sm" id="statusTanaman">&nbsp;Generatif</span>
+              <span class="text-sm" id="statusTanaman">&nbsp; -</span>
             </div>
           </div>
         </div>
