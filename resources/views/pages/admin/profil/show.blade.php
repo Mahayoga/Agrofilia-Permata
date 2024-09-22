@@ -28,11 +28,13 @@
                 <div class="col-md-8 d-flex align-items-center">
                   <h6 class="mb-0">Informasi Profil</h6>
                 </div>
-                <div class="col-md-4 text-end">
-                  <a href="javascript:;">
-                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                  </a>
-                </div>
+                @if (Auth::user()->role != "Pengurus Kebun")
+                  <div class="col-md-4 text-end">
+                    <a href="{{ route('pengguna.edit', ['pengguna' => $dataUser->id]) }}">
+                      <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                    </a>
+                  </div>
+                @endif
               </div>
             </div>
             <div class="card-body p-3">
@@ -47,24 +49,26 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6">
-          <div class="card card-plain h-100">
-            <div class="card-header pb-0 p-3">
-              <div class="row">
-                <div class="col-md-8 d-flex align-items-center">
-                  <h6 class="mb-0">Zona Bahaya!</h6>
+        @if (Auth::user()->role != "Pengurus Kebun")
+          <div class="col-12 col-xl-6">
+            <div class="card card-plain h-100">
+              <div class="card-header pb-0 p-3">
+                <div class="row">
+                  <div class="col-md-8 d-flex align-items-center">
+                    <h6 class="mb-0">Zona Bahaya!</h6>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card-body p-3">
-              <form action="{{ route('pengguna.destroy', ['pengguna' => $dataUser->id]) }}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" value="Hapus Akun!" href="" class="btn btn-danger">
-              </form>
+              <div class="card-body p-3">
+                <form action="{{ route('pengguna.destroy', ['pengguna' => $dataUser->id]) }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" value="Hapus Akun!" href="" class="btn btn-danger">
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        @endif
       </div>
     </div>
   </div>

@@ -41,46 +41,48 @@
           <span class="nav-link-text ms-1">Notifications</span>
         </a>
       </li>
-      <li class="nav-item mt-3">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Halaman Tambah Data</h6>
-      </li>
-      <li class="nav-item">
-        <a class="{{ Request::is('kebun*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('kebun.create') }}">
-          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="material-icons opacity-10">folder</i>
-          </div>
-          <span class="nav-link-text ms-1">Data Kebun</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="{{ Request::is('blok*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('blok.create') }}">
-          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="material-icons opacity-10">folder</i>
-          </div>
-          <span class="nav-link-text ms-1">Data Blok</span>
-        </a>
-      </li>
-      @if (Auth::user()->role == "Super Admin")
+      @if (Auth::user()->role != "Pengurus Kebun")
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Halaman Tambah Data</h6>
+        </li>
         <li class="nav-item">
-          <a class="{{ Request::is('pengguna*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('pengguna.index') }}">
+          <a class="{{ Request::is('kebun*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('kebun.create') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">folder</i>
             </div>
-            <span class="nav-link-text ms-1">Data Pengguna</span>
+            <span class="nav-link-text ms-1">Data Kebun</span>
           </a>
         </li>
-      @endif
-      @if (Auth::user()->role == "Manager" || Auth::user()->role == "Super Admin")
         <li class="nav-item">
-          <a class="{{ Request::is('galeri*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('galeri.index') }}">
+          <a class="{{ Request::is('blok*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('blok.create') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">folder</i>
             </div>
-            <span class="nav-link-text ms-1">Data Galeri</span>
+            <span class="nav-link-text ms-1">Data Blok</span>
           </a>
         </li>
+        @if (Auth::user()->role == "Super Admin" || Auth::user()->role == "Admin")
+          <li class="nav-item">
+            <a class="{{ Request::is('pengguna*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('pengguna.index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">folder</i>
+              </div>
+              <span class="nav-link-text ms-1">Data Pengguna</span>
+            </a>
+          </li>
+        @endif
+        @if (Auth::user()->role == "Super Admin" || Auth::user()->role == "Manager" || Auth::user()->role == "Admin")
+          <li class="nav-item">
+            <a class="{{ Request::is('galeri*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('galeri.index') }}">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">folder</i>
+              </div>
+              <span class="nav-link-text ms-1">Data Galeri</span>
+            </a>
+          </li>
+        @endif
       @endif
-      <li class="nav-item mt-3">
+      {{-- <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Halaman Pengguna</h6>
       </li>
       <li class="nav-item">
@@ -90,7 +92,7 @@
           </div>
           <span class="nav-link-text ms-1">Profile</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
   <!-- <div class="sidenav-footer position-absolute w-100 bottom-0 ">
