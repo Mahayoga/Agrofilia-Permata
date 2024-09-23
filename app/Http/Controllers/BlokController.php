@@ -8,6 +8,14 @@ use App\Models\BlokModel;
 
 class BlokController extends Controller
 {
+    public function show($id) {
+        $dataBlok = BlokModel::select()
+            ->where('id_kebun', $id)
+            ->get();
+
+        return view('pages.admin.tabelblok.index', compact('dataBlok'));
+    }
+
     public function create() {
         $dataKebun = KebunModel::select()
             ->get();
