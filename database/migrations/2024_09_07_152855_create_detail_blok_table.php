@@ -17,11 +17,11 @@ return new class extends Migration
             $table->enum("kondisi_blok", ["Normal", "Peringatan", "Bahaya"]);
             $table->enum("status_blok", ["Normal", "Masa Kritis"]);
             $table->enum("fase_tanaman", ["Generatif", "Vegetatif"]);
-            $table->integer("id_kebun");
+            $table->unsignedInteger("id_kebun");
             $table->timestamps();
 
             // Foreign Key
-            $table->foreign("id_detail_blok")->references("id_kebun")->on("kebun")->onDelete("cascade");
+            $table->foreign("id_kebun")->references("id_kebun")->on("kebun")->onDelete("cascade");
         });
     }
 
