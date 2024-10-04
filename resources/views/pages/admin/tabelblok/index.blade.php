@@ -50,7 +50,7 @@
                       </span>
                     </td>
                     <td class="align-middle text-center">
-                      <a href="{{ route('specificBlockView', ['id_blok' => $item->id_detail_blok]) }}" class="text-secondary font-weight-bold text-xs">Periksa</a>
+                      <a href="{{ route('show_detail', ['id' => $item->id_detail_blok]) }}" class="text-secondary font-weight-bold text-xs">Periksa</a>
                       <span>|</span>
                       <a href="{{ route('blok.edit', ['blok' => $item->id_detail_blok]) }}" class="text-secondary font-weight-bold text-xs">Edit</a>
                     </td>

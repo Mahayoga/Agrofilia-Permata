@@ -88,6 +88,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('riwayatdata', App\Http\Controllers\RiwayatDataController::class);
     Route::resource('kebun', App\Http\Controllers\KebunController::class);
     Route::resource('blok', App\Http\Controllers\BlokController::class);
+    Route::resource('detailblok', App\Http\Controllers\DetailBlokController::class)->except('index');
+        Route::get('/detailblok/show/{id}', [App\Http\Controllers\DetailBlokController::class, 'index'])->name('show_detail');
     Route::resource('musim', App\Http\Controllers\MusimController::class);
 });
 

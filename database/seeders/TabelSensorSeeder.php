@@ -49,7 +49,7 @@ class TabelSensorSeeder extends Seeder
             'kelembabantanah' => 164
         ]);
         SensorModel::create([
-            'esp_id' => 'soil3',
+            'esp_id' => 'soil6',
             'suhu' => null,
             'kelembaban' => null,
             'cahaya' => null,
@@ -92,7 +92,7 @@ class TabelSensorSeeder extends Seeder
             'kelembabantanah' => 164
         ]);
         SensorModel::create([
-            'esp_id' => 'soil3',
+            'esp_id' => 'soil6',
             'suhu' => null,
             'kelembaban' => null,
             'cahaya' => null,
@@ -135,7 +135,7 @@ class TabelSensorSeeder extends Seeder
             'kelembabantanah' => 164
         ]);
         SensorModel::create([
-            'esp_id' => 'soil3',
+            'esp_id' => 'soil6',
             'suhu' => null,
             'kelembaban' => null,
             'cahaya' => null,

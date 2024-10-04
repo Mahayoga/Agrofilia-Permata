@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="{{ Request::is('dashboard/tabel-data*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('tableView') }}">
+        <a class="{{ Request::is('dashboard/tabel-data*') ? 'active bg-gradient-primary' : '' }} {{ Request::is('detailblok/show*') ? 'active bg-gradient-primary' : '' }} nav-link text-white " href="{{ route('tableView') }}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
