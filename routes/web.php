@@ -57,6 +57,8 @@ Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAir
 Route::get('/mode/pupuk/on', [App\Http\Controllers\ModeController::class, 'setPupukModeOn'])->name('setModePupukOn');
 Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setPupukModeOff'])->name('setModePupukOff');
 
+Route::get('/check/air', [App\Http\Controllers\WaterFloatController::class, 'checkWater'])->name('checkWater');
+
 Route::get('/sensor/mode', [ModeController::class, 'getLatestMode']);
 Route::get('/sensor/modeair', [ModeController::class, 'getLatestAir']);
 Route::get('/sensor/modepupuk', [ModeController::class, 'getLatestPupuk']);

@@ -854,8 +854,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-7 mt-4">
+  <div class="row mt-4">
+    <div class="col-md-7">
       <div class="card">
         <div class="card-header pb-0 px-3">
           <h6 class="mb-0">Pusat Kontrol</h6>
@@ -895,6 +895,32 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header pb-0 px-3">
+          <h6 class="mb-0">Status Ketersediaan Air</h6>
+          <p class="text-xs mb-0">*Menunjukkan status apakah air terisi pada header/tandon</p>
+        </div>
+        <div class="card-body d-flex align-items-center justify-content-center pt-4 p-3">
+          <div class="d-flex">
+            {{-- {{ $dataWaterFloat[0]->water }} --}}
+            @if($dataWaterFloat[0]->water == 1)
+              <div class="bg-gradient-success shadow text-center border-radius-lg p-2" id="bgIndexKetersediaanAir">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                  <h3 class="text-center font-weight-bold text-white mb-0" id="indexKetersediaanAir">Terisi</h3>
+                </div>
+              </div>
+            @elseif($dataWaterFloat[0]->water == 0)
+              <div class="bg-gradient-success shadow text-center border-radius-lg p-2" id="bgIndexKetersediaanAir">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                  <h3 class="text-center font-weight-bold text-white mb-0" id="indexKetersediaanAir">Tidak Terisi</h3>
+                </div>
+              </div>
+            @endif
           </div>
         </div>
       </div>
@@ -2449,6 +2475,24 @@
     initText.classList.add("text-success");
   }
 
+  function checkWaterFloat() {
+    let bgIndexAir = document.getElementById('bgIndexKetersediaanAir');
+    let indexAir = document.getElementById('indexKetersediaanAir');
+
+    $.get('{{ route("checkWater") }}', function(data) {
+      bgIndexAir.classList.remove('bg-gradient-success');
+      bgIndexAir.classList.remove('bg-gradient-danger');
+      if(data.dataWaterFloat[0].water == 1) {
+        bgIndexAir.classList.add('bg-gradient-success');
+        indexAir.innerText = 'Terisi';
+      } else if(data.dataWaterFloat[0].water == 0) {
+        console.log(data);
+        bgIndexAir.classList.add('bg-gradient-danger');
+        indexAir.innerText = 'Tidak Terisi';
+      }
+    });
+  }
+
   function setAirModeOn() {
     $.get("{{ route('setModeAirOn') }}").always(function() {
       let initText = document.getElementById("theAlert");
@@ -2456,6 +2500,7 @@
       initText.innerText = "Sedang menghidupkan Sensor...";
       initText.classList.add("text-warning");
     });
+    checkWaterFloat();
   }
   function setAirModeOff() {
     $.get("{{ route('setModeAirOff') }}").always(function() {
@@ -2464,6 +2509,7 @@
       initText.innerText = "Sedang mematikan Sensor...";
       initText.classList.add("text-warning");
     });
+    checkWaterFloat();
   }
   function setPupukModeOn() {
     $.get("{{ route('setModePupukOn') }}").always(function() {
@@ -2472,6 +2518,7 @@
       initText.innerText = "Sedang menghidupkan Sensor...";
       initText.classList.add("text-warning");
     });
+    checkWaterFloat();
   }
   function setPupukModeOff() {
     $.get("{{ route('setModePupukOff') }}").always(function() {
@@ -2480,6 +2527,7 @@
       initText.innerText = "Sedang mematikan Sensor...";
       initText.classList.add("text-warning");
     });
+    checkWaterFloat();
   }
 
   function setModeEnabled() {
@@ -2538,6 +2586,7 @@
   readDataNotifikasiAir();
   readDataNotifikasiPupuk();
   readDataNotifikasiSemuaSensor();
+  checkWaterFloat();
 
   setInterval(checkMode, 5000);
   setTimeout(setModeEnabled, 6000);
@@ -2546,5 +2595,6 @@
   setInterval(readDataNotifikasiAir, 20000);
   setInterval(readDataNotifikasiPupuk, 20000);
   setInterval(readDataNotifikasiSemuaSensor, 20000);
+  setInterval(checkWaterFloat, 20000);
 </script>
 @endsection
