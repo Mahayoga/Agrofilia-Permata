@@ -28,14 +28,31 @@ class SensorController extends Controller {
     }
 
     public function dataRataRata() {
-        $nilaiSensor = SensorModel::orderBy('updated_at', 'desc')->latest()->first();
+        $nilaiSensor = SensorModel::select()
+            ->where('esp_id', 'soil1_data')
+            ->orderBy('created_at', 'desc')
+            ->limit(1)
+            ->get();
+        
+        $nilaiSensorCahaya = SensorModel::where('esp_id', 'soil2_data')
+            ->orderBy('created_at', 'desc')->latest()->first();
+
+        $nilaiSensorTanah = SensorModel::select()
+            ->orderBy('created_at', 'desc')
+            ->limit(6)
+            ->get();
+        $avgTanah = 0;
+        for($i = 0; $i < count($nilaiSensorTanah); $i++) {
+            $avgTanah += (int)$nilaiSensorTanah[$i]->kelembabantanah;
+        }
+        $avgTanah /= count($nilaiSensorTanah);
 
         return response()->json([
-            'suhu' => $nilaiSensor->suhu,
-            'kelembaban' => $nilaiSensor->kelembaban,
-            'cahaya' => $nilaiSensor->cahaya,
-            'kelembabanTanah' => $nilaiSensor->kelembabantanah,
-            'updated_at' => $nilaiSensor->updated_at
+            'suhu' => $nilaiSensor[0]->suhu,
+            'kelembaban' => $nilaiSensor[0]->kelembaban,
+            'cahaya' => $nilaiSensorCahaya->cahaya,
+            'kelembabanTanah' => $avgTanah,
+            'updated_at' => $nilaiSensor[0]->updated_at
         ]);
     }
 

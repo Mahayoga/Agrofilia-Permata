@@ -937,7 +937,11 @@
   var suhu = new Chart(grafikSuhuRataRata, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSuhu as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Suhu (°C)",
         tension: 0,
@@ -950,7 +954,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataSensorSuhu as $item)
+            '{{ $item->suhu }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1017,7 +1025,11 @@
   var cahaya = new Chart(grafikCahayaRataRata, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsCahaya as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Lumen (lx)",
         tension: 0,
@@ -1030,7 +1042,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataSensorCahaya as $item)
+          '{{ $item->cahaya }}',
+        @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1097,7 +1113,11 @@
   var kelembaban = new Chart(grafikKelembabanRataRata, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsUdara as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Humidity (RH)",
         tension: 0,
@@ -1110,7 +1130,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataSensorSuhu as $item)
+          '{{ $item->kelembaban }}',
+        @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1177,7 +1201,11 @@
   var tanah = new Chart(grafikTanahRataRata, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsTanah as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Asam (PH)",
         tension: 0,
@@ -1190,7 +1218,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataAVGTanah as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1998,10 +2030,12 @@
     $.get("{{ route('readDataRataRata') }}", function(data) {
       suhu.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
       suhu.data.datasets[0].data.push(data.suhu);
-      if(suhu.data.labels.length > 10) {
+      
+      if(suhu.data.labels.length >= 10) {
         suhu.data.labels.shift();
-      } else if(suhu.data.labels.length > 10) { 
-        suhu.data.datasets.data.shift();
+      } 
+      if(suhu.data.datasets[0].data.length >= 10) { 
+        suhu.data.datasets[0].data.shift();
       }
 
       if(data.suhu != null) {
@@ -2022,10 +2056,11 @@
 
       cahaya.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
       cahaya.data.datasets[0].data.push(data.cahaya);
-      if(cahaya.data.labels.length > 10) {
+      if(cahaya.data.labels.length >= 10) {
         cahaya.data.labels.shift();
-      } else if(cahaya.data.labels.length > 10) {
-        cahaya.data.datasets.data.shift();
+      } 
+      if(cahaya.data.datasets[0].data.length >= 10) { 
+        cahaya.data.datasets[0].data.shift();
       }
 
       if(data.cahaya != null) {
@@ -2046,10 +2081,11 @@
 
       kelembaban.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
       kelembaban.data.datasets[0].data.push(data.kelembaban);
-      if(kelembaban.data.labels.length > 10) {
+      if(kelembaban.data.labels.length >= 10) {
         kelembaban.data.labels.shift();
-      } else if(kelembaban.data.labels.length > 10) {
-        kelembaban.data.datasets.data.shift();
+      } 
+      if(kelembaban.data.datasets[0].data.length >= 10) { 
+        kelembaban.data.datasets[0].data.shift();
       }
 
       if(data.kelembaban != null) {
@@ -2070,10 +2106,11 @@
 
       tanah.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
       tanah.data.datasets[0].data.push(data.kelembabanTanah);
-      if(tanah.data.labels.length > 10) {
+      if(tanah.data.labels.length >= 10) {
         tanah.data.labels.shift();
-      } else if(tanah.data.labels.length > 10) {
-        tanah.data.datasets.data.shift();
+      } 
+      if(tanah.data.datasets[0].data.length >= 10) { 
+        tanah.data.datasets[0].data.shift();
       }
 
       if(data.kelembabanTanah != null) {
@@ -2103,10 +2140,11 @@
     $.get("{{ route('ambilDataDetailSemuaSensor') }}", function(data) {
       kelembabanTanahDetail1.data.labels.push(data.kelTanah1[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail1.data.datasets[0].data.push(data.kelTanah1[0].kelembabantanah);
-      if(kelembabanTanahDetail1.data.labels.length > 5) {
+      if(kelembabanTanahDetail1.data.labels.length >= 5) {
         kelembabanTanahDetail1.data.labels.shift();
-      } else if(kelembabanTanahDetail1.data.labels.length > 5) { 
-        kelembabanTanahDetail1.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail1.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail1.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah1[0].kelembabantanah != null) {
@@ -2127,10 +2165,11 @@
 
       kelembabanTanahDetail2.data.labels.push(data.kelTanah2[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail2.data.datasets[0].data.push(data.kelTanah2[0].kelembabantanah);
-      if(kelembabanTanahDetail2.data.labels.length > 5) {
+      if(kelembabanTanahDetail2.data.labels.length >= 5) {
         kelembabanTanahDetail2.data.labels.shift();
-      } else if(kelembabanTanahDetail2.data.labels.length > 5) { 
-        kelembabanTanahDetail2.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail2.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail2.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah2[0].kelembabantanah != null) {
@@ -2151,10 +2190,11 @@
 
       kelembabanTanahDetail3.data.labels.push(data.kelTanah3[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail3.data.datasets[0].data.push(data.kelTanah3[0].kelembabantanah);
-      if(kelembabanTanahDetail3.data.labels.length > 5) {
+      if(kelembabanTanahDetail3.data.labels.length >= 5) {
         kelembabanTanahDetail3.data.labels.shift();
-      } else if(kelembabanTanahDetail3.data.labels.length > 5) { 
-        kelembabanTanahDetail3.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail3.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail3.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah3[0].kelembabantanah != null) {
@@ -2175,10 +2215,11 @@
 
       kelembabanTanahDetail4.data.labels.push(data.kelTanah4[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail4.data.datasets[0].data.push(data.kelTanah4[0].kelembabantanah);
-      if(kelembabanTanahDetail4.data.labels.length > 5) {
+      if(kelembabanTanahDetail4.data.labels.length >= 5) {
         kelembabanTanahDetail4.data.labels.shift();
-      } else if(kelembabanTanahDetail4.data.labels.length > 5) { 
-        kelembabanTanahDetail4.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail4.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail4.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah4[0].kelembabantanah != null) {
@@ -2199,10 +2240,11 @@
 
       kelembabanTanahDetail5.data.labels.push(data.kelTanah5[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail5.data.datasets[0].data.push(data.kelTanah5[0].kelembabantanah);
-      if(kelembabanTanahDetail5.data.labels.length > 5) {
+      if(kelembabanTanahDetail5.data.labels.length >= 5) {
         kelembabanTanahDetail5.data.labels.shift();
-      } else if(kelembabanTanahDetail5.data.labels.length > 5) { 
-        kelembabanTanahDetail5.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail5.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail5.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah5[0].kelembabantanah != null) {
@@ -2223,10 +2265,11 @@
 
       kelembabanTanahDetail6.data.labels.push(data.kelTanah6[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail6.data.datasets[0].data.push(data.kelTanah6[0].kelembabantanah);
-      if(kelembabanTanahDetail6.data.labels.length > 5) {
+      if(kelembabanTanahDetail6.data.labels.length >= 5) {
         kelembabanTanahDetail6.data.labels.shift();
-      } else if(kelembabanTanahDetail6.data.labels.length > 5) { 
-        kelembabanTanahDetail6.data.datasets.data.shift();
+      } 
+      if(kelembabanTanahDetail6.data.datasets[0].data.length >= 5) { 
+        kelembabanTanahDetail6.data.datasets[0].data.shift();
       }
 
       if(data.kelTanah6[0].kelembabantanah != null) {
@@ -2247,10 +2290,11 @@
 
       suhuDetail.data.labels.push(data.suhu[0].updated_at.split("T")[1].substr(0, 5));
       suhuDetail.data.datasets[0].data.push(data.suhu[0].suhu);
-      if(suhuDetail.data.labels.length > 5) {
+      if(suhuDetail.data.labels.length >= 5) {
         suhuDetail.data.labels.shift();
-      } else if(suhuDetail.data.labels.length > 5) { 
-        suhuDetail.data.datasets.data.shift();
+      } 
+      if(suhuDetail.data.datasets[0].data.length >= 5) { 
+        suhuDetail.data.datasets[0].data.shift();
       }
 
       if(data.suhu[0].suhu != null) {
@@ -2271,10 +2315,11 @@
 
       cahayaDetail.data.labels.push(data.cahaya[0].updated_at.split("T")[1].substr(0, 5));
       cahayaDetail.data.datasets[0].data.push(data.cahaya[0].cahaya);
-      if(cahayaDetail.data.labels.length > 5) {
+      if(cahayaDetail.data.labels.length >= 5) {
         cahayaDetail.data.labels.shift();
-      } else if(cahayaDetail.data.labels.length > 5) { 
-        cahayaDetail.data.datasets.data.shift();
+      } 
+      if(cahayaDetail.data.datasets[0].data.length >= 5) { 
+        cahayaDetail.data.datasets[0].data.shift();
       }
 
       if(data.cahaya[0].cahaya != null) {
@@ -2295,10 +2340,11 @@
 
       kelembabanUdaraDetail.data.labels.push(data.udara[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanUdaraDetail.data.datasets[0].data.push(data.udara[0].kelembaban);
-      if(kelembabanUdaraDetail.data.labels.length > 5) {
+      if(kelembabanUdaraDetail.data.labels.length >= 5) {
         kelembabanUdaraDetail.data.labels.shift();
-      } else if(kelembabanUdaraDetail.data.labels.length > 5) { 
-        kelembabanUdaraDetail.data.datasets.data.shift();
+      } 
+      if(kelembabanUdaraDetail.data.datasets[0].data.length >= 5) { 
+        kelembabanUdaraDetail.data.datasets[0].data.shift();
       }
 
       if(data.udara[0].kelembaban != null) {
