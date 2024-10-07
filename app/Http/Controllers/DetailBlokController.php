@@ -44,7 +44,7 @@ class DetailBlokController extends Controller
         $dataAllSensor = SensorModel::select()
             ->where('esp_id', 'soil1_data')
             ->orderBy('created_at', 'desc')
-            ->limit(60)
+            ->limit(10)
             ->get();
         $dataSensorTanah = SensorModel::select()
             ->orderBy('created_at', 'desc')
