@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(GaleriSeeder::class);
         $this->call(MusimSeeder::class);
+        $this->call(WaterFloatSeeder::class);
+        $this->call(NotifikasiWaterFloatSeeder::class);
     }
 }
