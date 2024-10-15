@@ -47,12 +47,15 @@ class SensorController extends Controller {
         }
         $avgTanah /= count($nilaiSensorTanah);
 
+        $updated = $nilaiSensor[0]->updated_at->toString();
+        // dd();
+
         return response()->json([
             'suhu' => $nilaiSensor[0]->suhu,
             'kelembaban' => $nilaiSensor[0]->kelembaban,
             'cahaya' => $nilaiSensorCahaya->cahaya,
             'kelembabanTanah' => $avgTanah,
-            'updated_at' => $nilaiSensor[0]->updated_at
+            'updated_at' => explode(':', explode(' ', $updated)[4])[0] . ':' . explode(':', explode(' ', $updated)[4])[1]
         ]);
     }
 
@@ -506,32 +509,32 @@ class SensorController extends Controller {
     public function ambilDataDetailSemuaSensor() {
         $kel1 = SensorModel::select()
             ->where("esp_id", "soil1_data")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
         $kel2 = SensorModel::select()
             ->where("esp_id", "soil2_data")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
         $kel3 = SensorModel::select()
             ->where("esp_id", "soil3")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
         $kel4 = SensorModel::select()
             ->where("esp_id", "soil4")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
         $kel5 = SensorModel::select()
             ->where("esp_id", "soil5")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
         $kel6 = SensorModel::select()
             ->where("esp_id", "soil6")
-            ->orderBy("id", "desc")
+            ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
 

@@ -210,7 +210,7 @@
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataSuhu">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataSuhu">32°C</h3>
+                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataSuhu">{{ $dataReverseSuhu[count($dataReverseSuhu) - 1] }}°C</h3>
                         </div>
                       </div>
                     </div>
@@ -227,7 +227,7 @@
                       <span class="text-sm">&nbsp;> 28°C</span>
                     </div>
                     <hr class="horizontal dark my-3">
-                    <span class="text-xs mb-0">*Terakhir di update pada 4 menit yang lalu</span>
+                    <span class="text-xs mb-0">*Terakhir di update pada jam <span id="lastUpdateAVGSuhu">-</span></span>
                   </div>
                 </div>
               </div>
@@ -252,7 +252,7 @@
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataCahaya">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataCahaya">45%</h3>
+                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataCahaya">{{ $dataReverseCahaya[count($dataReverseCahaya) - 1] }}%</h3>
                         </div>
                       </div>
                     </div>
@@ -269,7 +269,7 @@
                       <span class="text-sm">&nbsp;> 50% lx</span>
                     </div>
                     <hr class="horizontal dark my-3">
-                    <span class="text-xs mb-0">*Terakhir di update pada 6 menit yang lalu</span>
+                    <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGCahaya">-</span></span>
                   </div>
                 </div>
               </div>
@@ -294,7 +294,7 @@
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataKelembaban">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataKelembaban">10%</h3>
+                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataKelembaban">{{ $dataReverseUdara[count($dataReverseUdara) - 1] }}%</h3>
                         </div>
                       </div>
                     </div>
@@ -311,7 +311,7 @@
                       <span class="text-sm">&nbsp;< 10% | > 30%</span>
                     </div>
                     <hr class="horizontal dark my-3">
-                    <span class="text-xs mb-0">*Terakhir di update pada 2 menit yang lalu</span>
+                    <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGKelembaban">-</span></span>
                   </div>
                 </div>
               </div>
@@ -336,7 +336,7 @@
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataPHTanah">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataPHTanah">5.7</h3>
+                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataPHTanah">{{ $dataAVGTanah[count($dataAVGTanah) - 1] }}%</h3>
                         </div>
                       </div>
                     </div>
@@ -353,7 +353,7 @@
                       <span class="text-sm">&nbsp;> 7.1 | < 5.5</span>
                     </div>
                     <hr class="horizontal dark my-3">
-                    <span class="text-xs mb-0">*Terakhir di update pada 5 menit yang lalu</span>
+                    <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGTanah">-</span></span>
                   </div>
                 </div>
               </div>
@@ -534,7 +534,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah1" class="custom-box bg-gradient-danger shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah1" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah1" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -564,7 +564,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah2" class="custom-box bg-gradient-warning shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah2" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah2" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -594,7 +594,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah3" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah3" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah3" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -624,7 +624,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah4" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah4" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah4" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -654,7 +654,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah5" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah5" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah5" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -684,7 +684,7 @@
                                 </div>
                                 <div id="bgIndexKelembabanTanah6" class="custom-box bg-gradient-success shadow text-center border-radius-lg">
                                   <div class="d-flex justify-content-center align-items-center h-100">
-                                    <h3 id="indikatorKelembabanTanah6" class="text-center font-weight-bold text-white mb-0">0 kPa</h3>
+                                    <h3 id="indikatorKelembabanTanah6" class="text-center font-weight-bold text-white mb-0">0 %</h3>
                                   </div>
                                 </div>
                               </div>
@@ -813,6 +813,41 @@
         </div>
         <div class="card-body p-3 pb-0">
           <ul class="list-group" id="ulRiwayatAir">
+            <li class="liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuAir1" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuAir1" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatAir1" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuAir2" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuAir2" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatAir2" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuAir3" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuAir3" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatAir3" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuAir4" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuAir4" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatAir4" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuAir5" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuAir5" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatAir5" class="d-flex align-items-center text-sm">-</div>
+            </li>
           </ul>
         </div>
       </div>
@@ -830,12 +865,47 @@
           </div>
         </div>
         <div class="card-body p-3 pb-0">
-          <ul class="list-group" id="ulRiwayatPupuk">  
+          <ul class="list-group" id="ulRiwayatAir">
+            <li class="liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuPupuk1" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuPupuk1" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatPupuk1" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuPupuk2" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuPupuk2" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatPupuk2" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuPupuk3" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuPupuk3" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatPupuk3" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuPupuk4" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuPupuk4" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatPupuk4" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuPupuk5" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuPupuk5" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatPupuk5" class="d-flex align-items-center text-sm">-</div>
+            </li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-4">
       <div class="card h-100">
         <div class="card-header pb-0 p-3">
           <div class="row">
@@ -848,14 +918,49 @@
           </div>
         </div>
         <div class="card-body p-3 pb-0">
-          <ul id="ulRiwayatSensor" class="list-group">
+          <ul class="list-group" id="ulRiwayatSensor">
+            <li class="liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuSensor1" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuSensor1" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatSensor1" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuSensor2" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuSensor2" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatSensor2" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuSensor3" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuSensor3" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatSensor3" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuSensor4" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuSensor4" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatSensor4" class="d-flex align-items-center text-sm">-</div>
+            </li>
+            <li class="liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 id="dateWaktuSensor5" class="mb-1 text-dark font-weight-bold text-sm">-</h6>
+                <span id="jamWaktuSensor5" class="text-xs">-</span>
+              </div>
+              <div id="intervalRiwayatSensor5" class="d-flex align-items-center text-sm">-</div>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-7">
+    <div class="col-md-7 mb-4">
       <div class="card">
         <div class="card-header pb-0 px-3">
           <h6 class="mb-0">Pusat Kontrol</h6>
@@ -955,8 +1060,8 @@
         backgroundColor: "transparent",
         fill: true,
         data: [
-          @foreach ($dataSensorSuhu as $item)
-            '{{ $item->suhu }}',
+          @foreach ($dataReverseSuhu as $item)
+            '{{ $item }}',
           @endforeach
         ],
         maxBarThickness: 6
@@ -1043,8 +1148,8 @@
         backgroundColor: "transparent",
         fill: true,
         data: [
-          @foreach ($dataSensorCahaya as $item)
-          '{{ $item->cahaya }}',
+          @foreach ($dataReverseCahaya as $item)
+          '{{ $item }}',
         @endforeach
         ],
         maxBarThickness: 6
@@ -1131,8 +1236,8 @@
         backgroundColor: "transparent",
         fill: true,
         data: [
-          @foreach ($dataSensorSuhu as $item)
-          '{{ $item->kelembaban }}',
+          @foreach ($dataReverseUdara as $item)
+          '{{ $item }}',
         @endforeach
         ],
         maxBarThickness: 6
@@ -1308,9 +1413,13 @@
   var kelembabanTanahDetail1 = new Chart(grafikDetailKelembabanTanah1, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil1 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1321,7 +1430,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil1 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1388,9 +1501,13 @@
   var kelembabanTanahDetail2 = new Chart(grafikDetailKelembabanTanah2, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil2 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1401,7 +1518,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil2 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1468,9 +1589,13 @@
   var kelembabanTanahDetail3 = new Chart(grafikDetailKelembabanTanah3, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil3 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1481,7 +1606,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil3 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1548,9 +1677,13 @@
   var kelembabanTanahDetail4 = new Chart(grafikDetailKelembabanTanah4, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil4 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1561,7 +1694,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil4 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1628,9 +1765,13 @@
   var kelembabanTanahDetail5 = new Chart(grafikDetailKelembabanTanah5, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil5 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1641,7 +1782,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil5 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1708,9 +1853,13 @@
   var kelembabanTanahDetail6 = new Chart(grafikDetailKelembabanTanah6, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil6 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
-        label: "Kilopascal (kPa)",
+        label: "Kilopascal (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1721,7 +1870,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSoil6 as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1788,7 +1941,11 @@
   var suhuDetail = new Chart(grafikDetailSuhu, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil1 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Suhu (°C)",
         tension: 0,
@@ -1801,7 +1958,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseSuhu as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1868,7 +2029,11 @@
   var cahayaDetail = new Chart(grafikDetailCahaya, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil2 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Cahaya (%Lux)",
         tension: 0,
@@ -1881,7 +2046,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseCahaya as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -1948,7 +2117,11 @@
   var kelembabanUdaraDetail = new Chart(grafikDetailKelembabanUdara, {
     type: "line",
     data: {
-      labels: [],
+      labels: [
+        @foreach ($dataLabelsSoil1 as $item)
+          '{{ $item }}',
+        @endforeach
+      ],
       datasets: [{
         label: "Humidity (%RH)",
         tension: 0,
@@ -1961,7 +2134,11 @@
         borderWidth: 4,
         backgroundColor: "transparent",
         fill: true,
-        data: [],
+        data: [
+          @foreach ($dataReverseUdara as $item)
+            '{{ $item }}',
+          @endforeach
+        ],
         maxBarThickness: 6
 
       }],
@@ -2027,8 +2204,9 @@
   });
 
   function readAllDataRataRata() {
+    var timeNow = new Date(Date.now()).toString().substr(16, 5);
     $.get("{{ route('readDataRataRata') }}", function(data) {
-      suhu.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
+      suhu.data.labels.push(data.updated_at);
       suhu.data.datasets[0].data.push(data.suhu);
       
       if(suhu.data.labels.length >= 10) {
@@ -2054,7 +2232,10 @@
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      cahaya.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
+      var lastUpdateAVGSuhu = document.getElementById("lastUpdateAVGSuhu");
+      lastUpdateAVGSuhu.innerText = timeNow;
+
+      cahaya.data.labels.push(data.updated_at);
       cahaya.data.datasets[0].data.push(data.cahaya);
       if(cahaya.data.labels.length >= 10) {
         cahaya.data.labels.shift();
@@ -2079,7 +2260,10 @@
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembaban.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
+      var lastUpdateAVGCahaya = document.getElementById("lastUpdateAVGCahaya");
+      lastUpdateAVGCahaya.innerText = timeNow;
+
+      kelembaban.data.labels.push(data.updated_at);
       kelembaban.data.datasets[0].data.push(data.kelembaban);
       if(kelembaban.data.labels.length >= 10) {
         kelembaban.data.labels.shift();
@@ -2104,7 +2288,10 @@
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      tanah.data.labels.push(data.updated_at.split("T")[1].substr(0, 5));
+      var lastUpdateAVGKelembaban = document.getElementById("lastUpdateAVGKelembaban");
+      lastUpdateAVGKelembaban.innerText = timeNow;
+
+      tanah.data.labels.push(data.updated_at);
       tanah.data.datasets[0].data.push(data.kelembabanTanah);
       if(tanah.data.labels.length >= 10) {
         tanah.data.labels.shift();
@@ -2129,6 +2316,9 @@
         theBgClass.classList.add("bg-gradient-success");
       }
 
+      var lastUpdateAVGTanah = document.getElementById("lastUpdateAVGTanah");
+      lastUpdateAVGTanah.innerText = timeNow;
+
       suhu.update();
       cahaya.update();
       kelembaban.update();
@@ -2148,9 +2338,9 @@
       }
 
       if(data.kelTanah1[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah1").innerText = data.kelTanah1[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah1").innerText = data.kelTanah1[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah1").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah1").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah1");
@@ -2173,9 +2363,9 @@
       }
 
       if(data.kelTanah2[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah2").innerText = data.kelTanah2[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah2").innerText = data.kelTanah2[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah2").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah2").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah2");
@@ -2198,9 +2388,9 @@
       }
 
       if(data.kelTanah3[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah3").innerText = data.kelTanah3[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah3").innerText = data.kelTanah3[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah3").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah3").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah3");
@@ -2223,9 +2413,9 @@
       }
 
       if(data.kelTanah4[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah4").innerText = data.kelTanah4[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah4").innerText = data.kelTanah4[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah4").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah4").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah4");
@@ -2248,9 +2438,9 @@
       }
 
       if(data.kelTanah5[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah5").innerText = data.kelTanah5[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah5").innerText = data.kelTanah5[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah5").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah5").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah5");
@@ -2273,9 +2463,9 @@
       }
 
       if(data.kelTanah6[0].kelembabantanah != null) {
-        document.getElementById("indikatorKelembabanTanah6").innerText = data.kelTanah6[0].kelembabantanah + " kPa";
+        document.getElementById("indikatorKelembabanTanah6").innerText = data.kelTanah6[0].kelembabantanah + " %";
       } else {
-        document.getElementById("indikatorKelembabanTanah6").innerText = "0 kPa";
+        document.getElementById("indikatorKelembabanTanah6").innerText = "0 %";
       }
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah6");
@@ -2376,114 +2566,117 @@
   }
 
   function readDataNotifikasiAir() {
-    let getList = document.querySelectorAll(".liRiwayatAir");
-    for(var i = 0; i < getList.length; i++) {
-      getList[i].remove();
-    }
     $.get("{{ route('ambilDataNotifikasiAir') }}", function(data) {
-      let ulElement = document.getElementById("ulRiwayatAir");
+      let idDateRiwayatAir = [
+        document.getElementById("dateWaktuAir1"),
+        document.getElementById("dateWaktuAir2"),
+        document.getElementById("dateWaktuAir3"),
+        document.getElementById("dateWaktuAir4"),
+        document.getElementById("dateWaktuAir5"),
+      ];
+      let idJamRiwayatAir = [
+        document.getElementById("jamWaktuAir1"),
+        document.getElementById("jamWaktuAir2"),
+        document.getElementById("jamWaktuAir3"),
+        document.getElementById("jamWaktuAir4"),
+        document.getElementById("jamWaktuAir5"),
+      ];
+      let idIntervalRiwayatAir = [
+        document.getElementById("intervalRiwayatAir1"),
+        document.getElementById("intervalRiwayatAir2"),
+        document.getElementById("intervalRiwayatAir3"),
+        document.getElementById("intervalRiwayatAir4"),
+        document.getElementById("intervalRiwayatAir5"),
+      ];
       for(var i = 0; i < data.notifAirMati.length; i++) {
-        let liElement = document.createElement("li");
-          let divElement1 = document.createElement("div");
-            let h6Element1 = document.createElement("h6");
-            let spanElement1 = document.createElement("span");
-          let divElement2 = document.createElement("div");
-
-        liElement.setAttribute("class", "liRiwayatAir list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg");
-        divElement1.setAttribute("class", "d-flex flex-column");
-        h6Element1.setAttribute("class", "mb-1 text-dark font-weight-bold text-sm");
-        spanElement1.setAttribute("class", "text-xs");
-        divElement2.setAttribute("class", "d-flex align-items-center text-sm");
-
+        let dateWaktuAir1 = idDateRiwayatAir[i];
+        let jamWaktuAir1 = idJamRiwayatAir[i];
+        let intervalRiwayatAir1 = idIntervalRiwayatAir[i];
+        
         let bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        h6Element1.appendChild(document.createTextNode(data.notifAirMati[i].waktu.split("-")[2].split(" ")[0] + " " + bulan[parseInt(data.notifAirMati[i].waktu.split("-")[1]) - 1] + ", " + data.notifAirMati[i].waktu.split("-")[0]));
-        spanElement1.appendChild(document.createTextNode(data.notifAirHidup[i].waktu.split(" ")[1] + " - " + data.notifAirMati[i].waktu.split(" ")[1]));
-        divElement2.appendChild(document.createTextNode("1x"));
-
-        divElement1.appendChild(h6Element1);
-        divElement1.appendChild(spanElement1);
-        liElement.appendChild(divElement1);
-        liElement.appendChild(divElement2);
-
-        ulElement.appendChild(liElement);
+        dateWaktuAir1.innerText = data.notifAirMati[i].waktu.split("-")[2].split(" ")[0] + " " + bulan[parseInt(data.notifAirMati[i].waktu.split("-")[1]) - 1] + ", " + data.notifAirMati[i].waktu.split("-")[0];
+        jamWaktuAir1.innerText = data.notifAirHidup[i].waktu.split(" ")[1] + " - " + data.notifAirMati[i].waktu.split(" ")[1];
+        intervalRiwayatAir1.innerText = "1x";
       }
     });
   }
 
   function readDataNotifikasiPupuk() {
-    let getList = document.querySelectorAll(".liRiwayatPupuk");
-    for(var i = 0; i < getList.length; i++) {
-      getList[i].remove();
-    }
     $.get("{{ route('ambilDataNotifikasiPupuk') }}", function(data) {
-      let ulElement = document.getElementById("ulRiwayatPupuk");
+      let idDateRiwayatPupuk = [
+        document.getElementById("dateWaktuPupuk1"),
+        document.getElementById("dateWaktuPupuk2"),
+        document.getElementById("dateWaktuPupuk3"),
+        document.getElementById("dateWaktuPupuk4"),
+        document.getElementById("dateWaktuPupuk5"),
+      ];
+      let idJamRiwayatPupuk = [
+        document.getElementById("jamWaktuPupuk1"),
+        document.getElementById("jamWaktuPupuk2"),
+        document.getElementById("jamWaktuPupuk3"),
+        document.getElementById("jamWaktuPupuk4"),
+        document.getElementById("jamWaktuPupuk5"),
+      ];
+      let idIntervalRiwayatPupuk = [
+        document.getElementById("intervalRiwayatPupuk1"),
+        document.getElementById("intervalRiwayatPupuk2"),
+        document.getElementById("intervalRiwayatPupuk3"),
+        document.getElementById("intervalRiwayatPupuk4"),
+        document.getElementById("intervalRiwayatPupuk5"),
+      ];
       for(var i = 0; i < data.notifPupukMati.length; i++) {
-        let liElement = document.createElement("li");
-          let divElement1 = document.createElement("div");
-            let h6Element1 = document.createElement("h6");
-            let spanElement1 = document.createElement("span");
-          let divElement2 = document.createElement("div");
-
-        liElement.setAttribute("class", "liRiwayatPupuk list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg");
-        divElement1.setAttribute("class", "d-flex flex-column");
-        h6Element1.setAttribute("class", "mb-1 text-dark font-weight-bold text-sm");
-        spanElement1.setAttribute("class", "text-xs");
-        divElement2.setAttribute("class", "d-flex align-items-center text-sm");
-
+        let dateWaktuPupuk1 = idDateRiwayatPupuk[i];
+        let jamWaktuPupuk1 = idJamRiwayatPupuk[i];
+        let intervalRiwayatPupuk1 = idIntervalRiwayatPupuk[i];
+        
         let bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        h6Element1.appendChild(document.createTextNode(data.notifPupukMati[i].waktu.split("-")[2].split(" ")[0] + " " + bulan[parseInt(data.notifPupukMati[i].waktu.split("-")[1]) - 1] + ", " + data.notifPupukMati[i].waktu.split("-")[0]));
-        spanElement1.appendChild(document.createTextNode(data.notifPupukHidup[i].waktu.split(" ")[1] + " - " + data.notifPupukMati[i].waktu.split(" ")[1]));
-        divElement2.appendChild(document.createTextNode("1x"));
-
-        divElement1.appendChild(h6Element1);
-        divElement1.appendChild(spanElement1);
-        liElement.appendChild(divElement1);
-        liElement.appendChild(divElement2);
-
-        ulElement.appendChild(liElement);
+        dateWaktuPupuk1.innerText = data.notifPupukMati[i].waktu.split("-")[2].split(" ")[0] + " " + bulan[parseInt(data.notifPupukMati[i].waktu.split("-")[1]) - 1] + ", " + data.notifPupukMati[i].waktu.split("-")[0];
+        jamWaktuPupuk1.innerText = data.notifPupukHidup[i].waktu.split(" ")[1] + " - " + data.notifPupukMati[i].waktu.split(" ")[1];
+        intervalRiwayatPupuk1.innerText = "1x";
       }
     });
   }
 
   function readDataNotifikasiSemuaSensor() {
-    let getList = document.querySelectorAll(".liRiwayatSensor");
-    for(var i = 0; i < getList.length; i++) {
-      getList[i].remove();
-    }
     $.get("{{ route('ambilDataNotifikasiSensor') }}", function(data) {
-      let ulElement = document.getElementById("ulRiwayatSensor");
+      let idDateRiwayatSensor = [
+        document.getElementById("dateWaktuSensor1"),
+        document.getElementById("dateWaktuSensor2"),
+        document.getElementById("dateWaktuSensor3"),
+        document.getElementById("dateWaktuSensor4"),
+        document.getElementById("dateWaktuSensor5"),
+      ];
+      let idJamRiwayatSensor = [
+        document.getElementById("jamWaktuSensor1"),
+        document.getElementById("jamWaktuSensor2"),
+        document.getElementById("jamWaktuSensor3"),
+        document.getElementById("jamWaktuSensor4"),
+        document.getElementById("jamWaktuSensor5"),
+      ];
+      let idIntervalRiwayatSensor = [
+        document.getElementById("intervalRiwayatSensor1"),
+        document.getElementById("intervalRiwayatSensor2"),
+        document.getElementById("intervalRiwayatSensor3"),
+        document.getElementById("intervalRiwayatSensor4"),
+        document.getElementById("intervalRiwayatSensor5"),
+      ];
       for(var i = 0; i < data.notifSensor.length; i++) {
-        let liElement = document.createElement("li");
-          let divElement1 = document.createElement("div");
-            let h6Element1 = document.createElement("h6");
-            let spanElement1 = document.createElement("span");
-          let divElement2 = document.createElement("div");
-
-        liElement.setAttribute("class", "liRiwayatSensor list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg");
-        divElement1.setAttribute("class", "d-flex flex-column");
-        h6Element1.setAttribute("class", "mb-1 text-dark font-weight-bold text-sm");
-        spanElement1.setAttribute("class", "text-xs");
-        divElement2.setAttribute("class", "d-flex align-items-center text-sm");
-
+        let dateWaktuSensor1 = idDateRiwayatSensor[i];
+        let jamWaktuSensor1 = idJamRiwayatSensor[i];
+        let intervalRiwayatSensor1 = idIntervalRiwayatSensor[i];
+        
         let bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        h6Element1.appendChild(document.createTextNode(data.notifSensor[i].created_at.split("-")[2].split("T")[0] + " " + bulan[parseInt(data.notifSensor[i].created_at.split("-")[1]) - 1] + ", " + data.notifSensor[i].created_at.split("-")[0]));
-        spanElement1.appendChild(document.createTextNode(data.notifSensor[i].created_at.split("T")[1].split(".")[0]));
+        dateWaktuSensor1.innerText = data.notifSensor[i].created_at.split("-")[2].split("T")[0] + " " + bulan[parseInt(data.notifSensor[i].created_at.split("-")[1]) - 1] + ", " + data.notifSensor[i].created_at.split("-")[0];
+        jamWaktuSensor1.innerText = data.notifSensor[i].created_at.split("T")[1].split(".")[0];
         if(data.notifSensor[i].nama_notifikasi == "Peringatan Suhu") {
-          divElement2.appendChild(document.createTextNode("Suhu mencapai: " + data.notifSensor[i].deskripsi.split("diatas")[1].split("!")[0]));
+          intervalRiwayatSensor1.innerText = "Suhu mencapai: " + data.notifSensor[i].deskripsi.split("diatas")[1].split("!")[0];
         } else if(data.notifSensor[i].nama_notifikasi == "Peringatan Kelembaban Udara") {
-          divElement2.appendChild(document.createTextNode("Udara mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%"));
+          intervalRiwayatSensor1.innerText = "Udara mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%";
         } else if(data.notifSensor[i].nama_notifikasi == "Peringatan Intensitas Cahaya") {
-          divElement2.appendChild(document.createTextNode("Cahaya mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%"));
+          intervalRiwayatSensor1.innerText = "Cahaya mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%";
         } else if(data.notifSensor[i].nama_notifikasi == "Peringatan Kelembaban Tanah") {
-          divElement2.appendChild(document.createTextNode("Tanah mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%"));
+          intervalRiwayatSensor1.innerText = "Tanah mencapai: " + data.notifSensor[i].deskripsi.split(":")[1] + "%";
         }
-
-        divElement1.appendChild(h6Element1);
-        divElement1.appendChild(spanElement1);
-        liElement.appendChild(divElement1);
-        liElement.appendChild(divElement2);
-
-        ulElement.appendChild(liElement);
       }
     });
   }
@@ -2634,10 +2827,10 @@
   readDataNotifikasiSemuaSensor();
   checkWaterFloat();
 
-  setInterval(checkMode, 5000);
+  setInterval(checkMode, 2000);
   setTimeout(setModeEnabled, 6000);
-  setInterval(readAllDataRataRata, 5000);
-  setInterval(readDataIndividualSensor, 5000);
+  setInterval(readAllDataRataRata, 50000);
+  setInterval(readDataIndividualSensor, 50000);
   setInterval(readDataNotifikasiAir, 20000);
   setInterval(readDataNotifikasiPupuk, 20000);
   setInterval(readDataNotifikasiSemuaSensor, 20000);
