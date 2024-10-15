@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_sensor', function (Blueprint $table) {
-            $table->id();
+        Schema::create('sensor', function (Blueprint $table) {
+            $table->id("id_sensor");
             $table->string("esp_id");
-            $table->decimal("suhu", 10, 2)->nullable();
-            $table->integer("kelembaban")->nullable();
-            $table->integer("cahaya")->nullable();
-            $table->float("kelembabantanah")->nullable();
+            // $table->string("keterangan_sensor");
+            $table->unsignedInteger("id_detail_blok");
+
+            // $table->decimal("suhu", 10, 2)->nullable();
+            // $table->integer("kelembaban")->nullable();
+            // $table->integer("cahaya")->nullable();
+            // $table->float("kelembabantanah")->nullable();
             $table->timestamps();
+
+            // Foreign Key
+            $table->foreign("id_detail_blok")->references("id_detail_blok")->on("detail_blok")->onDelete("cascade");
         });
     }
 

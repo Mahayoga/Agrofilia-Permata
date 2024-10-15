@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NotifikasiModeSeeder::class);
         $this->call(NotifikasiSensorSeeder::class);
         $this->call(TabelSensorSeeder::class);
+        $this->call(LogSensorSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(GaleriSeeder::class);
         $this->call(MusimSeeder::class);

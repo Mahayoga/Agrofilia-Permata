@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SensorModel extends Model {
     use HasFactory;
-    protected $table = 'tb_sensor';
-    protected $primaryKey = 'id';
+    protected $table = 'sensor';
+    protected $primaryKey = 'id_sensor';
     protected $fillable = ['suhu', 'kelembaban'];
 }

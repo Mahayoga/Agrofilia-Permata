@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SensorModel;
 use App\Models\IndividualBlockSensor;
 use App\Models\KebunModel;
+use App\Models\BlokModel;
+use App\Models\LogSensorModel;
 use App\Models\NotifikasiSensorModel;
 use App\Models\MSensor;
 // use Twilio\Rest\Client;
@@ -561,6 +563,80 @@ class SensorController extends Controller {
 
         return response()->json([
             "notifSensor" => $hasil
+        ]);
+    }
+
+    public function store(Request $request) {
+        switch($request->esp_id) {
+            case "soil1_data":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil1_data')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+            case "soil2_data":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil2_data')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+            case "soil3":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil3')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+            case "soil4":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil4')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+            case "soil5":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil5')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+            case "soil6":
+                $dataSensor = SensorModel::select()
+                    ->where('id_detail_blok', $request->id_detail_blok)
+                    ->where('esp_id', 'soil6')
+                    ->get();
+                LogSensorModel::create([
+                    'id_sensor' => $dataSensor[0]->id_sensor,
+                    'keterangan_sensor' => $request->keterangan_sensor,
+                    'nilai_sensor' => $request->nilai_sensor,
+                ]);
+                break;
+        }
+        return response()->json([
+            'status' => 'Data berhasil disimpan'
         ]);
     }
 }
