@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mode', function (Blueprint $table) {
             // id 	mode 	updated_at 	created_at 	
             $table->id();
+            $table->string("nama_mode");
             $table->integer("mode");
             $table->timestamps();
         });

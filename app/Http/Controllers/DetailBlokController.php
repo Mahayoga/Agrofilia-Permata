@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\BlokModel;
 use App\Models\SensorModel;
-use App\Models\WaterFloatModel;
+use App\Models\LogSensorModel;
+use App\Models\ModeModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class DetailBlokController extends Controller
@@ -15,73 +17,88 @@ class DetailBlokController extends Controller
             ->join('kebun', 'detail_blok.id_kebun', '=', 'kebun.id_kebun')
             ->where('id_detail_blok', $id)
             ->get();
+        
+        $dataSensorBlok = SensorModel::select()
+            ->where('id_detail_blok', $id)
+            ->get();
 
-        $dataSensorSuhu = SensorModel::select()
-            ->where('esp_id', 'soil1_data')
-            ->orderBy('id', 'desc')
+        $dataSensorSuhu = LogSensorModel::select()
+            ->where('keterangan_sensor', 'suhu')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
+            ->orderBy('id_log_sensor', 'desc')
             ->limit(10)
             ->get();
         $dataLabelsSuhu = [];
         $dataReverseSuhu = [];
         for($i = 0; $i < count($dataSensorSuhu); $i++) {
             $dataLabelsSuhu[$i] = explode(':', explode(' ', $dataSensorSuhu[$i]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSensorSuhu[$i]->created_at)[1])[1];
-            $dataReverseSuhu[$i] = $dataSensorSuhu[$i]->suhu;
+            $dataReverseSuhu[$i] = $dataSensorSuhu[$i]->nilai_sensor;
         }
         $dataReverseSuhu = array_reverse($dataReverseSuhu);
         $dataLabelsSuhu = array_reverse($dataLabelsSuhu);
+
+        $dataSensorUdara = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_udara')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
+            ->orderBy('id_log_sensor', 'desc')
+            ->limit(10)
+            ->get();
         
         $dataLabelsUdara = [];
         $dataReverseUdara = [];
-        for($i = 0; $i < count($dataSensorSuhu); $i++) {
-            $dataLabelsUdara[$i] = explode(':', explode(' ', $dataSensorSuhu[$i]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSensorSuhu[$i]->created_at)[1])[1];
-            $dataReverseUdara[$i] = $dataSensorSuhu[$i]->kelembaban;
+        for($i = 0; $i < count($dataSensorUdara); $i++) {
+            $dataLabelsUdara[$i] = explode(':', explode(' ', $dataSensorUdara[$i]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSensorUdara[$i]->created_at)[1])[1];
+            $dataReverseUdara[$i] = $dataSensorUdara[$i]->nilai_sensor;
         }
         $dataLabelsUdara = array_reverse($dataLabelsUdara);
         $dataReverseUdara = array_reverse($dataReverseUdara);
 
         // dd($dataLabelsUdara, $dataReverseUdara);
 
-        $dataSensorCahaya = SensorModel::select()
-            ->where('esp_id', 'soil2_data')
-            ->orderBy('id', 'desc')
+        $dataSensorCahaya = LogSensorModel::select()
+            ->where('keterangan_sensor', 'cahaya')
+            ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
+            ->orderBy('id_log_sensor', 'desc')
             ->limit(10)
             ->get();
         $dataLabelsCahaya = [];
         $dataReverseCahaya = [];
         for($i = 0; $i < count($dataSensorCahaya); $i++) {
             $dataLabelsCahaya[$i] = explode(':', explode(' ', $dataSensorCahaya[$i]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSensorCahaya[$i]->created_at)[1])[1];
-            $dataReverseCahaya[$i] = $dataSensorCahaya[$i]->cahaya;
+            $dataReverseCahaya[$i] = $dataSensorCahaya[$i]->nilai_sensor;
         }
         $dataLabelsCahaya = array_reverse($dataLabelsCahaya);
         $dataReverseCahaya = array_reverse($dataReverseCahaya);
 
         // dd($dataLabelsCahaya, $dataReverseCahaya);
 
-        $dataAllSensor = SensorModel::select()
-            ->where('esp_id', 'soil1_data')
+        $dataAllSensor = LogSensorModel::select()
+            ->where('keterangan_sensor', 'suhu')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(10)
             ->get();
-        $dataSensorTanah = SensorModel::select()
+        $dataSensorTanah = LogSensorModel::select()
+            ->whereRaw("(keterangan_sensor = 'kelembaban_tanah' AND id_sensor = " . $dataSensorBlok[0]->id_sensor . ") OR (id_sensor = " . $dataSensorBlok[1]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[2]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[3]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[4]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[5]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah')")
             ->orderBy('created_at', 'desc')
             ->limit(60)
             ->get();
-        // dd($dataAllSensor);
         $dataLabelsTanah = [];
         $dataAVGTanah = [];
         for($i = 0; $i < count($dataAllSensor); $i++) {
             $avgTanah = 0;
             for($j = 0; $j < 6; $j++) {
-                $avgTanah += (int)$dataSensorTanah[$j * $i]->kelembabantanah;
+                $avgTanah += (int)$dataSensorTanah[$j * ($i + 1)]->nilai_sensor;
             }
-            $dataAVGTanah[$i] = (int)$avgTanah / count($dataAllSensor);
+            $dataAVGTanah[$i] = (int)$avgTanah / 6;
             $dataLabelsTanah[$i] = explode(':', explode(' ', $dataAllSensor[$i]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataAllSensor[$i]->created_at)[1])[1];
         }
         $dataLabelsTanah = array_reverse($dataLabelsTanah);
         $dataAVGTanah = array_reverse($dataAVGTanah);
 
-        $dataSoil1 = SensorModel::select()
-            ->where('esp_id', 'soil1_data')
+        $dataSoil1 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -89,13 +106,14 @@ class DetailBlokController extends Controller
         $dataReverseSoil1 = [];
         for($i = 0; $i < count($dataSoil1); $i++) {
             $dataLabelsSoil1[$i] = explode(':', explode(' ', $dataSoil1[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil1[0]->created_at)[1])[1];
-            $dataReverseSoil1[$i] = $dataSoil1[$i]->kelembabantanah;
+            $dataReverseSoil1[$i] = $dataSoil1[$i]->nilai_sensor;
         }
         $dataLabelsSoil1 = array_reverse($dataLabelsSoil1);
         $dataReverseSoil1 = array_reverse($dataReverseSoil1);
 
-        $dataSoil2 = SensorModel::select()
-            ->where('esp_id', 'soil2_data')
+        $dataSoil2 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -103,13 +121,14 @@ class DetailBlokController extends Controller
         $dataReverseSoil2 = [];
         for($i = 0; $i < count($dataSoil2); $i++) {
             $dataLabelsSoil2[$i] = explode(':', explode(' ', $dataSoil2[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil2[0]->created_at)[1])[1];
-            $dataReverseSoil2[$i] = $dataSoil2[$i]->kelembabantanah;
+            $dataReverseSoil2[$i] = $dataSoil2[$i]->nilai_sensor;
         }
         $dataLabelsSoil2 = array_reverse($dataLabelsSoil2);
         $dataReverseSoil2 = array_reverse($dataReverseSoil2);
 
-        $dataSoil3 = SensorModel::select()
-            ->where('esp_id', 'soil3')
+        $dataSoil3 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[2]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -117,13 +136,14 @@ class DetailBlokController extends Controller
         $dataReverseSoil3 = [];
         for($i = 0; $i < count($dataSoil3); $i++) {
             $dataLabelsSoil3[$i] = explode(':', explode(' ', $dataSoil3[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil3[0]->created_at)[1])[1];
-            $dataReverseSoil3[$i] = $dataSoil3[$i]->kelembabantanah;
+            $dataReverseSoil3[$i] = $dataSoil3[$i]->nilai_sensor;
         }
         $dataLabelsSoil3 = array_reverse($dataLabelsSoil3);
         $dataReverseSoil3 = array_reverse($dataReverseSoil3);
 
-        $dataSoil4 = SensorModel::select()
-            ->where('esp_id', 'soil4')
+        $dataSoil4 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[3]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -131,13 +151,14 @@ class DetailBlokController extends Controller
         $dataReverseSoil4 = [];
         for($i = 0; $i < count($dataSoil4); $i++) {
             $dataLabelsSoil4[$i] = explode(':', explode(' ', $dataSoil4[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil4[0]->created_at)[1])[1];
-            $dataReverseSoil4[$i] = $dataSoil4[$i]->kelembabantanah;
+            $dataReverseSoil4[$i] = $dataSoil4[$i]->nilai_sensor;
         }
         $dataLabelsSoil4 = array_reverse($dataLabelsSoil4);
         $dataReverseSoil4 = array_reverse($dataReverseSoil4);
 
-        $dataSoil5 = SensorModel::select()
-            ->where('esp_id', 'soil4')
+        $dataSoil5 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[4]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -145,13 +166,14 @@ class DetailBlokController extends Controller
         $dataReverseSoil5 = [];
         for($i = 0; $i < count($dataSoil5); $i++) {
             $dataLabelsSoil5[$i] = explode(':', explode(' ', $dataSoil5[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil5[0]->created_at)[1])[1];
-            $dataReverseSoil5[$i] = $dataSoil5[$i]->kelembabantanah;
+            $dataReverseSoil5[$i] = $dataSoil5[$i]->nilai_sensor;
         }
         $dataLabelsSoil5 = array_reverse($dataLabelsSoil5);
         $dataReverseSoil5 = array_reverse($dataReverseSoil5);
 
-        $dataSoil6 = SensorModel::select()
-            ->where('esp_id', 'soil4')
+        $dataSoil6 = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('id_sensor', $dataSensorBlok[5]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -159,14 +181,42 @@ class DetailBlokController extends Controller
         $dataReverseSoil6 = [];
         for($i = 0; $i < count($dataSoil6); $i++) {
             $dataLabelsSoil6[$i] = explode(':', explode(' ', $dataSoil6[0]->created_at)[1])[0] . ':' . explode(':', explode(' ', $dataSoil6[0]->created_at)[1])[1];
-            $dataReverseSoil6[$i] = $dataSoil6[$i]->kelembabantanah;
+            $dataReverseSoil6[$i] = $dataSoil6[$i]->nilai_sensor;
         }
-        $dataLabelsSoil5 = array_reverse($dataLabelsSoil5);
+        $dataLabelsSoil6 = array_reverse($dataLabelsSoil5);
         $dataReverseSoil6 = array_reverse($dataReverseSoil6);
 
-        $dataWaterFloat = WaterFloatModel::select()
+        $dataWaterFloat = ModeModel::select()
+            ->where('nama_mode', 'water_float')
             ->get();
-        
+
+        // dd(compact(
+        //     'dataBlok',
+        //     'dataReverseSuhu',
+        //     'dataReverseUdara',
+        //     'dataReverseCahaya',
+        //     'dataLabelsSuhu',
+        //     'dataLabelsUdara', 
+        //     'dataSensorCahaya', 
+        //     'dataLabelsCahaya', 
+        //     'dataLabelsTanah', 
+        //     'dataAVGTanah', 
+        //     'dataReverseSoil1',
+        //     'dataReverseSoil2',
+        //     'dataReverseSoil3',
+        //     'dataReverseSoil4',
+        //     'dataReverseSoil5',
+        //     'dataReverseSoil6',
+        //     'dataLabelsSoil1',
+        //     'dataLabelsSoil2',
+        //     'dataLabelsSoil3',
+        //     'dataLabelsSoil4',
+        //     'dataLabelsSoil5',
+        //     'dataLabelsSoil6',
+        //     'dataWaterFloat',
+        //     'id'
+        // ));
+
         return view('pages.admin.detailblok.index', compact(
             'dataBlok',
             'dataReverseSuhu',
@@ -190,7 +240,8 @@ class DetailBlokController extends Controller
             'dataLabelsSoil4',
             'dataLabelsSoil5',
             'dataLabelsSoil6',
-            'dataWaterFloat'
+            'dataWaterFloat',
+            'id'
         ));
     }
 }

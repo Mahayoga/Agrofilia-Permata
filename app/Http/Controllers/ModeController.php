@@ -166,19 +166,19 @@ class ModeController extends Controller {
     }
 
     public function setAirModeOn() {
-        $nilaiAuto = ModeModel::where("id", 2)->update(["mode" => 1]);
+        $nilaiAuto = ModeModel::where("nama_mode", 'kontrol_air')->update(["mode" => 1]);
     }
 
     public function setAirModeOff() {
-        $nilaiAuto = ModeModel::where("id", 2)->update(["mode" => 0]);
+        $nilaiAuto = ModeModel::where("nama_mode", 'kontrol_air')->update(["mode" => 0]);
     }
 
     public function setPupukModeOn() {
-        $nilaiAuto = ModeModel::where("id", 3)->update(["mode" => 1]);
+        $nilaiAuto = ModeModel::where("nama_mode", 'kontrol_pupuk')->update(["mode" => 1]);
     }
 
     public function setPupukModeOff() {
-        $nilaiAuto = ModeModel::where("id", 3)->update(["mode" => 0]);
+        $nilaiAuto = ModeModel::where("nama_mode", 'kontrol_pupuk')->update(["mode" => 0]);
     }
 
     public function pupukLastUpdateTime() {

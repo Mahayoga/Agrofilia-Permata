@@ -15,47 +15,47 @@ class LogSensorSeeder extends Seeder
     {
         LogSensorModel::create([
             'id_sensor' => '1',
-            'keterangan_sensor' => 'Suhu',
+            'keterangan_sensor' => 'suhu',
             'nilai_sensor' => '40',
         ]);
         LogSensorModel::create([
             'id_sensor' => '1',
-            'keterangan_sensor' => 'Kelembaban Udara',
+            'keterangan_sensor' => 'kelembaban_udara',
             'nilai_sensor' => '20',
         ]);
         LogSensorModel::create([
             'id_sensor' => '1',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '13',
         ]);
         LogSensorModel::create([
             'id_sensor' => '2',
-            'keterangan_sensor' => 'Cahaya',
+            'keterangan_sensor' => 'cahaya',
             'nilai_sensor' => '18980',
         ]);
         LogSensorModel::create([
             'id_sensor' => '2',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '10',
         ]);
         LogSensorModel::create([
             'id_sensor' => '3',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '16',
         ]);
         LogSensorModel::create([
             'id_sensor' => '4',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '17',
         ]);
         LogSensorModel::create([
             'id_sensor' => '5',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '19',
         ]);
         LogSensorModel::create([
             'id_sensor' => '6',
-            'keterangan_sensor' => 'Kelembaban Tanah',
+            'keterangan_sensor' => 'kelembaban_tanah',
             'nilai_sensor' => '21',
         ]);
     }

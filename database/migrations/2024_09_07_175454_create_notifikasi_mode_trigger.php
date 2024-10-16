@@ -12,24 +12,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::raw('
-            DELIMITER //
+        DB::unprepared('
             CREATE TRIGGER `notifikasi_mode` BEFORE UPDATE ON `mode`
             FOR EACH ROW 
             BEGIN
-                IF NEW.id = 2 AND NEW.mode = 0 THEN
+                IF NEW.nama_mode = "kontrol_air" AND NEW.mode = 0 THEN
                     INSERT INTO notifikasi_mode VALUES (NULL, "Peringatan Mode", "Peringatan", "Penyiraman Air Telah Mati!", NOW());
-                ELSEIF NEW.id = 2 AND NEW.mode = 1 THEN
+                ELSEIF NEW.nama_mode = "kontrol_air" AND NEW.mode = 1 THEN
                     INSERT INTO notifikasi_mode VALUES (NULL, "Peringatan Mode", "Peringatan", "Penyiraman Air Telah Hidup!", NOW());
                 END IF;
 
-                IF NEW.id = 3 AND NEW.mode = 0 THEN
+                IF NEW.nama_mode = "kontrol_pupuk" AND NEW.mode = 0 THEN
                     INSERT INTO notifikasi_mode VALUES (NULL, "Peringatan Mode", "Peringatan", "Penyiraman Pupuk Telah Mati!", NOW());
-                ELSEIF NEW.id = 3 AND NEW.mode = 1 THEN
+                ELSEIF NEW.nama_mode = "kontrol_pupuk" AND NEW.mode = 1 THEN
                     INSERT INTO notifikasi_mode VALUES (NULL, "Peringatan Mode", "Peringatan", "Penyiraman Pupuk Telah Hidup!", NOW());
                 END IF;
-            END //
-            DELIMITER ;
+            END;
 
         ');
     }

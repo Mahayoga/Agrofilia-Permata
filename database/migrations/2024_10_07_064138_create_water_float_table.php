@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('water_float', function (Blueprint $table) {
-            $table->id();
-            $table->integer('water');
-            $table->timestamps();
-        });
+        // Schema::create('water_float', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->integer('water');
+        //     $table->timestamps();
+        // });
     }
 
     /**

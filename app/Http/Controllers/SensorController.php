@@ -29,23 +29,37 @@ class SensorController extends Controller {
         ]);
     }
 
-    public function dataRataRata() {
-        $nilaiSensor = SensorModel::select()
-            ->where('esp_id', 'soil1_data')
+    public function dataRataRata($id) {
+        $dataSensorBlok = SensorModel::select()
+            ->where('id_detail_blok', $id)
+            ->get();
+
+        $nilaiSensor = LogSensorModel::select()
+            ->where('keterangan_sensor', 'suhu')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(1)
             ->get();
         
-        $nilaiSensorCahaya = SensorModel::where('esp_id', 'soil2_data')
+        $nilaiSensorUdara = LogSensorModel::select()
+            ->where('keterangan_sensor', 'kelembaban_udara')
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
+            ->orderBy('created_at', 'desc')
+            ->limit(1)
+            ->get();
+        
+        $nilaiSensorCahaya = LogSensorModel::where('keterangan_sensor', 'cahaya')
+            ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy('created_at', 'desc')->latest()->first();
 
-        $nilaiSensorTanah = SensorModel::select()
+        $nilaiSensorTanah = LogSensorModel::select()
+            ->whereRaw("(keterangan_sensor = 'kelembaban_tanah' AND id_sensor = " . $dataSensorBlok[0]->id_sensor . ") OR (id_sensor = " . $dataSensorBlok[1]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[2]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[3]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[4]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[5]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah')")
             ->orderBy('created_at', 'desc')
             ->limit(6)
             ->get();
         $avgTanah = 0;
         for($i = 0; $i < count($nilaiSensorTanah); $i++) {
-            $avgTanah += (int)$nilaiSensorTanah[$i]->kelembabantanah;
+            $avgTanah += (int)$nilaiSensorTanah[$i]->nilai_sensor;
         }
         $avgTanah /= count($nilaiSensorTanah);
 
@@ -53,23 +67,23 @@ class SensorController extends Controller {
         // dd();
 
         return response()->json([
-            'suhu' => $nilaiSensor[0]->suhu,
-            'kelembaban' => $nilaiSensor[0]->kelembaban,
-            'cahaya' => $nilaiSensorCahaya->cahaya,
+            'suhu' => $nilaiSensor[0]->nilai_sensor,
+            'kelembaban' => $nilaiSensorUdara[0]->nilai_sensor,
+            'cahaya' => $nilaiSensorCahaya->nilai_sensor,
             'kelembabanTanah' => $avgTanah,
             'updated_at' => explode(':', explode(' ', $updated)[4])[0] . ':' . explode(':', explode(' ', $updated)[4])[1]
         ]);
     }
 
     public function dataSensorSuhuPerHari() {
-        $totalJumlahSensor = IndividualBlockSensor::select(DB::raw("AVG(suhu) AS jumlah"))
-            ->where("esp_id", "soil1_data")
+        $totalJumlahSensor = LogSensorModel::select(DB::raw("AVG(nilai_sensor) AS jumlah"))
+            ->where("keterangan_sensor", "suhu")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
 
-        $hariPerTotalJumlahSensor = IndividualBlockSensor::select(DB::raw("created_at"))
-            ->where("esp_id", "soil1_data")
+        $hariPerTotalJumlahSensor = LogSensorModel::select(DB::raw("created_at"))
+            ->where("keterangan_sensor", "suhu")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -131,14 +145,14 @@ class SensorController extends Controller {
     }
 
     public function dataSensorCahayaPerHari() {
-        $totalJumlahSensor = IndividualBlockSensor::select(DB::raw("AVG(cahaya) AS jumlah"))
-            ->where("esp_id", "soil2_data")
+        $totalJumlahSensor = LogSensorModel::select(DB::raw("AVG(nilai_sensor) AS jumlah"))
+            ->where("keterangan_sensor", "cahaya")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
 
-        $hariPerTotalJumlahSensor = IndividualBlockSensor::select(DB::raw("created_at"))
-            ->where("esp_id", "soil2_data")
+        $hariPerTotalJumlahSensor = LogSensorModel::select(DB::raw("created_at"))
+            ->where("keterangan_sensor", "cahaya")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -200,14 +214,14 @@ class SensorController extends Controller {
     }
 
     public function dataSensorUdaraPerHari() {
-        $totalJumlahSensor = IndividualBlockSensor::select(DB::raw("AVG(kelembaban) AS jumlah"))
-            ->where("esp_id", "soil1_data")
+        $totalJumlahSensor = LogSensorModel::select(DB::raw("AVG(nilai_sensor) AS jumlah"))
+            ->where("keterangan_sensor", "kelembaban_udara")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
 
-        $hariPerTotalJumlahSensor = IndividualBlockSensor::select(DB::raw("created_at"))
-            ->where("esp_id", "soil1_data")
+        $hariPerTotalJumlahSensor = LogSensorModel::select(DB::raw("created_at"))
+            ->where("keterangan_sensor", "kelembaban_udara")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -269,14 +283,14 @@ class SensorController extends Controller {
     }
 
     public function dataSensorTanahPerHari() {
-        $totalJumlahSensor = IndividualBlockSensor::select(DB::raw("AVG(kelembabantanah) AS jumlah"))
-            // ->where("esp_id", "soil1_data")
+        $totalJumlahSensor = LogSensorModel::select(DB::raw("AVG(nilai_sensor) AS jumlah"))
+            ->where("keterangan_sensor", "kelembaban_tanah")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
 
-        $hariPerTotalJumlahSensor = IndividualBlockSensor::select(DB::raw("created_at"))
-            // ->where("esp_id", "soil1_data")
+        $hariPerTotalJumlahSensor = LogSensorModel::select(DB::raw("created_at"))
+            ->where("keterangan_sensor", "kelembaban_tanah")
             ->groupBy(DB::raw("SUBSTRING(created_at, 1, 10)"))
             ->limit("7")
             ->get();
@@ -361,7 +375,7 @@ class SensorController extends Controller {
 
     public function dataNotifikasiUdara() {
         $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
-            ->where("nama_notifikasi", "Peringatan Kelembaban Udara")
+            ->where("nama_notifikasi", "Peringatan kelembaban_udara")
             ->where("level_notifikasi", "Bahaya")
             ->get();
 
@@ -372,7 +386,7 @@ class SensorController extends Controller {
 
     public function dataNotifikasiTanah() {
         $dataNotifikasi = NotifikasiSensorModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah"))
-            ->where("nama_notifikasi", "Peringatan Kelembaban Tanah")
+            ->where("nama_notifikasi", "Peringatan kelembaban_tanah")
             ->where("level_notifikasi", "Bahaya")
             ->get();
 
@@ -382,9 +396,9 @@ class SensorController extends Controller {
     }
 
     public function suhuLastUpdateTime() {
-        $timeResult = SensorModel::select()
-            ->where("esp_id", "soil1_data")
-            ->orderBy("id", "desc")
+        $timeResult = LogSensorModel::select()
+            ->where("keterangan_sensor", "suhu")
+            ->orderBy("id_log_sensor", "desc")
             ->limit(1)
             ->get();
 
@@ -414,9 +428,9 @@ class SensorController extends Controller {
     }
 
     public function cahayaLastUpdateTime() {
-        $timeResult = SensorModel::select()
-            ->where("esp_id", "soil2_data")
-            ->orderBy("id", "desc")
+        $timeResult = LogSensorModel::select()
+            ->where("keterangan_sensor", "cahaya")
+            ->orderBy("id_log_sensor", "desc")
             ->limit(1)
             ->get();
 
@@ -446,9 +460,9 @@ class SensorController extends Controller {
     }
 
     public function udaraLastUpdateTime() {
-        $timeResult = SensorModel::select()
-            ->where("esp_id", "soil1_data")
-            ->orderBy("id", "desc")
+        $timeResult = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_udara")
+            ->orderBy("id_log_sensor", "desc")
             ->limit(1)
             ->get();
 
@@ -478,8 +492,9 @@ class SensorController extends Controller {
     }
 
     public function tanahLastUpdateTime() {
-        $timeResult = SensorModel::select()
-            ->orderBy("id", "desc")
+        $timeResult = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_udara")
+            ->orderBy("id_log_sensor", "desc")
             ->limit(1)
             ->get();
 
@@ -508,34 +523,64 @@ class SensorController extends Controller {
         }
     }
 
-    public function ambilDataDetailSemuaSensor() {
-        $kel1 = SensorModel::select()
-            ->where("esp_id", "soil1_data")
+    public function ambilDataDetailSemuaSensor($id) {
+        $dataSensorBlok = SensorModel::select()
+            ->where('id_detail_blok', $id)
+            ->get();
+        $kel1 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
-        $kel2 = SensorModel::select()
-            ->where("esp_id", "soil2_data")
+        $kel2 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
-        $kel3 = SensorModel::select()
-            ->where("esp_id", "soil3")
+        $kel3 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[2]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
-        $kel4 = SensorModel::select()
-            ->where("esp_id", "soil4")
+        $kel4 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[3]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
-        $kel5 = SensorModel::select()
-            ->where("esp_id", "soil5")
+        $kel5 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[4]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
-        $kel6 = SensorModel::select()
-            ->where("esp_id", "soil6")
+        $kel6 = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_tanah")
+            ->where('id_sensor', $dataSensorBlok[5]->id_sensor)
+            ->orderBy("created_at", "desc")
+            ->limit(1)
+            ->get();
+
+        $suhu = LogSensorModel::select()
+            ->where("keterangan_sensor", "suhu")
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
+            ->orderBy("created_at", "desc")
+            ->limit(1)
+            ->get();
+
+        $udara = LogSensorModel::select()
+            ->where("keterangan_sensor", "kelembaban_udara")
+            ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
+            ->orderBy("created_at", "desc")
+            ->limit(1)
+            ->get();
+        
+        $cahaya = LogSensorModel::select()
+            ->where("keterangan_sensor", "cahaya")
+            ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
@@ -548,9 +593,9 @@ class SensorController extends Controller {
             "kelTanah5" => $kel5,
             "kelTanah6" => $kel6,
 
-            "suhu" => $kel1,
-            "udara" => $kel1,
-            "cahaya" => $kel2
+            "suhu" => $suhu,
+            "udara" => $udara,
+            "cahaya" => $cahaya
         ]);
     }
 
@@ -568,10 +613,10 @@ class SensorController extends Controller {
 
     public function store(Request $request) {
         switch($request->esp_id) {
-            case "soil1_data":
+            case "soil1":
                 $dataSensor = SensorModel::select()
                     ->where('id_detail_blok', $request->id_detail_blok)
-                    ->where('esp_id', 'soil1_data')
+                    ->where('esp_id', 'soil1')
                     ->get();
                 LogSensorModel::create([
                     'id_sensor' => $dataSensor[0]->id_sensor,
@@ -579,10 +624,10 @@ class SensorController extends Controller {
                     'nilai_sensor' => $request->nilai_sensor,
                 ]);
                 break;
-            case "soil2_data":
+            case "soil2":
                 $dataSensor = SensorModel::select()
                     ->where('id_detail_blok', $request->id_detail_blok)
-                    ->where('esp_id', 'soil2_data')
+                    ->where('esp_id', 'soil2')
                     ->get();
                 LogSensorModel::create([
                     'id_sensor' => $dataSensor[0]->id_sensor,

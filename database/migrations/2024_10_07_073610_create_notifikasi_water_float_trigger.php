@@ -12,18 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::raw('
-            DELIMITER //
-            CREATE TRIGGER `notifikasi_water_float` AFTER UPDATE ON `water_float`
+        DB::unprepared('
+            CREATE TRIGGER `notifikasi_water_float` AFTER UPDATE ON `mode`
             FOR EACH ROW
             BEGIN
-                IF NEW.water = 1 THEN
+                IF NEW.nama_mode = "water_float" && NEW.mode = 1 THEN
                     INSERT INTO notifikasi_water_float VALUES (null, "Peringatan Ketersediaan Air", "Normal", "Tandon/Header terisi dengan air", NOW(), NOW());
-                ELSEIF NEW.water = 0 THEN
+                ELSEIF NEW.nama_mode = "water_float" && NEW.mode = 0 THEN
                     INSERT INTO notifikasi_water_float VALUES (null, "Peringatan Ketersediaan Air", "Bahaya", "Tandon/Header tidak terisi dengan air", NOW(), NOW());
                 END IF;
-            END //
-            DELIMITER ;
+            END;
         ');
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notifikasi_water_float_trigger');
+        DB::raw('DROP TRIGGER `notifikasi_water_float`');
     }
 };

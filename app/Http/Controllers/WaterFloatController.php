@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\WaterFloatModel;
+use App\Models\ModeModel;
 
 class WaterFloatController extends Controller
 {
     function checkWater() {
-        $dataWaterFloat = WaterFloatModel::select()
+        $dataWaterFloat = ModeModel::select()
+            ->where('nama_mode', 'water_float')
             ->get();
 
 

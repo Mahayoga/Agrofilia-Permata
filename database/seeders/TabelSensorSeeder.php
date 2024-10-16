@@ -14,11 +14,11 @@ class TabelSensorSeeder extends Seeder
     public function run(): void
     {
         SensorModel::create([
-            'esp_id' => 'soil1_data',
+            'esp_id' => 'soil1',
             'id_detail_blok'=> 1,
         ]);
         SensorModel::create([
-            'esp_id' => 'soil2_data',
+            'esp_id' => 'soil2',
             'id_detail_blok'=> 1,
         ]);
         SensorModel::create([
