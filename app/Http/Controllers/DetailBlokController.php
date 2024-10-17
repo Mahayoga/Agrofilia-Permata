@@ -12,6 +12,22 @@ use Illuminate\Support\Str;
 
 class DetailBlokController extends Controller
 {
+    function getVarDatabase($params) {
+        $databaseVar = array(
+            'suhu' => 'Suhu',
+            'cahaya' => 'Cahaya',
+            'kelembaban_udara' => 'Kelembaban Udara',
+            'kelembaban_tanah' => 'Kelembaban Tanah',
+            'soil1' => 'soil1_data',
+            'soil2' => 'soil2_data',
+            'soil3' => 'soil3',
+            'soil4' => 'soil4',
+            'soil5' => 'soil5',
+            'soil6' => 'soil6',
+        );
+        return $databaseVar[$params];
+    }
+
     public function index($id) {
         $dataBlok = BlokModel::select()
             ->join('kebun', 'detail_blok.id_kebun', '=', 'kebun.id_kebun')
@@ -23,7 +39,7 @@ class DetailBlokController extends Controller
             ->get();
 
         $dataSensorSuhu = LogSensorModel::select()
-            ->where('keterangan_sensor', 'suhu')
+            ->where('keterangan_sensor', $this->getVarDatabase('suhu'))
             ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('id_log_sensor', 'desc')
             ->limit(10)
@@ -38,7 +54,7 @@ class DetailBlokController extends Controller
         $dataLabelsSuhu = array_reverse($dataLabelsSuhu);
 
         $dataSensorUdara = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_udara')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_udara'))
             ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('id_log_sensor', 'desc')
             ->limit(10)
@@ -56,7 +72,7 @@ class DetailBlokController extends Controller
         // dd($dataLabelsUdara, $dataReverseUdara);
 
         $dataSensorCahaya = LogSensorModel::select()
-            ->where('keterangan_sensor', 'cahaya')
+            ->where('keterangan_sensor', $this->getVarDatabase('cahaya'))
             ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy('id_log_sensor', 'desc')
             ->limit(10)
@@ -73,13 +89,13 @@ class DetailBlokController extends Controller
         // dd($dataLabelsCahaya, $dataReverseCahaya);
 
         $dataAllSensor = LogSensorModel::select()
-            ->where('keterangan_sensor', 'suhu')
+            ->where('keterangan_sensor', $this->getVarDatabase('suhu'))
             ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(10)
             ->get();
         $dataSensorTanah = LogSensorModel::select()
-            ->whereRaw("(keterangan_sensor = 'kelembaban_tanah' AND id_sensor = " . $dataSensorBlok[0]->id_sensor . ") OR (id_sensor = " . $dataSensorBlok[1]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[2]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[3]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[4]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah') OR (id_sensor = " . $dataSensorBlok[5]->id_sensor . " AND keterangan_sensor = 'kelembaban_tanah')")
+            ->whereRaw("(keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "' AND id_sensor = " . $dataSensorBlok[0]->id_sensor . ") OR (id_sensor = " . $dataSensorBlok[1]->id_sensor . " AND keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "') OR (id_sensor = " . $dataSensorBlok[2]->id_sensor . " AND keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "') OR (id_sensor = " . $dataSensorBlok[3]->id_sensor . " AND keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "') OR (id_sensor = " . $dataSensorBlok[4]->id_sensor . " AND keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "') OR (id_sensor = " . $dataSensorBlok[5]->id_sensor . " AND keterangan_sensor = '" . $this->getVarDatabase('kelembaban_tanah') . "')")
             ->orderBy('created_at', 'desc')
             ->limit(60)
             ->get();
@@ -97,7 +113,7 @@ class DetailBlokController extends Controller
         $dataAVGTanah = array_reverse($dataAVGTanah);
 
         $dataSoil1 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[0]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
@@ -112,7 +128,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil1 = array_reverse($dataReverseSoil1);
 
         $dataSoil2 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[1]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
@@ -127,7 +143,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil2 = array_reverse($dataReverseSoil2);
 
         $dataSoil3 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[2]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
@@ -142,7 +158,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil3 = array_reverse($dataReverseSoil3);
 
         $dataSoil4 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[3]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
@@ -157,7 +173,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil4 = array_reverse($dataReverseSoil4);
 
         $dataSoil5 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[4]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
@@ -172,7 +188,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil5 = array_reverse($dataReverseSoil5);
 
         $dataSoil6 = LogSensorModel::select()
-            ->where('keterangan_sensor', 'kelembaban_tanah')
+            ->where('keterangan_sensor', $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[5]->id_sensor)
             ->orderBy('created_at', 'desc')
             ->limit(3)
