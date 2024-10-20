@@ -2350,8 +2350,6 @@
 
   function readDataIndividualSensor() {
     $.get("{{ route('ambilDataDetailSemuaSensor', ['id' => $id]) }}", function(data) {
-      console.log(data);
-      
       kelembabanTanahDetail1.data.labels.push(data.kelTanah1[0].updated_at.split("T")[1].substr(0, 5));
       kelembabanTanahDetail1.data.datasets[0].data.push(data.kelTanah1[0].nilai_sensor);
       if(kelembabanTanahDetail1.data.labels.length >= 5) {
@@ -2749,7 +2747,6 @@
         bgIndexAir.classList.add('bg-gradient-success');
         indexAir.innerText = 'Terisi';
       } else if(data.dataWaterFloat[0].mode == 0) {
-        console.log(data);
         bgIndexAir.classList.add('bg-gradient-danger');
         indexAir.innerText = 'Tidak Terisi';
       }
@@ -2853,8 +2850,8 @@
 
   setInterval(checkMode, 2000);
   setTimeout(setModeEnabled, 6000);
-  setInterval(readAllDataRataRata, 10000);
-  setInterval(readDataIndividualSensor, 10000);
+  setInterval(readAllDataRataRata, 1200000);
+  setInterval(readDataIndividualSensor, 1200000);
   setInterval(readDataNotifikasiAir, 10000);
   setInterval(readDataNotifikasiPupuk, 10000);
   setInterval(readDataNotifikasiSemuaSensor, 10000);
