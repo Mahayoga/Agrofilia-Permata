@@ -203,7 +203,7 @@ class DetailBlokController extends Controller
         $dataReverseSoil6 = array_reverse($dataReverseSoil6);
 
         $dataWaterFloat = ModeModel::select()
-            ->where('nama_mode', 'water_float')
+            ->where('id', '11')
             ->get();
 
         // dd(compact(
