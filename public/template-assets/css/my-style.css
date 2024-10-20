@@ -65,7 +65,7 @@
 
 .custom-box {
     min-width: 120px;
-    max-width: 120px;
+    /* max-width: 120px; */
 }
 
 .switch-container {
