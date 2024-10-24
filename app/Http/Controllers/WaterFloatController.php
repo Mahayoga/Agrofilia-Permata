@@ -9,7 +9,7 @@ class WaterFloatController extends Controller
 {
     function checkWater() {
         $dataWaterFloat = ModeModel::select()
-            ->where('nama_mode', 'water_float')
+            ->where('id', '11')
             ->get();
 
 

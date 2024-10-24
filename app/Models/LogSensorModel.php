@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use DateTimeInterface;
 
 class LogSensorModel extends Model
 {
@@ -11,4 +12,8 @@ class LogSensorModel extends Model
     protected $table = 'log_sensor';
     protected $primaryKey = 'id_log_sensor';
     protected $fillable = ['id_sensor', 'keterangan_sensor', 'nilai_sensor'];
+
+    protected function serializeDate(DateTimeInterface $date) {
+        return $date->format('Y-m-d H:i:s');
+    }
 }

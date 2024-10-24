@@ -79,7 +79,10 @@ class SensorController extends Controller {
         }
         $avgTanah /= count($nilaiSensorTanah);
 
-        $updated = $nilaiSensor[0]->updated_at->toString();
+        $suhu_updated = $nilaiSensor[0]->updated_at->toString();
+        $kelembaban_updated = $nilaiSensorUdara[0]->updated_at->toString();
+        $cahaya_updated = $nilaiSensorCahaya->updated_at->toString();
+        $tanah_updated = $nilaiSensorTanah[0]->updated_at->toString();
         // dd();
 
         return response()->json([
@@ -87,7 +90,10 @@ class SensorController extends Controller {
             'kelembaban' => $nilaiSensorUdara[0]->nilai_sensor,
             'cahaya' => $nilaiSensorCahaya->nilai_sensor,
             'kelembabanTanah' => $avgTanah,
-            'updated_at' => explode(':', explode(' ', $updated)[4])[0] . ':' . explode(':', explode(' ', $updated)[4])[1]
+            'suhu_updated' => explode(':', explode(' ', $suhu_updated)[4])[0] . ':' . explode(':', explode(' ', $suhu_updated)[4])[1],
+            'kelembaban_updated' => explode(':', explode(' ', $kelembaban_updated)[4])[0] . ':' . explode(':', explode(' ', $kelembaban_updated)[4])[1],
+            'cahaya_updated' => explode(':', explode(' ', $cahaya_updated)[4])[0] . ':' . explode(':', explode(' ', $cahaya_updated)[4])[1],
+            'tanah_updated' => explode(':', explode(' ', $tanah_updated)[4])[0] . ':' . explode(':', explode(' ', $tanah_updated)[4])[1],
         ]);
     }
 
@@ -549,6 +555,7 @@ class SensorController extends Controller {
             ->orderBy("created_at", "desc")
             ->limit(1)
             ->get();
+        // dd($kel1);
         $kel2 = LogSensorModel::select()
             ->where("keterangan_sensor", $this->getVarDatabase('kelembaban_tanah'))
             ->where('id_sensor', $dataSensorBlok[1]->id_sensor)

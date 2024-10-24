@@ -216,15 +216,15 @@
                     </div>
                     <div class="d-flex align-items-center mt-3">
                       <span class="text-md font-weight-bold text-dark">Kondisi suhu saat ini:</span>
-                      <span class="text-sm">&nbsp;Terlalu Panas</span>
+                      <span class="text-sm" id="kondisi_suhu">&nbsp;-</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks suhu normal:</span>
-                      <span class="text-sm">&nbsp;20°C - 25°C</span>
+                      <span class="text-sm">&nbsp;15°C - 35°C</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks suhu panas:</span>
-                      <span class="text-sm">&nbsp;> 28°C</span>
+                      <span class="text-sm">&nbsp;> 35°C</span>
                     </div>
                     <hr class="horizontal dark my-3">
                     <span class="text-xs mb-0">*Terakhir di update pada jam <span id="lastUpdateAVGSuhu">-</span></span>
@@ -252,21 +252,21 @@
                     <div class="d-flex justify-content-center">
                       <div class="custom-box bg-gradient-danger shadow text-center border-radius-lg p-2" id="bgIndexRataRataCahaya">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataCahaya">{{ $dataReverseCahaya[count($dataReverseCahaya) - 1] }}%</h3>
+                          <h3 class="text-center font-weight-bold text-white mb-0" id="indikatorRataRataCahaya">{{ $dataReverseCahaya[count($dataReverseCahaya) - 1] }}lx</h3>
                         </div>
                       </div>
                     </div>
                     <div class="d-flex align-items-center mt-3">
                       <span class="text-md font-weight-bold text-dark">Kondisi cahaya saat ini:</span>
-                      <span class="text-sm">&nbsp;Normal</span>
+                      <span class="text-sm" id="kondisi_cahaya">&nbsp;Normal</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks cahaya normal:</span>
-                      <span class="text-sm">&nbsp;30% - 50%</span>
+                      <span class="text-sm">&nbsp;15k - 24k</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks cahaya diatas normal:</span>
-                      <span class="text-sm">&nbsp;> 50% lx</span>
+                      <span class="text-sm">&nbsp;> 24k</span>
                     </div>
                     <hr class="horizontal dark my-3">
                     <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGCahaya">-</span></span>
@@ -300,15 +300,15 @@
                     </div>
                     <div class="d-flex align-items-center mt-3">
                       <span class="text-md font-weight-bold text-dark">Kelembaban saat ini:</span>
-                      <span class="text-sm">&nbsp;Lumayan Kering</span>
+                      <span class="text-sm" id="kondisi_udara">&nbsp;Lumayan Kering</span>
                     </div>
                     <div class="d-flex align-items-center">
-                      <span class="text-md font-weight-bold text-dark">Indeks normal (kritis):</span>
-                      <span class="text-sm">&nbsp;15%-25%</span>
+                      <span class="text-md font-weight-bold text-dark">Indeks normal:</span>
+                      <span class="text-sm">&nbsp;15% - 90%</span>
                     </div>
                     <div class="d-flex align-items-center">
-                      <span class="text-md font-weight-bold text-dark">Indeks (kritis):</span>
-                      <span class="text-sm">&nbsp;< 10% | > 30%</span>
+                      <span class="text-md font-weight-bold text-dark">Indeks:</span>
+                      <span class="text-sm">&nbsp;< 15% | > 90%</span>
                     </div>
                     <hr class="horizontal dark my-3">
                     <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGKelembaban">-</span></span>
@@ -342,15 +342,15 @@
                     </div>
                     <div class="d-flex align-items-center mt-3">
                       <span class="text-md font-weight-bold text-dark">Kondisi tanah saat ini:</span>
-                      <span class="text-sm">&nbsp;Normal</span>
+                      <span class="text-sm" id="kondisi_tanah">&nbsp;Normal</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks tanah normal:</span>
-                      <span class="text-sm">&nbsp;5.5 - 7</span>
+                      <span class="text-sm">&nbsp;15% - 80%</span>
                     </div>
                     <div class="d-flex align-items-center">
                       <span class="text-md font-weight-bold text-dark">Indeks tanah tidak normal:</span>
-                      <span class="text-sm">&nbsp;> 7.1 | < 5.5</span>
+                      <span class="text-sm">&nbsp;> 80% | < 15%</span>
                     </div>
                     <hr class="horizontal dark my-3">
                     <span class="text-xs mb-0">*Terakhir di update pada <span id="lastUpdateAVGTanah">-</span></span>
@@ -1334,7 +1334,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Asam (PH)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1441,7 +1441,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1529,7 +1529,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1617,7 +1617,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1705,7 +1705,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1793,7 +1793,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -1881,7 +1881,7 @@
         @endforeach
       ],
       datasets: [{
-        label: "Kilopascal (%)",
+        label: "Kelembaban (%)",
         tension: 0,
         borderWidth: 0,
         pointRadius: 5,
@@ -2228,7 +2228,7 @@
   function readAllDataRataRata() {
     var timeNow = new Date(Date.now()).toString().substr(16, 5);
     $.get("{{ route('readDataRataRata', ['id' => $id]) }}", function(data) {
-      suhu.data.labels.push(data.updated_at);
+      suhu.data.labels.push(data.suhu_updated);
       suhu.data.datasets[0].data.push(data.suhu);
       
       if(suhu.data.labels.length >= 10) {
@@ -2245,19 +2245,23 @@
       }
 
       var theBgClass = document.getElementById("bgIndexRataRataSuhu");
+      var theKondisi = document.getElementById("kondisi_suhu");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.suhu < 20) {
+      if(data.suhu < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.suhu > 25) {
+        theKondisi.innerHTML = "&nbsp;Dingin";
+      } else if(data.suhu > 35) {
         theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu Panas";
       } else {
         theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
       }
 
       var lastUpdateAVGSuhu = document.getElementById("lastUpdateAVGSuhu");
       lastUpdateAVGSuhu.innerText = timeNow;
 
-      cahaya.data.labels.push(data.updated_at);
+      cahaya.data.labels.push(data.cahaya_updated);
       cahaya.data.datasets[0].data.push(data.cahaya);
       if(cahaya.data.labels.length >= 10) {
         cahaya.data.labels.shift();
@@ -2273,19 +2277,23 @@
       }
       
       var theBgClass = document.getElementById("bgIndexRataRataCahaya");
+      var theKondisi = document.getElementById("kondisi_cahaya");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.cahaya < 20) {
+      if(data.cahaya < 15000) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.cahaya > 25) {
+        theKondisi.innerHTML = "&nbsp;Gelap";
+      } else if(data.cahaya > 24000) {
         theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu Terang";
       } else {
         theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
       }
 
       var lastUpdateAVGCahaya = document.getElementById("lastUpdateAVGCahaya");
       lastUpdateAVGCahaya.innerText = timeNow;
 
-      kelembaban.data.labels.push(data.updated_at);
+      kelembaban.data.labels.push(data.kelembaban_updated);
       kelembaban.data.datasets[0].data.push(data.kelembaban);
       if(kelembaban.data.labels.length >= 10) {
         kelembaban.data.labels.shift();
@@ -2301,19 +2309,23 @@
       }
       
       var theBgClass = document.getElementById("bgIndexRataRataKelembaban");
+      var theKondisi = document.getElementById("kondisi_udara");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelembaban < 10) {
+      if(data.kelembaban < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelembaban > 25) {
+        theKondisi.innerHTML = "&nbsp;Terlalu Kering";
+      } else if(data.kelembaban > 90) {
         theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu lembab";
       } else {
         theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
       }
 
       var lastUpdateAVGKelembaban = document.getElementById("lastUpdateAVGKelembaban");
       lastUpdateAVGKelembaban.innerText = timeNow;
 
-      tanah.data.labels.push(data.updated_at);
+      tanah.data.labels.push(data.tanah_updated);
       tanah.data.datasets[0].data.push(data.kelembabanTanah);
       if(tanah.data.labels.length >= 10) {
         tanah.data.labels.shift();
@@ -2329,13 +2341,17 @@
       }
       
       var theBgClass = document.getElementById("bgIndexRataRataPHTanah");
+      var theKondisi = document.getElementById("kondisi_tanah");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelembabanTanah < 5.5) {
+      if(data.kelembabanTanah < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelembabanTanah > 7) {
+        theKondisi.innerHTML = "&nbsp;Terlalu Kering";
+      } else if(data.kelembabanTanah > 80) {
         theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu basah";
       } else {
         theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
       }
 
       var lastUpdateAVGTanah = document.getElementById("lastUpdateAVGTanah");
@@ -2348,9 +2364,70 @@
     });
   }
 
+  function readIndexAllDataRataRata() {
+    var timeNow = new Date(Date.now()).toString().substr(16, 5);
+    $.get("{{ route('readDataRataRata', ['id' => $id]) }}", function(data) {
+      var theBgClass = document.getElementById("bgIndexRataRataSuhu");
+      var theKondisi = document.getElementById("kondisi_suhu");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.suhu < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+        theKondisi.innerHTML = "&nbsp;Dingin";
+      } else if(data.suhu > 35) {
+        theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu Panas";
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
+      }
+
+      var theBgClass = document.getElementById("bgIndexRataRataCahaya");
+      var theKondisi = document.getElementById("kondisi_cahaya");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.cahaya < 15000) {
+        theBgClass.classList.add("bg-gradient-warning");
+        theKondisi.innerHTML = "&nbsp;Gelap";
+      } else if(data.cahaya > 24000) {
+        theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu Terang";
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
+      }
+
+      var theBgClass = document.getElementById("bgIndexRataRataKelembaban");
+      var theKondisi = document.getElementById("kondisi_udara");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelembaban < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+        theKondisi.innerHTML = "&nbsp;Terlalu Kering";
+      } else if(data.kelembaban > 90) {
+        theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu lembab";
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
+      }
+
+      var theBgClass = document.getElementById("bgIndexRataRataPHTanah");
+      var theKondisi = document.getElementById("kondisi_tanah");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelembabanTanah < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+        theKondisi.innerHTML = "&nbsp;Terlalu Kering";
+      } else if(data.kelembabanTanah > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+        theKondisi.innerHTML = "&nbsp;Terlalu basah";
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+        theKondisi.innerHTML = "&nbsp;Normal";
+      }
+    });
+  }
+
   function readDataIndividualSensor() {
     $.get("{{ route('ambilDataDetailSemuaSensor', ['id' => $id]) }}", function(data) {
-      kelembabanTanahDetail1.data.labels.push(data.kelTanah1[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail1.data.labels.push(data.kelTanah1[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail1.data.datasets[0].data.push(data.kelTanah1[0].nilai_sensor);
       if(kelembabanTanahDetail1.data.labels.length >= 5) {
         kelembabanTanahDetail1.data.labels.shift();
@@ -2367,15 +2444,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah1");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah1[0].nilai_sensor < 20) {
+      if(data.kelTanah1[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah1[0].nilai_sensor > 25) {
+      } else if(data.kelTanah1[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanTanahDetail2.data.labels.push(data.kelTanah2[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail2.data.labels.push(data.kelTanah2[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail2.data.datasets[0].data.push(data.kelTanah2[0].nilai_sensor);
       if(kelembabanTanahDetail2.data.labels.length >= 5) {
         kelembabanTanahDetail2.data.labels.shift();
@@ -2392,15 +2469,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah2");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah2[0].nilai_sensor < 20) {
+      if(data.kelTanah2[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah2[0].nilai_sensor > 25) {
+      } else if(data.kelTanah2[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanTanahDetail3.data.labels.push(data.kelTanah3[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail3.data.labels.push(data.kelTanah3[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail3.data.datasets[0].data.push(data.kelTanah3[0].nilai_sensor);
       if(kelembabanTanahDetail3.data.labels.length >= 5) {
         kelembabanTanahDetail3.data.labels.shift();
@@ -2417,15 +2494,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah3");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah3[0].nilai_sensor < 20) {
+      if(data.kelTanah3[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah3[0].nilai_sensor > 25) {
+      } else if(data.kelTanah3[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanTanahDetail4.data.labels.push(data.kelTanah4[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail4.data.labels.push(data.kelTanah4[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail4.data.datasets[0].data.push(data.kelTanah4[0].nilai_sensor);
       if(kelembabanTanahDetail4.data.labels.length >= 5) {
         kelembabanTanahDetail4.data.labels.shift();
@@ -2442,15 +2519,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah4");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah4[0].nilai_sensor < 20) {
+      if(data.kelTanah4[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah4[0].nilai_sensor > 25) {
+      } else if(data.kelTanah4[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanTanahDetail5.data.labels.push(data.kelTanah5[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail5.data.labels.push(data.kelTanah5[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail5.data.datasets[0].data.push(data.kelTanah5[0].nilai_sensor);
       if(kelembabanTanahDetail5.data.labels.length >= 5) {
         kelembabanTanahDetail5.data.labels.shift();
@@ -2467,15 +2544,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah5");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah5[0].nilai_sensor < 20) {
+      if(data.kelTanah5[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah5[0].nilai_sensor > 25) {
+      } else if(data.kelTanah5[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanTanahDetail6.data.labels.push(data.kelTanah6[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanTanahDetail6.data.labels.push(data.kelTanah6[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanTanahDetail6.data.datasets[0].data.push(data.kelTanah6[0].nilai_sensor);
       if(kelembabanTanahDetail6.data.labels.length >= 5) {
         kelembabanTanahDetail6.data.labels.shift();
@@ -2492,15 +2569,15 @@
 
       var theBgClass = document.getElementById("bgIndexKelembabanTanah6");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.kelTanah6[0].nilai_sensor < 20) {
+      if(data.kelTanah6[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.kelTanah6[0].nilai_sensor > 25) {
+      } else if(data.kelTanah6[0].nilai_sensor > 80) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      suhuDetail.data.labels.push(data.suhu[0].updated_at.split("T")[1].substr(0, 5));
+      suhuDetail.data.labels.push(data.suhu[0].updated_at.split(" ")[1].substr(0, 5));
       suhuDetail.data.datasets[0].data.push(data.suhu[0].nilai_sensor);
       if(suhuDetail.data.labels.length >= 5) {
         suhuDetail.data.labels.shift();
@@ -2517,15 +2594,15 @@
 
       var theBgClass = document.getElementById("bgIndexDetailSuhu");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.suhu[0].nilai_sensor < 20) {
+      if(data.suhu[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.suhu[0].nilai_sensor > 25) {
+      } else if(data.suhu[0].nilai_sensor > 35) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      cahayaDetail.data.labels.push(data.cahaya[0].updated_at.split("T")[1].substr(0, 5));
+      cahayaDetail.data.labels.push(data.cahaya[0].updated_at.split(" ")[1].substr(0, 5));
       cahayaDetail.data.datasets[0].data.push(data.cahaya[0].nilai_sensor);
       if(cahayaDetail.data.labels.length >= 5) {
         cahayaDetail.data.labels.shift();
@@ -2542,15 +2619,15 @@
 
       var theBgClass = document.getElementById("bgIndexDetailCahaya");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.cahaya[0].nilai_sensor < 20) {
+      if(data.cahaya[0].nilai_sensor < 15000) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.cahaya[0].nilai_sensor > 25) {
+      } else if(data.cahaya[0].nilai_sensor > 24000) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
       }
 
-      kelembabanUdaraDetail.data.labels.push(data.udara[0].updated_at.split("T")[1].substr(0, 5));
+      kelembabanUdaraDetail.data.labels.push(data.udara[0].updated_at.split(" ")[1].substr(0, 5));
       kelembabanUdaraDetail.data.datasets[0].data.push(data.udara[0].nilai_sensor);
       if(kelembabanUdaraDetail.data.labels.length >= 5) {
         kelembabanUdaraDetail.data.labels.shift();
@@ -2567,9 +2644,9 @@
 
       var theBgClass = document.getElementById("bgIndexDetailUdara");
       theBgClass.classList.remove("bg-gradient-danger");
-      if(data.udara[0].nilai_sensor < 20) {
+      if(data.udara[0].nilai_sensor < 15) {
         theBgClass.classList.add("bg-gradient-warning");
-      } else if(data.udara[0].nilai_sensor > 25) {
+      } else if(data.udara[0].nilai_sensor > 90) {
         theBgClass.classList.add("bg-gradient-danger");
       } else {
         theBgClass.classList.add("bg-gradient-success");
@@ -2584,6 +2661,154 @@
       suhuDetail.update();
       cahayaDetail.update();
       kelembabanUdaraDetail.update();
+    });
+  }
+
+  function readIndexDataIndividualSensor() {
+    $.get("{{ route('ambilDataDetailSemuaSensor', ['id' => $id]) }}", function(data) {
+      if(data.kelTanah1[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah1").innerText = data.kelTanah1[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah1").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah1");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah1[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah1[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.kelTanah2[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah2").innerText = data.kelTanah2[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah2").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah2");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah2[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah2[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.kelTanah3[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah3").innerText = data.kelTanah3[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah3").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah3");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah3[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah3[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.kelTanah4[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah4").innerText = data.kelTanah4[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah4").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah4");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah4[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah4[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.kelTanah5[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah5").innerText = data.kelTanah5[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah5").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah5");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah5[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah5[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.kelTanah6[0].nilai_sensor != null) {
+        document.getElementById("indikatorKelembabanTanah6").innerText = data.kelTanah6[0].nilai_sensor + " %";
+      } else {
+        document.getElementById("indikatorKelembabanTanah6").innerText = "0 %";
+      }
+
+      var theBgClass = document.getElementById("bgIndexKelembabanTanah6");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.kelTanah6[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.kelTanah6[0].nilai_sensor > 80) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.suhu[0].nilai_sensor != null) {
+        document.getElementById("indikatorDetailSuhu").innerText = data.suhu[0].nilai_sensor + " °C";
+      } else {
+        document.getElementById("indikatorDetailSuhu").innerText = "0°C";
+      }
+
+      var theBgClass = document.getElementById("bgIndexDetailSuhu");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.suhu[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.suhu[0].nilai_sensor > 35) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.cahaya[0].nilai_sensor != null) {
+        document.getElementById("indikatorDetailCahaya").innerText = data.cahaya[0].nilai_sensor + "%";
+      } else {
+        document.getElementById("indikatorDetailCahaya").innerText = "0%";
+      }
+
+      var theBgClass = document.getElementById("bgIndexDetailCahaya");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.cahaya[0].nilai_sensor < 15000) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.cahaya[0].nilai_sensor > 24000) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
+
+      if(data.udara[0].nilai_sensor != null) {
+        document.getElementById("indikatorDetailUdara").innerText = data.udara[0].nilai_sensor + " RH";
+      } else {
+        document.getElementById("indikatorDetailUdara").innerText = "0 RH";
+      }
+
+      var theBgClass = document.getElementById("bgIndexDetailUdara");
+      theBgClass.classList.remove("bg-gradient-danger");
+      if(data.udara[0].nilai_sensor < 15) {
+        theBgClass.classList.add("bg-gradient-warning");
+      } else if(data.udara[0].nilai_sensor > 90) {
+        theBgClass.classList.add("bg-gradient-danger");
+      } else {
+        theBgClass.classList.add("bg-gradient-success");
+      }
     });
   }
 
@@ -2847,6 +3072,8 @@
   readDataNotifikasiPupuk();
   readDataNotifikasiSemuaSensor();
   checkWaterFloat();
+  readIndexAllDataRataRata();
+  readIndexDataIndividualSensor();
 
   setInterval(checkMode, 2000);
   setTimeout(setModeEnabled, 6000);
