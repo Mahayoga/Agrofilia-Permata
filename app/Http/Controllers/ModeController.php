@@ -21,6 +21,18 @@ class ModeController extends Controller {
         ]);
     }
 
+    public function checkFanMode() {
+        if((int) date('H') > 16) {
+            ModeModel::where('id', '12')->update(['mode' => 0]);
+        } else if((int) date('H') > 8) {
+            ModeModel::where('id', '12')->update(['mode' => 1]);
+        }
+        $nilaiMode = ModeModel::select()->get();
+        return response()->json([
+            'modeFan' => $nilaiMode[11]->mode,
+        ]);
+    }
+
     public function dataSensorAirPerHari() {
         $totalJumlahPupukPerHari = NotifikasiModeModel::select(DB::raw("COUNT(id_notifikasi) AS jumlah, waktu"))
             ->where("deskripsi", "Penyiraman Air Telah Hidup!")

@@ -56,6 +56,7 @@ Route::get('/mode/air/on', [App\Http\Controllers\ModeController::class, 'setAirM
 Route::get('/mode/air/off', [App\Http\Controllers\ModeController::class, 'setAirModeOff'])->name('setModeAirOff');
 Route::get('/mode/pupuk/on', [App\Http\Controllers\ModeController::class, 'setPupukModeOn'])->name('setModePupukOn');
 Route::get('/mode/pupuk/off', [App\Http\Controllers\ModeController::class, 'setPupukModeOff'])->name('setModePupukOff');
+Route::get('/mode/check/fan', [App\Http\Controllers\ModeController::class, 'checkFanMode'])->name('checkFanMode');
 
 Route::get('/check/air', [App\Http\Controllers\WaterFloatController::class, 'checkWater'])->name('checkWater');
 
